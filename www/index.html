@@ -61,7 +61,7 @@
 			
 			navigator.geolocation.getCurrentPosition(onSuccess, onError);
 			
-			function getWeatherInfo() {
+			document.write("hello world");
 			  var xhr = new XMLHttpRequest();
 			  xhr.open("GET", "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=7256225c1f04fee7a0721a16f9a36&format=xml&q="+coordinates+"&tide=yes&fx=yes", false);
 			  xhr.setRequestHeader('Content-Type', 'text/xml');
@@ -80,7 +80,6 @@
 			  var date = xmlDocument.getElementsByTagName("date")['0'].childNodes['0'].nodeValue;
 			  
 			  tideInfo.innerHTML = date + "</br>" + tideType0 + " - " + tideTime0 + "</br>" + tideType1 + " - " + tideTime1 + "</br>" + tideType2 + " - " + tideTime2 + "</br>" + tideType3 + " - " + tideTime3;
-			}
 						
         </script>
     </body>
