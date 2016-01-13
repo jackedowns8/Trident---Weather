@@ -19,6 +19,7 @@
 
     <body>
     	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
         <div class="app">
         	<input type="checkbox" id="drawer-toggle" name="drawer-toggle"/>
 			<label for="drawer-toggle" id="drawer-toggle-label"></label>
@@ -32,6 +33,7 @@
     			<p>THIS IS A TEST</p>
                 <div id="tides">Loading Tide...</div>
                 <div id="element">Loading Location...</div>
+                <div id="test"></div>
                 <button onclick="getWeatherInfo()">Click me</button>
    			</div>     
         </div>
@@ -41,6 +43,7 @@
             app.initialize();
 			var tideInfo = document.getElementById('tides');	
 			var element = document.getElementById('element');
+			var test = document.getElementById('test');
 			var coordinates = "Please Wait...";
 			
 			// onSuccess Callback
@@ -50,18 +53,6 @@
 			var onSuccess = function(position) {
 			  coordinates = position.coords.latitude+','+position.coords.longitude;
 			  element.innerHTML = coordinates;
-			};
-			
-			// onError Callback receives a PositionError object
-			//
-			function onError(error) {
-			  alert('Error Code: '    + error.code    + '\n' +
-					'Error Message: ' + error.message + '\n');
-			}
-			
-			navigator.geolocation.getCurrentPosition(onSuccess, onError);
-			
-			document.write("hello world");
 			  var xhr = new XMLHttpRequest();
 			  xhr.open("GET", "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=7256225c1f04fee7a0721a16f9a36&format=xml&q="+coordinates+"&tide=yes&fx=yes", false);
 			  xhr.setRequestHeader('Content-Type', 'text/xml');
@@ -80,7 +71,17 @@
 			  var date = xmlDocument.getElementsByTagName("date")['0'].childNodes['0'].nodeValue;
 			  
 			  tideInfo.innerHTML = date + "</br>" + tideType0 + " - " + tideTime0 + "</br>" + tideType1 + " - " + tideTime1 + "</br>" + tideType2 + " - " + tideTime2 + "</br>" + tideType3 + " - " + tideTime3;
-						
+			};
+			
+			// onError Callback receives a PositionError object
+			//
+			function onError(error) {
+			  alert('Error Code: '    + error.code    + '\n' +
+					'Error Message: ' + error.message + '\n');
+			}
+			
+			navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			
         </script>
     </body>
 </html>
