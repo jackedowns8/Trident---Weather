@@ -78,7 +78,7 @@
 	position: relative
 }
 .swiper-slide-content {
-	padding: 2.5%
+	padding: 2.5%;
 }
 .swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
 	height: auto;
