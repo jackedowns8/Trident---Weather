@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     
         <!-- Link Swiper's CSS -->
-        <link rel="stylesheet" href="dist/css/swiper.min.css">
+        <link rel="stylesheet" href="css/swiper.min.css">
     
         <!-- Demo styles -->
         <style>
@@ -29,7 +29,6 @@
         .swiper-slide {
             text-align: center;
             font-size: 18px;
-            background: #fff;
     
             /* Center slide text vertically
             display: -webkit-box;
@@ -54,10 +53,14 @@
         <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-            	<div class="swiper-slide-content">
-                  <div id="tides">Loading Tide...</div>
-                  <div id="element">Loading Location...</div>
-                  <div id="test"></div>
+            	<div class="slide-background">
+                <div class="slide-tideHeight">
+            		<div class="swiper-slide-content">
+                  		<div id="tides">Loading Tide...</div>
+                  		<div id="element">Loading Location...</div>
+                  		<div id="test"></div>
+                	</div>
+                </div>
                 </div>
             </div>
             <div class="swiper-slide">
