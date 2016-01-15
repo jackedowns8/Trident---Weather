@@ -93,8 +93,6 @@
 .slide-tideHeight {
 	background-image:url(../img/low.png);
 	background-size:contain;
-	width:100%;
-	height:100%;
 }
 .swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
 	height: auto;
