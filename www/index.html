@@ -47,6 +47,20 @@
             -webkit-align-items: center;
             align-items: center;*/
         }
+		.slide-background {
+			background-image:url(img/bg.png);
+			background-size:100% 100%;
+			background-repeat:no-repeat;
+			height:100%;
+			width:100%;
+		}
+		.slide-tideHeight {
+			background-image:url(img/low.png);
+			background-size:100% 100%;
+			background-repeat:no-repeat;
+			height:100%;
+			width:100%;
+		}
         </style>
     </head>
 
@@ -54,24 +68,25 @@
         <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-            	<div class="slide-background">
-                  <div class="slide-tideHeight">
-                    <div class="swiper-slide-content">
-                      <div id="tides">Loading Tide...</div>
-                      <div id="element">Loading Location...</div>
-                      <div id="test"></div>
-                    </div>
+              <div class="slide-background">
+                <div class="slide-tideHeight">
+                  <div class="swiper-slide-content">
+                    <div id="tides">Loading Tide...</div>
+                    <div id="element">Loading Location...</div>
+                    <div id="test"></div>
                   </div>
                 </div>
+              </div>
             </div>
             <div class="swiper-slide">
             	<div class="swiper-slide-content">
                 	<div><h1>Todays Weather</h1></div>
+                    <div id="todaysWeather0"></div>
+                    <div id="todaysWeather6"></div>
+                    <div id="todaysWeather9"></div>
                     <div id="todaysWeather12"></div>
-                    <div id="todaysWeather5"></div>
-                    <div id="todaysWeather10"></div>
                     <div id="todaysWeather15"></div>
-                    <div id="todaysWeather20"></div>
+                    <div id="todaysWeather21"></div>
                 </div>
             </div>
             <div class="swiper-slide">
@@ -100,11 +115,30 @@
 			var tideInfo = document.getElementById('tides');	
 			var element = document.getElementById('element');
 			var test = document.getElementById('test');
+			var todaysWeather0 = document.getElementById('todaysWeather0');
+			var todaysWeather6 = document.getElementById('todaysWeather6');
+			var todaysWeather9 = document.getElementById('todaysWeather9');
 			var todaysWeather12 = document.getElementById('todaysWeather12');
-			var todaysWeather5 = document.getElementById('todaysWeather5');
-			var todaysWeather10 = document.getElementById('todaysWeather10');
 			var todaysWeather15 = document.getElementById('todaysWeather15');
-			var todaysWeather20 = document.getElementById('todaysWeather20');
+			var todaysWeather21 = document.getElementById('todaysWeather21');
+			
+			//Get User Date + Time
+			var currentTime = new Date();
+			var hour = currentTime.getHours();
+			var minutes = currentTime.getMinutes();
+			
+			if (hour > 12) {
+				hour = hour - 12;	
+			}
+
+			if (minutes < "10") {
+    			minutes = "0" + minutes;
+			}
+			
+			var userHour = hour.toString();
+			var userMin = minutes.toString();
+			//
+			
 			var coordinates = "Please Wait...";
 			
 			// onSuccess Callback
@@ -120,29 +154,107 @@
 			  xhr.send();
 			
 			  xmlDocument = xhr.responseXML;
+			  //TIDEINFO
 			  var tideType0 = xmlDocument.getElementsByTagName("tide_type")['0'].childNodes['0'].nodeValue;
 			  var tideType1 = xmlDocument.getElementsByTagName("tide_type")['1'].childNodes['0'].nodeValue;
 			  var tideType2 = xmlDocument.getElementsByTagName("tide_type")['2'].childNodes['0'].nodeValue;
 			  var tideType3 = xmlDocument.getElementsByTagName("tide_type")['3'].childNodes['0'].nodeValue;
+			  //Next Day
+			  var tideType4 = xmlDocument.getElementsByTagName("tide_type")['4'].childNodes['0'].nodeValue;
+			  var tideType5 = xmlDocument.getElementsByTagName("tide_type")['5'].childNodes['0'].nodeValue;
+			  //
 			  var tideTime0 = xmlDocument.getElementsByTagName("tideTime")['0'].childNodes['0'].nodeValue;
 			  var tideTime1 = xmlDocument.getElementsByTagName("tideTime")['1'].childNodes['0'].nodeValue;
 			  var tideTime2 = xmlDocument.getElementsByTagName("tideTime")['2'].childNodes['0'].nodeValue;
 			  var tideTime3 = xmlDocument.getElementsByTagName("tideTime")['3'].childNodes['0'].nodeValue;
+			  //Next Day
+			  var tideTime4 = xmlDocument.getElementsByTagName("tideTime")['4'].childNodes['0'].nodeValue;
+			  var tideTime5 = xmlDocument.getElementsByTagName("tideTime")['5'].childNodes['0'].nodeValue;
+			  //
 			  var tideHeight = xmlDocument.getElementsByTagName("tideHeight_mt")['0'].childNodes['0'].nodeValue;
 			  var date = xmlDocument.getElementsByTagName("date")['0'].childNodes['0'].nodeValue;
-			  var tempC12 = xmlDocument.getElementsByTagName("tempC")['0'].childNodes['0'].nodeValue;
-			  var tempC5 = xmlDocument.getElementsByTagName("tempC")['1'].childNodes['0'].nodeValue;
-			  var tempC10 = xmlDocument.getElementsByTagName("tempC")['2'].childNodes['0'].nodeValue;
-			  var tempC15 = xmlDocument.getElementsByTagName("tempC")['3'].childNodes['0'].nodeValue;
-			  var tempC20 = xmlDocument.getElementsByTagName("tempC")['4'].childNodes['0'].nodeValue;
+			  var tideHour0 = tideTime0.charAt(0 + 1).toString();
+			  var tideHour1 = tideTime1.charAt(0 + 1).toString();
+			  var tideHour2 = tideTime2.charAt(0 + 1).toString();
+			  var tideHour3 = tideTime3.charAt(0 + 1).toString();
+			  var tideMin0 = tideTime0.charAt(3 + 4).toString();
+			  var tideMin1 = tideTime1.charAt(3 + 4).toString();
+			  var tideMin2 = tideTime2.charAt(3 + 4).toString();
+			  var tideMin3 = tideTime3.charAt(3 + 4).toString();
+			  //
 			  
-			  tideInfo.innerHTML = date + "</br>" + tideType0 + " - " + tideTime0 + "</br>" + tideType1 + " - " + tideTime1 + "</br>" + tideType2 + " - " + tideTime2 + "</br>" + tideType3 + " - " + tideTime3;
+			  //TODAYS WEATHER
+			  //TEMP
+			  var tempC0 = xmlDocument.getElementsByTagName("tempC")['0'].childNodes['0'].nodeValue;
+			  var tempC6 = xmlDocument.getElementsByTagName("tempC")['2'].childNodes['0'].nodeValue;
+			  var tempC9 = xmlDocument.getElementsByTagName("tempC")['3'].childNodes['0'].nodeValue;
+			  var tempC12 = xmlDocument.getElementsByTagName("tempC")['4'].childNodes['0'].nodeValue;
+			  var tempC15 = xmlDocument.getElementsByTagName("tempC")['5'].childNodes['0'].nodeValue;
+			  var tempC21 = xmlDocument.getElementsByTagName("tempC")['6'].childNodes['0'].nodeValue;
+			  //CONDITIONS
+			  var conditions0 = xmlDocument.getElementsByTagName("weatherDesc")['0'].childNodes['0'].nodeValue;
+			  var conditions6 = xmlDocument.getElementsByTagName("weatherDesc")['2'].childNodes['0'].nodeValue;
+			  var conditions9 = xmlDocument.getElementsByTagName("weatherDesc")['3'].childNodes['0'].nodeValue;
+			  var conditions12 = xmlDocument.getElementsByTagName("weatherDesc")['4'].childNodes['0'].nodeValue;
+			  var conditions15 = xmlDocument.getElementsByTagName("weatherDesc")['5'].childNodes['0'].nodeValue;
+			  var conditions21 = xmlDocument.getElementsByTagName("weatherDesc")['6'].childNodes['0'].nodeValue;
+			  //
 			  
-			  todaysWeather12.innerHTML = "12am: " + tempC12;
-			  todaysWeather5.innerHTML = "5am: " + tempC5;
-			  todaysWeather10.innerHTML = "10am: " + tempC10;
-			  todaysWeather15.innerHTML = "15am: " + tempC15;
-			  todaysWeather20.innerHTML = "20am: " + tempC20;
+			  //Shows user their local tides
+			  tideInfo.innerHTML = date + " - " + userHour + ":" + userMin +"</br>" + tideType0 + " - " + tideTime0 + "</br>" + tideType1 + " - " + tideTime1 + "</br>" + tideType2 + " - " + tideTime2 + "</br>" + tideType3 + " - " + tideTime3;
+			  
+			  //Shows user their local weather
+			  todaysWeather0.innerHTML = "12am: " + tempC0 + "°C - " + conditions0;
+			  todaysWeather6.innerHTML = "6am: " + tempC6 + "°C - " + conditions6;
+			  todaysWeather9.innerHTML = "9am: " + tempC9 + "°C - " + conditions9;
+			  todaysWeather12.innerHTML = "12pm: " + tempC12 + "°C - " + conditions12;
+			  todaysWeather15.innerHTML = "3pm: " + tempC15 + "°C - " + conditions15;
+			  todaysWeather21.innerHTML = "9pm: " + tempC21 + "°C - " + conditions21;
+			  
+			  if ((userHour <= tideHour5 && userMin <= tideMin5) && (userHour <= tideHour0 && userMin <= tideMin0)) {
+				  if (tideType0 == "HIGH") {
+					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/high.png)";
+				  }
+				  else {
+					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/low.png)";
+				  }
+			  }
+			  else if ((userHour >= tideHour0 && userMin >= tideMin0) && (userHour <= tideHour1 && userMin <= tideMin1)) {
+				  if (tideType1 == "HIGH") {
+					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/high.png)";
+				  }
+				  else {
+					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/low.png)";
+				  }
+				
+			  }
+			  else if ((userHour >= tideHour1 && userMin >= tideMin1) && (userHour <= tideHour2 && userMin <= tideMin2)) {
+				  if (tideType2 == "HIGH") {
+					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/high.png)";
+				  }
+				  else {
+					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/low.png)";
+				  }
+				  
+			  }
+			  else if ((userHour >= tideHour2 && userMin >= tideMin2) && (userHour <= tideHour3 && userMin <= tideMin3)) {
+				  if (tideType3 == "HIGH") {
+					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/high.png)";
+				  }
+				  else {
+					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/low.png)";
+				  }
+				  
+			  }
+			  else if ((userHour >= tideHour3 && userMin >= tideMin3) && (userHour <= tideHour4 && userMin <= tideMin4)) {
+				  if (tideType4 == "HIGH") {
+					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/high.png)";
+				  }
+				  else {
+					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/low.png)";
+				  }
+				  
+			  }
 			};
 			
 			// onError Callback receives a PositionError object
