@@ -17,12 +17,12 @@
             height: 100%;
         }
         body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color:#000;
-            margin: 0;
-            padding: 0;
+	background: #eee;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #000;
+	margin: 0;
+	/* [disabled]padding: 0; */
         }
         .swiper-container {
             width: 100%;
@@ -94,17 +94,31 @@
             <div class="swiper-slide">
             	<div class="swiper-slide-content">
                 	<div><h1>Todays Weather</h1></div>
-                    <div id="todaysWeather0"></div>
-                    <div id="todaysWeather6"></div>
-                    <div id="todaysWeather9"></div>
-                    <div id="todaysWeather12"></div>
-                    <div id="todaysWeather15"></div>
-                    <div id="todaysWeather21"></div>
+                    <div id="day0Weather0"></div>
+                    <div id="day0Weather6"></div>
+                    <div id="day0Weather9"></div>
+                    <div id="day0Weather12"></div>
+                    <div id="day0Weather15"></div>
+                    <div id="day0Weather21"></div>
+                    <br>
+                    <div id="day0Sunrise"></div>
+                    <div id="day0Sunset"></div>
                 </div>
             </div>
             <div class="swiper-slide">
             	<div class="swiper-slide-content">
                 	<div><h1>Forecast</h1></div>
+                    <div><h2>Tomorrows Weather</h2></div>
+                    <div id="day1DateDisp"></div>
+                    <div id="day1Weather0"></div>
+                    <div id="day1Weather6"></div>
+                    <div id="day1Weather9"></div>
+                    <div id="day1Weather12"></div>
+                    <div id="day1Weather15"></div>
+                    <div id="day1Weather21"></div>
+                    <br>
+                    <div id="day1Sunrise"></div>
+                    <div id="day1Sunset"></div>
                 </div>
             <div class="swiper-slide">Slide 2</div>
         </div>
@@ -128,12 +142,24 @@
 			var tideInfo = document.getElementById('tides');	
 			var element = document.getElementById('element');
 			var test = document.getElementById('test');
-			var todaysWeather0 = document.getElementById('todaysWeather0');
-			var todaysWeather6 = document.getElementById('todaysWeather6');
-			var todaysWeather9 = document.getElementById('todaysWeather9');
-			var todaysWeather12 = document.getElementById('todaysWeather12');
-			var todaysWeather15 = document.getElementById('todaysWeather15');
-			var todaysWeather21 = document.getElementById('todaysWeather21');
+			//Day0
+			var day0Weather0 = document.getElementById('day0Weather0');
+			var day0Weather6 = document.getElementById('day0Weather6');
+			var day0Weather9 = document.getElementById('day0Weather9');
+			var day0Weather12 = document.getElementById('day0Weather12');
+			var day0Weather15 = document.getElementById('day0Weather15');
+			var day0Weather21 = document.getElementById('day0Weather21');
+			var day0Sunrise = document.getElementById('day0Sunrise');
+			var day0Sunset = document.getElementById('day0Sunset');
+			//Day1
+			var day1Weather0 = document.getElementById('day1Weather0');
+			var day1Weather6 = document.getElementById('day1Weather6');
+			var day1Weather9 = document.getElementById('day1Weather9');
+			var day1Weather12 = document.getElementById('day1Weather12');
+			var day1Weather15 = document.getElementById('day1Weather15');
+			var day1Weather21 = document.getElementById('day1Weather21');
+			var day1Sunrise = document.getElementById('day1Sunrise');
+			var day1Sunset = document.getElementById('day1Sunset');
 			
 			//Get User Date + Time
 			var currentTime = new Date();
@@ -186,17 +212,63 @@
 			  //
 			  var tideHeight = xmlDocument.getElementsByTagName("tideHeight_mt")['0'].childNodes['0'].nodeValue;
 			  var date = xmlDocument.getElementsByTagName("date")['0'].childNodes['0'].nodeValue;
-			  var tideHour0 = tideTime0.charAt(0 + 1).toString();
-			  var tideHour1 = tideTime1.charAt(0 + 1).toString();
-			  var tideHour2 = tideTime2.charAt(0 + 1).toString();
-			  var tideHour3 = tideTime3.charAt(0 + 1).toString();
-			  var tideMin0 = tideTime0.charAt(3 + 4).toString();
-			  var tideMin1 = tideTime1.charAt(3 + 4).toString();
-			  var tideMin2 = tideTime2.charAt(3 + 4).toString();
-			  var tideMin3 = tideTime3.charAt(3 + 4).toString();
+			  
+			  if (tideTime0.length == 7) {
+				var tideHour0 = tideTime0.charAt(0).toString();
+				var tideMin0 = tideTime0.charAt(2 + 3).toString();
+			  }
+			  else {
+				var tideHour0 = tideTime0.charAt(0 + 1).toString();
+				var tideMin0 = tideTime0.charAt(3 + 4).toString();
+			  }
+			  
+			  if (tideTime1.length == 7) {
+				var tideHour1 = tideTime1.charAt(0).toString();
+				var tideMin1 = tideTime1.charAt(2 + 3).toString();
+			  }
+			  else {
+				var tideHour1 = tideTime1.charAt(0 + 1).toString();
+				var tideMin1 = tideTime1.charAt(3 + 4).toString();
+			  }
+			  
+			  if (tideTime2.length == 7) {
+				var tideHour2 = tideTime2.charAt(0).toString();
+				var tideMin2 = tideTime2.charAt(2 + 3).toString();
+			  }
+			  else {
+				var tideHour2 = tideTime2.charAt(0 + 1).toString();
+				var tideMin2 = tideTime2.charAt(3 + 4).toString();
+			  }
+			  
+			  if (tideTime3.length == 7) {
+				var tideHour3 = tideTime3.charAt(0).toString();
+				var tideMin3 = tideTime3.charAt(2 + 3).toString();
+			  }
+			  else {
+				var tideHour3 = tideTime3.charAt(0 + 1).toString();
+				var tideMin3 = tideTime3.charAt(3 + 4).toString();
+			  }
+			  
+			  if (tideTime4.length == 7) {
+				var tideHour4 = tideTime4.charAt(0).toString();
+				var tideMin4 = tideTime4.charAt(2 + 3).toString();
+			  }
+			  else {
+				var tideHour4 = tideTime4.charAt(0 + 1).toString();
+				var tideMin4 = tideTime4.charAt(3 + 4).toString();
+			  }
+			  
+			  if (tideTime5.length == 7) {
+				var tideHour5 = tideTime5.charAt(0).toString();
+				var tideMin5 = tideTime5.charAt(2 + 3).toString();
+			  }
+			  else {
+				var tideHour5 = tideTime5.charAt(0 + 1).toString();
+				var tideMin5 = tideTime5.charAt(3 + 4).toString();
+			  }
 			  //
 			  
-			  //TODAYS WEATHER
+			  //day0 WEATHER
 			  //TEMP
 			  var tempC0 = xmlDocument.getElementsByTagName("tempC")['0'].childNodes['0'].nodeValue;
 			  var tempC6 = xmlDocument.getElementsByTagName("tempC")['2'].childNodes['0'].nodeValue;
@@ -210,20 +282,61 @@
 			  var conditions9 = xmlDocument.getElementsByTagName("weatherDesc")['3'].childNodes['0'].nodeValue;
 			  var conditions12 = xmlDocument.getElementsByTagName("weatherDesc")['4'].childNodes['0'].nodeValue;
 			  var conditions15 = xmlDocument.getElementsByTagName("weatherDesc")['5'].childNodes['0'].nodeValue;
-			  var conditions21 = xmlDocument.getElementsByTagName("weatherDesc")['6'].childNodes['0'].nodeValue;
-			  //
+			  var conditions21 = xmlDocument.getElementsByTagName("weatherDesc")['7'].childNodes['0'].nodeValue;
+			  //SUNRISE/SET
+			  var sunrise0 = xmlDocument.getElementsByTagName("sunrise")['0'].childNodes['0'].nodeValue;
+			  var sunset0 = xmlDocument.getElementsByTagName("sunset")['0'].childNodes['0'].nodeValue;
+			  //DAY 0
+			  
+			  //DAY 1 WEATHER
+			  //TEMP
+			  var day1tempC0 = xmlDocument.getElementsByTagName("tempC")['8'].childNodes['0'].nodeValue;
+			  var day1tempC6 = xmlDocument.getElementsByTagName("tempC")['10'].childNodes['0'].nodeValue;
+			  var day1tempC9 = xmlDocument.getElementsByTagName("tempC")['11'].childNodes['0'].nodeValue;
+			  var day1tempC12 = xmlDocument.getElementsByTagName("tempC")['11'].childNodes['0'].nodeValue;
+			  var day1tempC15 = xmlDocument.getElementsByTagName("tempC")['13'].childNodes['0'].nodeValue;
+			  var day1tempC21 = xmlDocument.getElementsByTagName("tempC")['15'].childNodes['0'].nodeValue;
+			  //CONDITIONS
+			  var day1conditions0 = xmlDocument.getElementsByTagName("weatherDesc")['8'].childNodes['0'].nodeValue;
+			  var day1conditions6 = xmlDocument.getElementsByTagName("weatherDesc")['10'].childNodes['0'].nodeValue;
+			  var day1conditions9 = xmlDocument.getElementsByTagName("weatherDesc")['11'].childNodes['0'].nodeValue;
+			  var day1conditions12 = xmlDocument.getElementsByTagName("weatherDesc")['12'].childNodes['0'].nodeValue;
+			  var day1conditions15 = xmlDocument.getElementsByTagName("weatherDesc")['13'].childNodes['0'].nodeValue;
+			  var day1conditions21 = xmlDocument.getElementsByTagName("weatherDesc")['15'].childNodes['0'].nodeValue;
+			  //SUNRISE/SET
+			  var day1sunrise = xmlDocument.getElementsByTagName("sunrise")['1'].childNodes['0'].nodeValue;
+			  var day1sunset = xmlDocument.getElementsByTagName("sunset")['1'].childNodes['0'].nodeValue;
+			  //TIME/DATE
+			  var day1Date = xmlDocument.getElementsByTagName("date")['1'].childNodes['0'].nodeValue;
+			  //DAY 1 WEATHER
 			  
 			  //Shows user their local tides
 			  tideInfo.innerHTML = date + " - " + userHour + ":" + userMin +"</br>" + tideType0 + " - " + tideTime0 + "</br>" + tideType1 + " - " + tideTime1 + "</br>" + tideType2 + " - " + tideTime2 + "</br>" + tideType3 + " - " + tideTime3;
 			  
 			  //Shows user their local weather
-			  todaysWeather0.innerHTML = "12am: " + tempC0 + "°C - " + conditions0;
-			  todaysWeather6.innerHTML = "6am: " + tempC6 + "°C - " + conditions6;
-			  todaysWeather9.innerHTML = "9am: " + tempC9 + "°C - " + conditions9;
-			  todaysWeather12.innerHTML = "12pm: " + tempC12 + "°C - " + conditions12;
-			  todaysWeather15.innerHTML = "3pm: " + tempC15 + "°C - " + conditions15;
-			  todaysWeather21.innerHTML = "9pm: " + tempC21 + "°C - " + conditions21;
-			  
+			  //TODAY
+			  day0Weather0.innerHTML = "12am: " + tempC0 + "°C - " + conditions0;
+			  day0Weather6.innerHTML = "6am: " + tempC6 + "°C - " + conditions6;
+			  day0Weather9.innerHTML = "9am: " + tempC9 + "°C - " + conditions9;
+			  day0Weather12.innerHTML = "12pm: " + tempC12 + "°C - " + conditions12;
+			  day0Weather15.innerHTML = "3pm: " + tempC15 + "°C - " + conditions15;
+			  day0Weather21.innerHTML = "9pm: " + tempC21 + "°C - " + conditions21;
+			  day0Sunrise.innerHTML = "Sunrise: " + sunrise0;
+			  day0Sunset.innerHTML = "Sunset: " + sunset0;
+			  //
+			  //TOMORROW
+			  day1DateDisp.innerHTML = day1Date;
+			  day1Weather0.innerHTML = "12am: " + day1tempC0 + "°C - " + day1conditions0;
+			  day1Weather6.innerHTML = "6am: " + day1tempC6 + "°C - " + day1conditions6;
+			  day1Weather9.innerHTML = "9am: " + day1tempC9 + "°C - " + day1conditions9;
+			  day1Weather12.innerHTML = "12pm: " + day1tempC12 + "°C - " + day1conditions12;
+			  day1Weather15.innerHTML = "3pm: " + day1tempC15 + "°C - " + day1conditions15;
+			  day1Weather21.innerHTML = "9pm: " + day1tempC21 + "°C - " + day1conditions21;
+			  day1Sunrise.innerHTML = "Sunrise: " + day1sunrise;
+			  day1Sunset.innerHTML = "Sunset: " + day1sunset;
+			  //
+			  //
+			  //CHANGING TIDE IMG
 			  if ((userHour <= tideHour5 && userMin <= tideMin5) && (userHour <= tideHour0 && userMin <= tideMin0)) {
 				  if (tideType0 == "HIGH") {
 					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/high.png)";
@@ -269,6 +382,7 @@
 				  
 			  }
 			};
+			//
 			
 			// onError Callback receives a PositionError object
 			//
