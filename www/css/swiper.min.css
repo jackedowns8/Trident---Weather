@@ -97,13 +97,13 @@
 	-moz-transition-property: -moz-transform;
 	-o-transition-property: -o-transform;
 	-ms-transition-property: -ms-transform;
-transition-property:transform, height.swiper-container .swiper-notification {
-position:absolute;
-left:0;
-top:0;
-pointer-events:none;
-opacity:0;
-z-index:-1000
+	transition-property:transform, height.swiper-container .swiper-notification {
+	position:absolute;
+	left:0;
+	top:0;
+	pointer-events:none;
+	opacity:0;
+	z-index:-1000
 }
 .swiper-wp8-horizontal {
 	-ms-touch-action: pan-y;
