@@ -167,11 +167,23 @@
 			//
 			var onSuccess = function(position) {
 			  coordinates = position.coords.latitude+','+position.coords.longitude;
-			  overviewLocation.innerHTML = coordinates;
+			  
+			  //Weather/Tide API
 			  var xhr = new XMLHttpRequest();
 			  xhr.open("GET", "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=7256225c1f04fee7a0721a16f9a36&format=xml&q="+coordinates+"&tide=yes&fx=yes", false);
 			  xhr.setRequestHeader('Content-Type', 'text/xml');
 			  xhr.send();
+			  
+			  //GeocodeAPI
+			  var geocode = newXMLHttpRequest("GET", "https://maps.googleapis.com/maps/api/geocode/xml?latlng="+coordinates+"&key=AIzaSyDN4qy3o977iZtq5ImLMrtl8z18cikKJJU");
+			  geocode.setRequestHeader('ContentType', 'text/xml');
+			  geocode.send();
+			  
+			  //Location
+			  xmlDocument = geocode.responseXML;
+			  var location = xmlDocument.getElementsByTagName("formatted_address")['0'].childNodes['0'].nodeValue;
+			  //Show User Their Location
+			  overviewLocation.innerHTML = location;
 			
 			  xmlDocument = xhr.responseXML;
 			  //TIDEINFO
@@ -333,8 +345,8 @@
 			  var day3sunset = xmlDocument.getElementsByTagName("sunset")['3'].childNodes['0'].nodeValue;
 			  //TIME/DATE
 			  var day3Date = xmlDocument.getElementsByTagName("date")['3'].childNodes['0'].nodeValue;
-			  //DAY 3 
-				
+			  //DAY 3
+			  
 			  //SHOWS DETAILS
 			// onError Callback receives a PositionError object
 			//
