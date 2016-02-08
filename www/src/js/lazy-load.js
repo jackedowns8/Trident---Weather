@@ -23,7 +23,7 @@ s.lazy = {
                 srcset = _img.attr('data-srcset');
             s.loadImage(_img[0], (src || background), srcset, false, function () {
                 if (background) {
-                    _img.css('background-image', 'url(' + background + ')');
+                    _img.css('background-image', 'url("' + background + '")');
                     _img.removeAttr('data-background');
                 }
                 else {
@@ -76,13 +76,17 @@ s.lazy = {
             }
         }
         if (s.params.lazyLoadingInPrevNext) {
-            if (s.params.slidesPerView > 1) {
+            if (s.params.slidesPerView > 1 || (s.params.lazyLoadingInPrevNextAmount && s.params.lazyLoadingInPrevNextAmount > 1)) {
+                var amount = s.params.lazyLoadingInPrevNextAmount;
+                var spv = s.params.slidesPerView;
+                var maxIndex = Math.min(s.activeIndex + spv + Math.max(amount, spv), s.slides.length);
+                var minIndex = Math.max(s.activeIndex - Math.max(spv, amount), 0);
                 // Next Slides
-                for (i = s.activeIndex + s.params.slidesPerView; i < s.activeIndex + s.params.slidesPerView + s.params.slidesPerView; i++) {
+                for (i = s.activeIndex + s.params.slidesPerView; i < maxIndex; i++) {
                     if (s.slides[i]) s.lazy.loadImageInSlide(i);
                 }
                 // Prev Slides
-                for (i = s.activeIndex - s.params.slidesPerView; i < s.activeIndex ; i++) {
+                for (i = minIndex; i < s.activeIndex ; i++) {
                     if (s.slides[i]) s.lazy.loadImageInSlide(i);
                 }
             }

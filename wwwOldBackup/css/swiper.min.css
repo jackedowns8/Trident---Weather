@@ -1,17 +1,19 @@
 /**
- * Swiper 3.2.7
+ * Swiper 3.3.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * 
  * http://www.idangero.us/swiper/
  * 
- * Copyright 2015, Vladimir Kharlampidi
+ * Copyright 2016, Vladimir Kharlampidi
  * The iDangero.us
  * http://www.idangero.us/
  * 
  * Licensed under MIT
  * 
- * Released on: December 7, 2015
+ * Released on: February 7, 2016
  */
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:700,700italic,400italic,400,100italic,100,300);
+
 .swiper-container {
 	margin: 0 auto;
 	position: relative;
@@ -77,16 +79,8 @@
 	height: 100%;
 	position: relative
 }
-
-.swiper-slide-content {
-	padding: 2.5%;
-	height:100%;
-	width:100%;
-}
-
 .swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
-	height: auto;
-	width: auto
+	height: auto
 }
 .swiper-container-autoheight .swiper-wrapper {
 	-webkit-box-align: start;
@@ -97,13 +91,15 @@
 	-moz-transition-property: -moz-transform;
 	-o-transition-property: -o-transform;
 	-ms-transition-property: -ms-transform;
-	transition-property:transform, height.swiper-container .swiper-notification {
-	position:absolute;
-	left:0;
-	top:0;
-	pointer-events:none;
-	opacity:0;
-	z-index:-1000
+	transition-property: transform, height
+}
+.swiper-container .swiper-notification {
+	position: absolute;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	opacity: 0;
+	z-index: -1000
 }
 .swiper-wp8-horizontal {
 	-ms-touch-action: pan-y;
@@ -165,10 +161,18 @@
 	-ms-transform: translate3d(0, 0, 0);
 	-o-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
-	z-index: 10
+	z-index: 10;
+	background-color: #b6b6b6;
+	width: 100%;
+	height: 5%;
 }
 .swiper-pagination.swiper-pagination-hidden {
 	opacity: 0
+}
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+	bottom: 10px;
+	left: 0;
+	width: 100%
 }
 .swiper-pagination-bullet {
 	width: 8px;
@@ -196,7 +200,7 @@ button.swiper-pagination-bullet {
 }
 .swiper-pagination-bullet-active {
 	opacity: 1;
-	background: #007aff
+	background: #252525;
 }
 .swiper-pagination-white .swiper-pagination-bullet-active {
 	background: #fff
@@ -204,7 +208,7 @@ button.swiper-pagination-bullet {
 .swiper-pagination-black .swiper-pagination-bullet-active {
 	background: #000
 }
-.swiper-container-vertical>.swiper-pagination {
+.swiper-container-vertical>.swiper-pagination-bullets {
 	right: 10px;
 	top: 50%;
 	-webkit-transform: translate3d(0, -50%, 0);
@@ -213,17 +217,61 @@ button.swiper-pagination-bullet {
 	-ms-transform: translate3d(0, -50%, 0);
 	transform: translate3d(0, -50%, 0)
 }
-.swiper-container-vertical>.swiper-pagination .swiper-pagination-bullet {
+.swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet {
 	margin: 5px 0;
 	display: block
 }
-.swiper-container-horizontal>.swiper-pagination {
-	bottom: 10px;
-	left: 0;
-	width: 100%
-}
-.swiper-container-horizontal>.swiper-pagination .swiper-pagination-bullet {
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
 	margin: 0 5px
+}
+.swiper-pagination-progress {
+	background: rgba(0,0,0,.25);
+	position: absolute
+}
+.swiper-pagination-progress .swiper-pagination-progressbar {
+	background: #007aff;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+	-webkit-transform-origin: left top;
+	-moz-transform-origin: left top;
+	-ms-transform-origin: left top;
+	-o-transform-origin: left top;
+	transform-origin: left top
+}
+.swiper-container-rtl .swiper-pagination-progress .swiper-pagination-progressbar {
+	-webkit-transform-origin: right top;
+	-moz-transform-origin: right top;
+	-ms-transform-origin: right top;
+	-o-transform-origin: right top;
+	transform-origin: right top
+}
+.swiper-container-horizontal>.swiper-pagination-progress {
+	width: 100%;
+	height: 4px;
+	left: 0;
+	top: 0
+}
+.swiper-container-vertical>.swiper-pagination-progress {
+	width: 4px;
+	height: 100%;
+	left: 0;
+	top: 0
+}
+.swiper-pagination-progress.swiper-pagination-white {
+	background: rgba(255,255,255,.5)
+}
+.swiper-pagination-progress.swiper-pagination-white .swiper-pagination-progressbar {
+	background: #fff
+}
+.swiper-pagination-progress.swiper-pagination-black .swiper-pagination-progressbar {
+	background: #000
 }
 .swiper-container-3d {
 	-webkit-perspective: 1200px;
@@ -274,42 +322,41 @@ button.swiper-pagination-bullet {
 	background-image: -o-linear-gradient(top, rgba(0,0,0,.5), rgba(0,0,0,0));
 	background-image: linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,0))
 }
-.swiper-container-coverflow .swiper-wrapper {
+.swiper-container-coverflow .swiper-wrapper, .swiper-container-flip .swiper-wrapper {
 	-ms-perspective: 1200px
 }
-.swiper-container-fade.swiper-container-free-mode .swiper-slide {
-	-webkit-transition-timing-function: ease-out;
-	-moz-transition-timing-function: ease-out;
-	-ms-transition-timing-function: ease-out;
-	-o-transition-timing-function: ease-out;
-	transition-timing-function: ease-out
-}
-.swiper-container-fade .swiper-slide {
-	pointer-events: none
-}
-.swiper-container-fade .swiper-slide .swiper-slide {
-	pointer-events: none
-}
-.swiper-container-fade .swiper-slide-active, .swiper-container-fade .swiper-slide-active .swiper-slide-active {
-	pointer-events: auto
-}
-.swiper-container-cube {
+.swiper-container-cube, .swiper-container-flip {
 	overflow: visible
 }
-.swiper-container-cube .swiper-slide {
+.swiper-container-cube .swiper-slide, .swiper-container-flip .swiper-slide {
 	pointer-events: none;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: 1
+}
+.swiper-container-cube .swiper-slide .swiper-slide, .swiper-container-flip .swiper-slide .swiper-slide {
+	pointer-events: none
+}
+.swiper-container-cube .swiper-slide-active, .swiper-container-cube .swiper-slide-active .swiper-slide-active, .swiper-container-flip .swiper-slide-active, .swiper-container-flip .swiper-slide-active .swiper-slide-active {
+	pointer-events: auto
+}
+.swiper-container-cube .swiper-slide-shadow-bottom, .swiper-container-cube .swiper-slide-shadow-left, .swiper-container-cube .swiper-slide-shadow-right, .swiper-container-cube .swiper-slide-shadow-top, .swiper-container-flip .swiper-slide-shadow-bottom, .swiper-container-flip .swiper-slide-shadow-left, .swiper-container-flip .swiper-slide-shadow-right, .swiper-container-flip .swiper-slide-shadow-top {
+	z-index: 0;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden
+}
+.swiper-container-cube .swiper-slide {
 	visibility: hidden;
 	-webkit-transform-origin: 0 0;
 	-moz-transform-origin: 0 0;
 	-ms-transform-origin: 0 0;
 	transform-origin: 0 0;
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	-ms-backface-visibility: hidden;
-	backface-visibility: hidden;
 	width: 100%;
-	height: 100%;
-	z-index: 1
+	height: 100%
 }
 .swiper-container-cube.swiper-container-rtl .swiper-slide {
 	-webkit-transform-origin: 100% 0;
@@ -320,13 +367,6 @@ button.swiper-pagination-bullet {
 .swiper-container-cube .swiper-slide-active, .swiper-container-cube .swiper-slide-next, .swiper-container-cube .swiper-slide-next+.swiper-slide, .swiper-container-cube .swiper-slide-prev {
 	pointer-events: auto;
 	visibility: visible
-}
-.swiper-container-cube .swiper-slide-shadow-bottom, .swiper-container-cube .swiper-slide-shadow-left, .swiper-container-cube .swiper-slide-shadow-right, .swiper-container-cube .swiper-slide-shadow-top {
-	z-index: 0;
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	-ms-backface-visibility: hidden;
-	backface-visibility: hidden
 }
 .swiper-container-cube .swiper-cube-shadow {
 	position: absolute;
@@ -339,6 +379,26 @@ button.swiper-pagination-bullet {
 	-webkit-filter: blur(50px);
 	filter: blur(50px);
 	z-index: 0
+}
+.swiper-container-fade.swiper-container-free-mode .swiper-slide {
+	-webkit-transition-timing-function: ease-out;
+	-moz-transition-timing-function: ease-out;
+	-ms-transition-timing-function: ease-out;
+	-o-transition-timing-function: ease-out;
+	transition-timing-function: ease-out
+}
+.swiper-container-fade .swiper-slide {
+	pointer-events: none;
+	-webkit-transition-property: opacity;
+	-moz-transition-property: opacity;
+	-o-transition-property: opacity;
+	transition-property: opacity
+}
+.swiper-container-fade .swiper-slide .swiper-slide {
+	pointer-events: none
+}
+.swiper-container-fade .swiper-slide-active, .swiper-container-fade .swiper-slide-active .swiper-slide-active {
+	pointer-events: auto
 }
 .swiper-scrollbar {
 	border-radius: 10px;
@@ -413,4 +473,319 @@ button.swiper-pagination-bullet {
 100% {
 transform:rotate(360deg)
 }
+}
+
+/* CUSTOM CSS */
+.overviewButtonSettings {
+	width: 20%;
+	height: 5%;
+	float: left;
+	position: fixed;
+	top: 2.5%;
+	left: 0;
+}
+.overviewButtonSettings img {
+	max-height: 100%;
+	max-width: 100%;
+}
+.overviewButtonInfo {
+	width: 20%;
+	height: 5%;
+	float: left;
+	position: fixed;
+	top: 2.5%;
+	right: 0;
+}
+.overviewButtonInfo img {
+	max-height: 100%;
+	max-width: 100%;
+}
+.overviewButtonSearch {
+	width: 20%;
+	height: 5%;
+	float: left;
+	position: fixed;
+	bottom: 52.5%;
+	left: 0;
+}
+.overviewButtonSearch img {
+	max-height: 100%;
+	max-width: 100%;
+}
+.overviewButtonRefresh {
+	width: 20%;
+	height: 5%;
+	float: left;
+	position: fixed;
+	bottom: 52.5%;
+	right: 0;
+}
+.overviewButtonRefresh img {
+	max-height: 100%;
+	max-width: 100%;
+}
+.overviewLocation {
+	position: fixed;
+	top: 43.8%;
+	width: 100%;
+	height: 20%;
+	color: #969696;
+	text-align:center;
+}
+.overviewTemp {
+	postition: fixed;
+	top: 0;
+	width: 60%;
+	height: 25%;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 2.5em;
+	text-align: center;
+	margin: auto; 
+}
+.overviewTemp img {
+	max-height: 100%;
+	max-width: 100%;	
+}
+.overviewTides {
+	position: fixed;
+	bottom: 5%;
+	width: 100%;
+	height: 45%;
+}
+.overviewWeather {
+	position: fixed;
+	top: 20%;
+	left: 10%;
+	width: 40%;
+	height: 20%;
+	float: left;
+}
+.overviewWeather img {
+	max-width: 100%;	
+	max-height: 100%;	
+}
+.overviewWind {
+	position: fixed;
+	top: 20%;
+	right: 10%;
+	width: 40%;
+	height: 20%;
+	float: left;
+}
+.overviewWind img {
+	max-height:100%;
+	max-width: 100%;	
+}
+.overviewTide0 {
+	width: 100%;
+	height: 25%;
+	background-color: #d7d7d7;
+}
+.overviewTide1 {
+	width: 100%;
+	height: 25%;
+	background-color: #ebebeb;
+}
+.overviewTideType {
+	transform: rotate(90deg);
+	transform-origin: bottom left;
+	float: left;
+	width: 10%;
+}
+.overviewTideTime {
+	width: 45%;
+	height: 100%;
+	float: left;
+}
+.overviewTideHeight {
+	width: 45%;
+	height: 100%;
+	float: left;
+}
+.todayHeader {
+	postition: absolute;
+	width: 100%;
+	height: 10%;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 2.5em;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 1.4; 
+	background-color: rgb(235, 235, 235);
+}
+.today0 {
+	width: 100%;
+	height: 14.16666666666667%;	
+	background-color: #d7d7d7;
+	font-family: 'Josefin Sans', sans-serif;
+	vertical-align: central;
+	text-align: center;
+}
+.today1 {
+	width: 100%;
+	height: 14.16666666666667%;	
+	background-color: #ebebeb;
+	font-family: 'Josefin Sans', sans-serif;
+	vertical-align: central;
+	text-align: center;
+}
+.todayTime {
+	transform: rotate(90deg);
+	transform-origin: bottom left;
+	float: left;
+	width: 10%;
+}
+.forecastHeader {
+	postition: absolute;
+	width: 100%;
+	height: 10%;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 2.5em;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 1.4; 
+	background-color: rgb(235, 235, 235);
+}
+forecastSubHeader {
+	font-size: 0.5em;
+}
+.forecastDay0 {
+	width: 100%;
+	height: 17%;	
+	background-color: #d7d7d7;
+	font-family: 'Josefin Sans', sans-serif;
+	vertical-align:middle;
+}
+.forecastDay1 {
+	width: 100%;
+	height: 17%;	
+	background-color: #ebebeb;
+	font-family: 'Josefin Sans', sans-serif;
+	vertical-align: central;
+	text-align: center;
+}
+.dayOfWeek {
+	transform: rotate(90deg);
+	transform-origin: bottom left;
+	float: left;
+	width: 10%;
+}
+.weatherCondition {
+	float: left;
+	width: 25%;
+	padding-top: 0.5em;
+}
+.weatherTemp {
+	float: left;
+	width: 25%;
+	font-size: 2em;
+	line-height: 2.5em;
+}
+.weatherTides {
+	float: left;
+	width: 30%;
+	align-content:center;
+	text-align:left;
+	padding-left: 0.5em;
+	padding-top: 0.6em;
+}
+.arrow {
+	float: left;
+	width: 5%;
+	padding-top: 1.4em;
+}
+.arrow img {
+	max-width:100%;
+	max-height:100%;
+}
+.weatherCondition img {
+	max-width:80%;
+	max-height:80%;
+}
+/*ForecastInfo*/
+.forecastInfoButton {
+	width: 20%;
+	height: 20%;
+	float: left;
+}
+.forecastInfoButton img {
+	max-width: 100%;
+	max-height: 100%;
+}
+.forecastInfoLocation {
+	width: 60%;
+	height: 20%;
+	float: left;	
+}
+.forecastInfoTides {
+	position:absolute;
+	width: 100%;
+	height: 30%;
+}
+.forecastInfoTide0 {
+	width: 100%;
+	height: 25%;
+	background-color: #d7d7d7;
+}
+.forecastInfoTide1 {
+	width: 100%;
+	height: 25%;
+	background-color: #ebebeb;
+}
+.forecastInfoTideType {
+	transform: rotate(90deg);
+	transform-origin: bottom left;
+	float: left;
+	width: 10%;
+}
+.forecastInfoTideTime {
+	width: 45%;
+	height: 100%;
+	float: left;
+}
+.forecastInfoTideHeight {
+	width: 45%;
+	height: 100%;
+	float: left;
+}
+.forecastInfoHeader {
+	postition: absolute;
+	width: 100%;
+	height: 10%;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 2.5em;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 1.4; 
+	background-color: rgb(235, 235, 235);
+}
+.forecastInfo0 {
+	width: 100%;
+	height: 14.16666666666667%;	
+	background-color: #d7d7d7;
+	font-family: 'Josefin Sans', sans-serif;
+	vertical-align: central;
+	text-align: center;
+}
+.forecastInfo1 {
+	width: 100%;
+	height: 14.16666666666667%;	
+	background-color: #ebebeb;
+	font-family: 'Josefin Sans', sans-serif;
+	vertical-align: central;
+	text-align: center;
+}
+.forecastInfoTime {
+	transform: rotate(90deg);
+	transform-origin: bottom left;
+	float: left;
+	width: 10%;
+}
+/*Other CSS */
+.rotate180 {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
 }

@@ -1,211 +1,146 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <title>Trident - Tides and Weather</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    
-        <!-- Link Swiper's CSS -->
-        <link rel="stylesheet" href="css/swiper.min.css">
-    
-        <!-- Demo styles -->
-        <style>
-        html, body {
-            position: relative;
-            height: 100%;
-        }
-        body {
-	background: #eee;
-	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	color: #000;
-	margin: 0;
-	/* [disabled]padding: 0; */
-        }
-        .swiper-container {
-            width: 100%;
-            height: 100%;
-        }
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-    
-            /* Center slide text vertically
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            -webkit-justify-content: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
-            align-items: center;*/
-        }
-		.slide-background {
-			background-image:url(img/bg.png);
-			background-size:100% 100%;
-			background-repeat:no-repeat;
-			height:100%;
-			width:100%;
-		}
-		.slide-tideHeight {
-			background-image:url(img/low.png);
-			background-size:100% 100%;
-			background-repeat:no-repeat;
-			height:100%;
-			width:100%;
-		}
-		@media only screen and (min-width: 1080px) {
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Trident</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-   			.swiper-slide { 
-				font-size: 3.5em; 
-			}
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="dist/css/swiper.min.css">
 
-		}
-		@media only screen and (max-width: 1079px) {
-
-   			.swiper-slide { 
-				font-size: 1em; 
-			}
-
-		}
-        </style>
-    </head>
-
-    <body>
-        <div class="swiper-container">
+    <!-- Demo styles -->
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #e6e6e6;
+		font-family: 'Josefin Sans', sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #e6e6e6;
+    }
+    </style>
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <div class="slide-background">
-                <div class="slide-tideHeight">
-                  <div class="swiper-slide-content">
-                    <div id="tides">Loading Tide...</div>
-                    <div id="element">Loading Location...</div>
-                    <div id="test"></div>
-                  </div>
+              <div class="overviewButtonSettings"><img src="image/settings.png" alt="settings"/></div>
+              <div class="overviewTemp"><img src="image/temp20.png" alt="temp"/></div>
+              <div class="overviewButtonInfo"><img src="image/info.png" alt="info"/></div>
+              <div class="overviewWeather"><img src="image/rain.png" alt="rain"/></div>
+              <div class="overviewWind"><img src="image/N.png" alt="windDirection"/></div>
+              <div class="overviewButtonSearch"><img src="image/search.png" alt="search"/></div>
+              <div class="overviewLocation" id="overviewLocation">Auckland, New Zealand</div>
+              <div class="overviewButtonRefresh"><img src="image/refresh.png" alt="refresh"/></div>
+              <div class="overviewTides">
+                <div class="overviewTide0">
+                  <div class="overviewTideType">HIGH</div>
+                  <div class="overviewTideTime" id="overviewTideTime0">12:00am</div>
+                  <div class="overviewTideHeight" id="overviewTideHeight0">2.5m</div>
+                </div>
+                <div class="overviewTide1">
+                  <div class="overviewTideType" >LOW</div>
+                  <div class="overviewTideTime" id="overviewTideTime1">12:00am</div>
+                  <div class="overviewTideHeight" id="overviewTideHeight1">2.5m</div>
+                </div>
+                <div class="overviewTide0">
+                  <div class="overviewTideType">HIGH</div>
+                  <div class="overviewTideTime" id="overviewTideTime2">12:00am</div>
+                  <div class="overviewTideHeight" id="overviewTideHeight2">2.5m</div>
+                </div>
+                <div class="overviewTide1">
+                  <div class="overviewTideType">LOW</div>
+                  <div class="overviewTideTime" id="overviewTideTime3">12:00am</div>
+                  <div class="overviewTideHeight" id="overviewTideHeight3">2.5m</div>
                 </div>
               </div>
             </div>
+            
             <div class="swiper-slide">
-            	<div class="swiper-slide-content">
-                	<div><h1>Todays Weather</h1></div>
-                    <div id="day0Weather0"></div>
-                    <div id="day0Weather6"></div>
-                    <div id="day0Weather9"></div>
-                    <div id="day0Weather12"></div>
-                    <div id="day0Weather15"></div>
-                    <div id="day0Weather21"></div>
-                    <br>
-                    <div id="day0Sunrise"></div>
-                    <div id="day0Sunset"></div>
+            	<div class="todayHeader">Today</div>
+                <div class="today0">
+                	<div class="todayTime">12:00am</div>
+                </div>
+                <div class="today1">
+                	<div class="todayTime">6:00am</div>
+                </div>
+                <div class="today0">
+                	<div class="todayTime">9:00am</div>
+                </div>
+                <div class="today1">
+                	<div class="todayTime">12:00pm</div>
+                </div>
+                <div class="today0">
+                	<div class="todayTime">3:00pm</div>
+                </div>
+                <div class="today1">
+                	<div class="todayTime">9:00pm</div>
                 </div>
             </div>
+            
             <div class="swiper-slide">
-            	<div class="swiper-slide-content">
-                	<div><h1>Forecast</h1></div>
-                    <div><h2>Tomorrows Weather</h2></div>
-                    <div id="day1DateDiv"></div>
-                    <div id="day1Weather0"></div>
-                    <div id="day1Weather6"></div>
-                    <div id="day1Weather9"></div>
-                    <div id="day1Weather12"></div>
-                    <div id="day1Weather15"></div>
-                    <div id="day1Weather21"></div>
-                    <br>
-                    <div id="day1Sunrise"></div>
-                    <div id="day1Sunset"></div>
-                    
-                    <div><h2><div id="day2DateDiv"></div></h2></div>
-                    <div id="day2DateDisp"></div>
-                    <div id="day2Weather0"></div>
-                    <div id="day2Weather6"></div>
-                    <div id="day2Weather9"></div>
-                    <div id="day2Weather12"></div>
-                    <div id="day2Weather15"></div>
-                    <div id="day2Weather21"></div>
-                    <br>
-                    <div id="day2Sunrise"></div>
-                    <div id="day2Sunset"></div>
-                    
-                    <div><h2><div id="day3DateDiv"></div></h2></div>
-                    <div id="day3DateDisp"></div>
-                    <div id="day3Weather0"></div>
-                    <div id="day3Weather6"></div>
-                    <div id="day3Weather9"></div>
-                    <div id="day3Weather12"></div>
-                    <div id="day3Weather15"></div>
-                    <div id="day3Weather21"></div>
-                    <br>
-                    <div id="day3Sunrise"></div>
-                    <div id="day3Sunset"></div>
+              <div class="forecastHeader">Forecast</div>
+              <div class="forecastDay0">
+              	<div class="dayOfWeek">Day0</div>
+                <div class="weatherCondition" id="day0Conditions"><img src="image/sunny.png" alt="sunny"/></div>
+                <div class="weatherTemp" id="day0Temp">21°C</div>
+                <div class="weatherTides" id="day0Tides">
+                H: 12:01am</br>
+                L: 6:02am</br>
+                H: 12:48pm</br>
+                L: 8:32pm
                 </div>
-            <div class="swiper-slide">Slide 2</div>
+                <div class="arrow"><a href="forecastInfo.html"><img src="image/navArrow.png" alt="navArrow"/></a></div>
+              </div>
+              <div class="forecastDay1">
+              	<div class="dayOfWeek">Day1</div>
+              </div>
+              <div class="forecastDay0">
+              	<div class="dayOfWeek">Day2</div>
+              </div>
+              <div class="forecastDay1">
+                <div class="dayOfWeek">Day3</div>
+              </div>
+              <div class="forecastDay0">
+              	<div class="dayOfWeek">Day4</div>
+              </div>
+            </div>
         </div>
         <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>    
-        <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
-        <!-- Swiper JS -->
-		<script src="dist/js/swiper.min.js"></script>
-    
-        <!-- Initialize Swiper -->
-        <script>
-		  var swiper = new Swiper('.swiper-container', {
-			  pagination: '.swiper-pagination',
-			  paginationClickable: true
-		  });
-		</script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-			var tideInfo = document.getElementById('tides');	
-			var element = document.getElementById('element');
-			var test = document.getElementById('test');
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="dist/js/swiper.min.js"></script>
 
-			//Day0
-			var day0Weather0 = document.getElementById('day0Weather0');
-			var day0Weather6 = document.getElementById('day0Weather6');
-			var day0Weather9 = document.getElementById('day0Weather9');
-			var day0Weather12 = document.getElementById('day0Weather12');
-			var day0Weather15 = document.getElementById('day0Weather15');
-			var day0Weather21 = document.getElementById('day0Weather21');
-			var day0Sunrise = document.getElementById('day0Sunrise');
-			var day0Sunset = document.getElementById('day0Sunset');
-			//Day1
-			var day1DateDisp = document.getElementById('day1DateDiv');
-			var day1Weather0 = document.getElementById('day1Weather0');
-			var day1Weather6 = document.getElementById('day1Weather6');
-			var day1Weather9 = document.getElementById('day1Weather9');
-			var day1Weather12 = document.getElementById('day1Weather12');
-			var day1Weather15 = document.getElementById('day1Weather15');
-			var day1Weather21 = document.getElementById('day1Weather21');
-			var day1Sunrise = document.getElementById('day1Sunrise');
-			var day1Sunset = document.getElementById('day1Sunset');
-			//Day2
-			var day2DateDisp = document.getElementById('day2DateDiv');
-			var day2Weather0 = document.getElementById('day2Weather0');
-			var day2Weather6 = document.getElementById('day2Weather6');
-			var day2Weather9 = document.getElementById('day2Weather9');
-			var day2Weather12 = document.getElementById('day2Weather12');
-			var day2Weather15 = document.getElementById('day2Weather15');
-			var day2Weather21 = document.getElementById('day2Weather21');
-			var day2Sunrise = document.getElementById('day2Sunrise');
-			var day2Sunset = document.getElementById('day2Sunset');
-			//Day3
-			var day3DateDisp = document.getElementById('day3DateDiv');
-			var day3Weather0 = document.getElementById('day3Weather0');
-			var day3Weather6 = document.getElementById('day3Weather6');
-			var day3Weather9 = document.getElementById('day3Weather9');
-			var day3Weather12 = document.getElementById('day3Weather12');
-			var day3Weather15 = document.getElementById('day3Weather15');
-			var day3Weather21 = document.getElementById('day3Weather21');
-			var day3Sunrise = document.getElementById('day3Sunrise');
-			var day3Sunset = document.getElementById('day3Sunset');
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+    </script>
+    
+    <!-- Weather + Tides Etc. -->
+    <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript">
+            app.initialize();
+			var overviewLocation = document.getElementById('overviewLocation');
 			
 			//Get User Date + Time
 			var currentTime = new Date();
@@ -232,7 +167,7 @@
 			//
 			var onSuccess = function(position) {
 			  coordinates = position.coords.latitude+','+position.coords.longitude;
-			  element.innerHTML = coordinates;
+			  overviewLocation.innerHTML = coordinates;
 			  var xhr = new XMLHttpRequest();
 			  xhr.open("GET", "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=7256225c1f04fee7a0721a16f9a36&format=xml&q="+coordinates+"&tide=yes&fx=yes", false);
 			  xhr.setRequestHeader('Content-Type', 'text/xml');
@@ -354,7 +289,7 @@
 			  var day1sunset = xmlDocument.getElementsByTagName("sunset")['1'].childNodes['0'].nodeValue;
 			  //TIME/DATE
 			  var day1Date = xmlDocument.getElementsByTagName("date")['1'].childNodes['0'].nodeValue;
-			  //DAY 1 WEATHER
+			  //DAY 1
 			  
 			  //DAY 2 WEATHER
 			  //TEMP
@@ -376,7 +311,7 @@
 			  var day2sunset = xmlDocument.getElementsByTagName("sunset")['2'].childNodes['0'].nodeValue;
 			  //TIME/DATE
 			  var day2Date = xmlDocument.getElementsByTagName("date")['2'].childNodes['0'].nodeValue;
-			  //DAY 2 WEATHER
+			  //DAY 2
 			  
 			  //DAY 3 WEATHER
 			  //TEMP
@@ -398,106 +333,13 @@
 			  var day3sunset = xmlDocument.getElementsByTagName("sunset")['3'].childNodes['0'].nodeValue;
 			  //TIME/DATE
 			  var day3Date = xmlDocument.getElementsByTagName("date")['3'].childNodes['0'].nodeValue;
-			  //DAY 3 WEATHER
-			  
-			  //Shows user their local tides
-			  tideInfo.innerHTML = date + " - " + userHour + ":" + userMin +"</br>" + tideType0 + " - " + tideTime0 + "</br>" + tideType1 + " - " + tideTime1 + "</br>" + tideType2 + " - " + tideTime2 + "</br>" + tideType3 + " - " + tideTime3;
-			  
-			  //Shows user their local weather
-			  //DAY0
-			  day0Weather0.innerHTML = "12am: " + tempC0 + "°C - " + conditions0;
-			  day0Weather6.innerHTML = "6am: " + tempC6 + "°C - " + conditions6;
-			  day0Weather9.innerHTML = "9am: " + tempC9 + "°C - " + conditions9;
-			  day0Weather12.innerHTML = "12pm: " + tempC12 + "°C - " + conditions12;
-			  day0Weather15.innerHTML = "3pm: " + tempC15 + "°C - " + conditions15;
-			  day0Weather21.innerHTML = "9pm: " + tempC21 + "°C - " + conditions21;
-			  day0Sunrise.innerHTML = "Sunrise: " + sunrise0;
-			  day0Sunset.innerHTML = "Sunset: " + sunset0;
-			  //
-			  //DAY1
-			  //day1DateDisp.innerHTML = day1Date;
-			  day1Weather0.innerHTML = "12am: " + day1tempC0 + "°C - " + day1conditions0;
-			  day1Weather6.innerHTML = "6am: " + day1tempC6 + "°C - " + day1conditions6;
-			  day1Weather9.innerHTML = "9am: " + day1tempC9 + "°C - " + day1conditions9;
-			  day1Weather12.innerHTML = "12pm: " + day1tempC12 + "°C - " + day1conditions12;
-			  day1Weather15.innerHTML = "3pm: " + day1tempC15 + "°C - " + day1conditions15;
-			  day1Weather21.innerHTML = "9pm: " + day1tempC21 + "°C - " + day1conditions21;
-			  day1Sunrise.innerHTML = "Sunrise: " + day1sunrise;
-			  day1Sunset.innerHTML = "Sunset: " + day1sunset;
-			  //
-			  //DAY2
-			  day2DateDisp.innerHTML = day2Date  + "'s Weather";
-			  day2Weather0.innerHTML = "12am: " + day2tempC0 + "°C - " + day2conditions0;
-			  day2Weather6.innerHTML = "6am: " + day2tempC6 + "°C - " + day2conditions6;
-			  day2Weather9.innerHTML = "9am: " + day2tempC9 + "°C - " + day2conditions9;
-			  day2Weather12.innerHTML = "12pm: " + day2tempC12 + "°C - " + day2conditions12;
-			  day2Weather15.innerHTML = "3pm: " + day2tempC15 + "°C - " + day2conditions15;
-			  day2Weather21.innerHTML = "9pm: " + day2tempC21 + "°C - " + day2conditions21;
-			  day2Sunrise.innerHTML = "Sunrise: " + day2sunrise;
-			  day2Sunset.innerHTML = "Sunset: " + day2sunset;
-			  //
-			  //DAY3
-			  day3DateDisp.innerHTML = day3Date  + "'s Weather";
-			  day3Weather0.innerHTML = "12am: " + day3tempC0 + "°C - " + day3conditions0;
-			  day3Weather6.innerHTML = "6am: " + day3tempC6 + "°C - " + day3conditions6;
-			  day3Weather9.innerHTML = "9am: " + day3tempC9 + "°C - " + day3conditions9;
-			  day3Weather12.innerHTML = "12pm: " + day3tempC12 + "°C - " + day3conditions12;
-			  day3Weather15.innerHTML = "3pm: " + day3tempC15 + "°C - " + day3conditions15;
-			  day3Weather21.innerHTML = "9pm: " + day3tempC21 + "°C - " + day3conditions21;
-			  day3Sunrise.innerHTML = "Sunrise: " + day3sunrise;
-			  day3Sunset.innerHTML = "Sunset: " + day3sunset;
-			  //
-			  
-			  //CHANGING TIDE IMG
-			  if ((userHour <= tideHour5 && userMin <= tideMin5) && (userHour <= tideHour0 && userMin <= tideMin0)) {
-				  if (tideType0 == "HIGH") {
-					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/high.png)";
-				  }
-				  else {
-					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/low.png)";
-				  }
-			  }
-			  else if ((userHour >= tideHour0 && userMin >= tideMin0) && (userHour <= tideHour1 && userMin <= tideMin1)) {
-				  if (tideType1 == "HIGH") {
-					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/high.png)";
-				  }
-				  else {
-					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/low.png)";
-				  }
+			  //DAY 3 
 				
-			  }
-			  else if ((userHour >= tideHour1 && userMin >= tideMin1) && (userHour <= tideHour2 && userMin <= tideMin2)) {
-				  if (tideType2 == "HIGH") {
-					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/high.png)";
-				  }
-				  else {
-					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/low.png)";
-				  }
-				  
-			  }
-			  else if ((userHour >= tideHour2 && userMin >= tideMin2) && (userHour <= tideHour3 && userMin <= tideMin3)) {
-				  if (tideType3 == "HIGH") {
-					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/high.png)";
-				  }
-				  else {
-					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/low.png)";
-				  }
-				  
-			  }
-			  else if ((userHour >= tideHour3 && userMin >= tideMin3) && (userHour <= tideHour4 && userMin <= tideMin4)) {
-				  if (tideType4 == "HIGH") {
-					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/high.png)";
-				  }
-				  else {
-					  document.getElementById("slider-tideHeight").style.backgroundImage="url(img/low.png)";
-				  }
-				  
-			  }
-			};
-			//
-			
+			  //SHOWS DETAILS
 			// onError Callback receives a PositionError object
 			//
+			};
+			
 			function onError(error) {
 			  alert('Error Code: '    + error.code    + '\n' +
 					'Error Message: ' + error.message + '\n');
@@ -506,5 +348,5 @@
 			navigator.geolocation.getCurrentPosition(onSuccess, onError);
 			
         </script>
-    </body>
+</body>
 </html>

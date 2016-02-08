@@ -9,8 +9,14 @@ if (s.params.mousewheelControl) {
     try {
         new window.WheelEvent('wheel');
         s.mousewheel.event = 'wheel';
-    } catch (e) {}
+    } catch (e) {
+        if (window.WheelEvent || (s.container[0] && 'wheel' in s.container[0])) {
+            s.mousewheel.event = 'wheel';
+        }
+    }
+    if (!s.mousewheel.event && window.WheelEvent) {
 
+    }
     if (!s.mousewheel.event && document.onmousewheel !== undefined) {
         s.mousewheel.event = 'mousewheel';
     }
@@ -23,12 +29,11 @@ function handleMousewheel(e) {
     var we = s.mousewheel.event;
     var delta = 0;
     var rtlFactor = s.rtl ? -1 : 1;
-    //Opera & IE
-    if (e.detail) delta = -e.detail;
+
     //WebKits
-    else if (we === 'mousewheel') {
+    if (we === 'mousewheel') {
         if (s.params.mousewheelForceToAxis) {
-            if (isH()) {
+            if (s.isHorizontal()) {
                 if (Math.abs(e.wheelDeltaX) > Math.abs(e.wheelDeltaY)) delta = e.wheelDeltaX * rtlFactor;
                 else return;
             }
@@ -46,7 +51,7 @@ function handleMousewheel(e) {
     //New FireFox
     else if (we === 'wheel') {
         if (s.params.mousewheelForceToAxis) {
-            if (isH()) {
+            if (s.isHorizontal()) {
                 if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) delta = -e.deltaX * rtlFactor;
                 else return;
             }
@@ -100,6 +105,11 @@ function handleMousewheel(e) {
             s.mousewheel.timeout = setTimeout(function () {
                 s.slideReset();
             }, 300);
+        }
+        else {
+            if (s.params.lazyLoading && s.lazy) {
+                s.lazy.load();
+            }
         }
 
         // Return page scroll on edge positions
