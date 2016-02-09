@@ -531,6 +531,7 @@ transform:rotate(360deg)
 	height: 20%;
 	color: #969696;
 	text-align:center;
+	font-size: 4.5vmin;
 }
 .overviewTemp {
 	postition: fixed;
@@ -588,19 +589,24 @@ transform:rotate(360deg)
 }
 .overviewTideType {
 	transform: rotate(90deg);
-	transform-origin: bottom left;
+	transform-origin: center left;
 	float: left;
 	width: 10%;
+	margin-left: 2%;
 }
 .overviewTideTime {
-	width: 45%;
+	width: 44%;
 	height: 100%;
 	float: left;
+	line-height: 190%;
+	font-size: 2em;
 }
 .overviewTideHeight {
-	width: 45%;
+	width: 44%;
 	height: 100%;
 	float: left;
+	line-height: 190%;
+	font-size: 2em;
 }
 .todayHeader {
 	postition: absolute;
@@ -631,9 +637,10 @@ transform:rotate(360deg)
 }
 .todayTime {
 	transform: rotate(90deg);
-	transform-origin: bottom left;
+	transform-origin: center left;
 	float: left;
 	width: 10%;
+	margin-left: 2%;
 }
 .forecastHeader {
 	postition: absolute;

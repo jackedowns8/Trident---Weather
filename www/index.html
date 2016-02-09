@@ -38,32 +38,32 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <div class="overviewButtonSettings"><img src="image/settings.png" alt="settings"/></div>
+              <div class="overviewButtonSettings"><a href="settings.html"><img src="image/settings.png" alt="settings"/></a></div>
               <div class="overviewTemp"><img src="image/temp20.png" alt="temp"/></div>
-              <div class="overviewButtonInfo"><img src="image/info.png" alt="info"/></div>
+              <div class="overviewButtonInfo"><a href="about.html"><img src="image/info.png" alt="info"/></a></div>
               <div class="overviewWeather"><img src="image/rain.png" alt="rain"/></div>
-              <div class="overviewWind"><img src="image/N.png" alt="windDirection"/></div>
-              <div class="overviewButtonSearch"><img src="image/search.png" alt="search"/></div>
-              <div class="overviewLocation" id="overviewLocation">Auckland, New Zealand</div>
-              <div class="overviewButtonRefresh"><img src="image/refresh.png" alt="refresh"/></div>
+              <div class="overviewWind" id="overviewWindDirection"><img src="image/N.png" alt="windDirection"/></div>
+              <div class="overviewButtonSearch"><a href="search.html"><img src="image/search.png" alt="search"/></a></div>
+              <div class="overviewLocation" id="overviewLocation">Loading Location...</div>
+              <div class="overviewButtonRefresh"><a href="index.html"><img src="image/refresh.png" alt="refresh"/></a></div>
               <div class="overviewTides">
                 <div class="overviewTide0">
-                  <div class="overviewTideType">HIGH</div>
+                  <div class="overviewTideType" id="overviewTideType0">null</div>
                   <div class="overviewTideTime" id="overviewTideTime0">12:00am</div>
                   <div class="overviewTideHeight" id="overviewTideHeight0">2.5m</div>
                 </div>
                 <div class="overviewTide1">
-                  <div class="overviewTideType" >LOW</div>
+                  <div class="overviewTideType" id="overviewTideType1">null</div>
                   <div class="overviewTideTime" id="overviewTideTime1">12:00am</div>
                   <div class="overviewTideHeight" id="overviewTideHeight1">2.5m</div>
                 </div>
                 <div class="overviewTide0">
-                  <div class="overviewTideType">HIGH</div>
+                  <div class="overviewTideType" id="overviewTideType2">null</div>
                   <div class="overviewTideTime" id="overviewTideTime2">12:00am</div>
                   <div class="overviewTideHeight" id="overviewTideHeight2">2.5m</div>
                 </div>
                 <div class="overviewTide1">
-                  <div class="overviewTideType">LOW</div>
+                  <div class="overviewTideType" id="overviewTideType3">null</div>
                   <div class="overviewTideTime" id="overviewTideTime3">12:00am</div>
                   <div class="overviewTideHeight" id="overviewTideHeight3">2.5m</div>
                 </div>
@@ -141,15 +141,27 @@
     <script type="text/javascript">
             app.initialize();
 			var overviewLocation = document.getElementById('overviewLocation');
+			var overviewTideTime0 = document.getElementById('overviewTideTime0');
+			var overviewTideTime1 = document.getElementById('overviewTideTime1');
+			var overviewTideTime2 = document.getElementById('overviewTideTime2');
+			var overviewTideTime3 = document.getElementById('overviewTideTime3');
+			var overviewTideHeight0 = document.getElementById('overviewTideHeight0');
+			var overviewTideHeight1 = document.getElementById('overviewTideHeight1');
+			var overviewTideHeight2 = document.getElementById('overviewTideHeight2');
+			var overviewTideHeight3 = document.getElementById('overviewTideHeight3');
+			var overviewTideType0 = document.getElementById('overviewTideType0');
+			var overviewTideType1 = document.getElementById('overviewTideType1');
+			var overviewTideType2 = document.getElementById('overviewTideType2');
+			var overviewTideType3 = document.getElementById('overviewTideType3');
+			var overviewWindDirection = document.getElementById('overviewWindDirection');
+			
+			//TEST
+			var overviewTime = document.getElementById('overviewTime');
 			
 			//Get User Date + Time
 			var currentTime = new Date();
 			var hour = currentTime.getHours();
 			var minutes = currentTime.getMinutes();
-			
-			if (hour > 12) {
-				hour = hour - 12;	
-			}
 
 			if (minutes < "10") {
     			minutes = "0" + minutes;
@@ -175,35 +187,36 @@
 			  xhr.send();
 			  
 			  //GeocodeAPI
-			  var geocode = newXMLHttpRequest("GET", "https://maps.googleapis.com/maps/api/geocode/xml?latlng="+coordinates+"&key=AIzaSyDN4qy3o977iZtq5ImLMrtl8z18cikKJJU");
-			  geocode.setRequestHeader('ContentType', 'text/xml');
+			  var geocode = new XMLHttpRequest();
+			  geocode.open("GET", "https://maps.googleapis.com/maps/api/geocode/xml?latlng="+coordinates+"&key=AIzaSyDN4qy3o977iZtq5ImLMrtl8z18cikKJJU", false);
+			  //geocode.setRequestHeader('Content-Type', 'text/xml');
 			  geocode.send();
 			  
 			  //Location
 			  xmlDocument = geocode.responseXML;
-			  var location = xmlDocument.getElementsByTagName("formatted_address")['0'].childNodes['0'].nodeValue;
+			  var location = xmlDocument.getElementsByTagName("formatted_address")['2'].childNodes['0'].nodeValue;
 			  //Show User Their Location
-			  overviewLocation.innerHTML = location;
+			  overviewLocation.innerHTML = localStorage.savedLocation;
+			  localStorage.savedLocation = location;
+			  overviewLocation.innerHTML = localStorage.savedLocation;
 			
 			  xmlDocument = xhr.responseXML;
 			  //TIDEINFO
+			  //Day0 (Today)
 			  var tideType0 = xmlDocument.getElementsByTagName("tide_type")['0'].childNodes['0'].nodeValue;
 			  var tideType1 = xmlDocument.getElementsByTagName("tide_type")['1'].childNodes['0'].nodeValue;
 			  var tideType2 = xmlDocument.getElementsByTagName("tide_type")['2'].childNodes['0'].nodeValue;
 			  var tideType3 = xmlDocument.getElementsByTagName("tide_type")['3'].childNodes['0'].nodeValue;
-			  //Next Day
-			  var tideType4 = xmlDocument.getElementsByTagName("tide_type")['4'].childNodes['0'].nodeValue;
-			  var tideType5 = xmlDocument.getElementsByTagName("tide_type")['5'].childNodes['0'].nodeValue;
-			  //
+	
 			  var tideTime0 = xmlDocument.getElementsByTagName("tideTime")['0'].childNodes['0'].nodeValue;
 			  var tideTime1 = xmlDocument.getElementsByTagName("tideTime")['1'].childNodes['0'].nodeValue;
 			  var tideTime2 = xmlDocument.getElementsByTagName("tideTime")['2'].childNodes['0'].nodeValue;
 			  var tideTime3 = xmlDocument.getElementsByTagName("tideTime")['3'].childNodes['0'].nodeValue;
-			  //Next Day
-			  var tideTime4 = xmlDocument.getElementsByTagName("tideTime")['4'].childNodes['0'].nodeValue;
-			  var tideTime5 = xmlDocument.getElementsByTagName("tideTime")['5'].childNodes['0'].nodeValue;
-			  //
-			  var tideHeight = xmlDocument.getElementsByTagName("tideHeight_mt")['0'].childNodes['0'].nodeValue;
+			  
+			  var tideHeight0 = xmlDocument.getElementsByTagName("tideHeight_mt")['0'].childNodes['0'].nodeValue;
+			  var tideHeight1 = xmlDocument.getElementsByTagName("tideHeight_mt")['1'].childNodes['0'].nodeValue;
+			  var tideHeight2 = xmlDocument.getElementsByTagName("tideHeight_mt")['2'].childNodes['0'].nodeValue;
+			  var tideHeight3 = xmlDocument.getElementsByTagName("tideHeight_mt")['3'].childNodes['0'].nodeValue;
 			  var date = xmlDocument.getElementsByTagName("date")['0'].childNodes['0'].nodeValue;
 			  
 			  if (tideTime0.length == 7) {
@@ -242,26 +255,41 @@
 				var tideMin3 = tideTime3.charAt(3 + 4).toString();
 			  }
 			  
-			  if (tideTime4.length == 7) {
-				var tideHour4 = tideTime4.charAt(0).toString();
-				var tideMin4 = tideTime4.charAt(2 + 3).toString();
-			  }
-			  else {
-				var tideHour4 = tideTime4.charAt(0 + 1).toString();
-				var tideMin4 = tideTime4.charAt(3 + 4).toString();
-			  }
+			  //if (tideTime4.length == 7) {
+				//var tideHour4 = tideTime4.charAt(0).toString();
+				//var tideMin4 = tideTime4.charAt(2 + 3).toString();
+			  //}
+			  //else {
+				//var tideHour4 = tideTime4.charAt(0 + 1).toString();
+				//var tideMin4 = tideTime4.charAt(3 + 4).toString();
+			  //}
 			  
-			  if (tideTime5.length == 7) {
-				var tideHour5 = tideTime5.charAt(0).toString();
-				var tideMin5 = tideTime5.charAt(2 + 3).toString();
-			  }
-			  else {
-				var tideHour5 = tideTime5.charAt(0 + 1).toString();
-				var tideMin5 = tideTime5.charAt(3 + 4).toString();
-			  }
+			  //if (tideTime5.length == 7) {
+				//var tideHour5 = tideTime5.charAt(0).toString();
+				//var tideMin5 = tideTime5.charAt(2 + 3).toString();
+			  //}
+			  //else {
+				//var tideHour5 = tideTime5.charAt(0 + 1).toString();
+				//var tideMin5 = tideTime5.charAt(3 + 4).toString();
+			  //}
 			  //
 			  
-			  //day0 WEATHER
+			  //TIME
+			  var time0 = xmlDocument.getElementsByTagName("time")['0'].childNodes['0'].nodeValue;
+			  var time6 = xmlDocument.getElementsByTagName("time")['2'].childNodes['0'].nodeValue;
+			  var time9 = xmlDocument.getElementsByTagName("time")['3'].childNodes['0'].nodeValue; 
+			  var time12 = xmlDocument.getElementsByTagName("time")['4'].childNodes['0'].nodeValue;
+			  var time15 = xmlDocument.getElementsByTagName("time")['5'].childNodes['0'].nodeValue;
+			  var time21 = xmlDocument.getElementsByTagName("time")['7'].childNodes['0'].nodeValue;
+			  
+			  //DAY0 WEATHER
+			  //WIND
+			  var overviewWindDirection0 = xmlDocument.getElementsByTagName("winddir16Point")['0'].childNodes['0'].nodeValue;
+			  var overviewWindDirection6 = xmlDocument.getElementsByTagName("winddir16Point")['2'].childNodes['0'].nodeValue;
+			  var overviewWindDirection9 = xmlDocument.getElementsByTagName("winddir16Point")['3'].childNodes['0'].nodeValue;
+			  var overviewWindDirection12 = xmlDocument.getElementsByTagName("winddir16Point")['4'].childNodes['0'].nodeValue;
+			  var overviewWindDirection15 = xmlDocument.getElementsByTagName("winddir16Point")['5'].childNodes['0'].nodeValue;
+			  var overviewWindDirection21 = xmlDocument.getElementsByTagName("winddir16Point")['7'].childNodes['0'].nodeValue;
 			  //TEMP
 			  var tempC0 = xmlDocument.getElementsByTagName("tempC")['0'].childNodes['0'].nodeValue;
 			  var tempC6 = xmlDocument.getElementsByTagName("tempC")['2'].childNodes['0'].nodeValue;
@@ -346,6 +374,40 @@
 			  //TIME/DATE
 			  var day3Date = xmlDocument.getElementsByTagName("date")['3'].childNodes['0'].nodeValue;
 			  //DAY 3
+			  
+			  overviewTideType0.innerHTML = tideType0;
+			  overviewTideType1.innerHTML = tideType1;
+			  overviewTideType2.innerHTML = tideType2;
+			  overviewTideType3.innerHTML = tideType3;
+			  
+			  overviewTideTime0.innerHTML = tideTime0;
+			  overviewTideTime1.innerHTML = tideTime1;
+			  overviewTideTime2.innerHTML = tideTime2;
+			  overviewTideTime3.innerHTML = tideTime3;
+			  
+			  overviewTideHeight0.innerHTML = tideHeight0 + "m";
+			  overviewTideHeight1.innerHTML = tideHeight1 + "m";
+			  overviewTideHeight2.innerHTML = tideHeight2 + "m";
+			  overviewTideHeight3.innerHTML = tideHeight3 + "m";
+			  
+			  if (userHour >= 0 && userHour < 6) {
+				overviewWindDirection.innerHTML = '<img src="image/' + overviewWindDirection0 + '.png" alt="windDirection"/>';
+			  }
+			  else if (userHour >= 6 && userHour < 9) {
+				overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection6+'.png" alt="windDirection"/>';
+			  }
+			  else if (userHour >= 9 && userHour < 12) {
+				overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection9+'.png" alt="windDirection"/>';
+			  }
+			  else if (userHour >= 12 && userHour < 15) {
+				overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection12+'.png" alt="windDirection"/>';
+			  }
+			  else if (userHour >= 15 && userHour < 21) {
+				overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection15+'.png" alt="windDirection"/>';
+			  }
+			  else if (userHour >= 21) {
+				overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection21+'.png" alt="windDirection"/>';
+			  }
 			  
 			  //SHOWS DETAILS
 			// onError Callback receives a PositionError object
