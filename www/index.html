@@ -95,7 +95,7 @@
             <div class="swiper-slide">
               <div class="forecastHeader">Forecast</div>
               <div class="forecastDay0">
-              	<div class="dayOfWeek">Day0</div>
+              	<div class="dayOfWeek">Day1</div>
                 <div class="weatherCondition" id="day0Conditions"><img src="image/sunny.png" alt="sunny"/></div>
                 <div class="weatherTemp" id="day0Temp">21°C</div>
                 <div class="weatherTides" id="day0Tides">
@@ -107,16 +107,28 @@
                 <div class="arrow"><a href="forecastInfo.html"><img src="image/navArrow.png" alt="navArrow"/></a></div>
               </div>
               <div class="forecastDay1">
-              	<div class="dayOfWeek">Day1</div>
-              </div>
-              <div class="forecastDay0">
               	<div class="dayOfWeek">Day2</div>
-              </div>
-              <div class="forecastDay1">
-                <div class="dayOfWeek">Day3</div>
+                <div class="weatherCondition" id="day0Conditions"><img src="image/sunny.png" alt="sunny"/></div>
+                <div class="weatherTemp" id="day0Temp">21°C</div>
+                <div class="weatherTides" id="day0Tides">
+                H: 12:01am</br>
+                L: 6:02am</br>
+                H: 12:48pm</br>
+                L: 8:32pm
+                </div>
+                <div class="arrow"><a href="forecastInfo.html"><img src="image/navArrow.png" alt="navArrow"/></a></div>
               </div>
               <div class="forecastDay0">
-              	<div class="dayOfWeek">Day4</div>
+              	<div class="dayOfWeek">Day3</div>
+                <div class="weatherCondition" id="day0Conditions"><img src="image/sunny.png" alt="sunny"/></div>
+                <div class="weatherTemp" id="day0Temp">21°C</div>
+                <div class="weatherTides" id="day0Tides">
+                H: 12:01am</br>
+                L: 6:02am</br>
+                H: 12:48pm</br>
+                L: 8:32pm
+                </div>
+                <div class="arrow"><a href="forecastInfo.html"><img src="image/navArrow.png" alt="navArrow"/></a></div>
               </div>
             </div>
         </div>
@@ -218,6 +230,7 @@
 			  var tideHeight1 = xmlDocument.getElementsByTagName("tideHeight_mt")['1'].childNodes['0'].nodeValue;
 			  var tideHeight2 = xmlDocument.getElementsByTagName("tideHeight_mt")['2'].childNodes['0'].nodeValue;
 			  var tideHeight3 = xmlDocument.getElementsByTagName("tideHeight_mt")['3'].childNodes['0'].nodeValue;
+			  
 			  var date = xmlDocument.getElementsByTagName("date")['0'].childNodes['0'].nodeValue;
 			  
 			  if (tideTime0.length == 7) {
@@ -315,6 +328,13 @@
 			  //SUNRISE/SET
 			  var sunrise0 = xmlDocument.getElementsByTagName("sunrise")['0'].childNodes['0'].nodeValue;
 			  var sunset0 = xmlDocument.getElementsByTagName("sunset")['0'].childNodes['0'].nodeValue;
+			  //SWELL
+			  var swellHeight0 = xmlDocument.getElementsByTagName("swellHeight_m")['0'].childNodes['0'].nodeValue;
+			  var swellHeight6 = xmlDocument.getElementsByTagName("swellHeight_m")['2'].childNodes['0'].nodeValue;
+			  var swellHeight9 = xmlDocument.getElementsByTagName("swellHeight_m")['3'].childNodes['0'].nodeValue;
+			  var swellHeight12 = xmlDocument.getElementsByTagName("swellHeight_m")['4'].childNodes['0'].nodeValue;
+			  var swellHeight15 = xmlDocument.getElementsByTagName("swellHeight_m")['5'].childNodes['0'].nodeValue;
+			  var swellHeight21 = xmlDocument.getElementsByTagName("swellHeight_m")['7'].childNodes['0'].nodeValue;
 			  //DAY 0
 			  
 			  //DAY 1 WEATHER
