@@ -11,20 +11,21 @@
 </head>
 <body>
 <!--<div id="loading">
-<img src="image/loading.gif" width="15%" height="15%" alt="loadingLocation"/>-->
-<div id="blur">
+<img src="image/loading.gif" width="15%" height="15%" alt="loadingLocation"/>
+<div id="blur">-->
     <!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="overviewButtonSettings"><a href="settings.html"><img src="image/settings.png" alt="settings"/></a></div>
-              <div class="overviewTemp" id="overviewTemp"></div>
+              <div class="overviewTemp" id="overviewTemp">120</div>
               <div class="overviewButtonInfo"><a href="about.html"><img src="image/info.png" alt="info"/></a></div>
               <div class="overviewWeather" id="overviewWeather"><img src="image/sunny.png" alt="weatherType"/></div>
               <div class="overviewWind" id="overviewWindDirection"><img src="image/N.png" alt="windDirection"/></div>
               <div class="overviewButtonSearch"><a href="search.html"><img src="image/search.png" alt="search"/></a></div>
               <div class="overviewLocation" id="overviewLocation">Loading Location...</div>
               <div class="overviewButtonRefresh"><a href="index.html"><img src="image/refresh.png" alt="refresh"/></a></div>
+              <div class="overviewSun"><div class="overviewSunrise" id="overviewSunrise">12:00am</div><div class="overviewSunImg"><img src="image/sunriseSunset.png" alt="sunrise/set img"/></div><div class="overviewSunset" id="overviewSunset">12:00pm</div></div>
               <div class="overviewTides">
                 <div class="overviewTide0">
                   <div class="overviewTideType" id="overviewTideType0">null</div>
@@ -115,8 +116,8 @@
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
-    </div>
-    <!--</div>-->
+    <!--</div>
+    </div>-->
     </div>
     <!-- Swiper JS -->
     <script src="dist/js/swiper.min.js"></script>
@@ -150,6 +151,9 @@
 			var overviewTideType3 = document.getElementById('overviewTideType3');
 			var overviewWindDirection = document.getElementById('overviewWindDirection');
 			var overviewWeather = document.getElementById('overviewWeather');
+			var overviewTemp = document.getElementById('overviewTemp');
+			var overviewSunrise = document.getElementById('overviewSunrise');
+			var overviewSunset = document.getElementById('overviewSunset');
 			
 			//TEST
 			var overviewTime = document.getElementById('overviewTime');
@@ -309,8 +313,8 @@
 			  var weatherCode15 = xmlDocument.getElementsByTagName("weatherCode")['5'].childNodes['0'].nodeValue;
 			  var weatherCode21 = xmlDocument.getElementsByTagName("weatherCode")['7'].childNodes['0'].nodeValue;
 			  //SUNRISE/SET
-			  var sunrise0 = xmlDocument.getElementsByTagName("sunrise")['0'].childNodes['0'].nodeValue;
-			  var sunset0 = xmlDocument.getElementsByTagName("sunset")['0'].childNodes['0'].nodeValue;
+			  var sunrise = xmlDocument.getElementsByTagName("sunrise")['0'].childNodes['0'].nodeValue;
+			  var sunset = xmlDocument.getElementsByTagName("sunset")['0'].childNodes['0'].nodeValue;
 			  //SWELL
 			  var swellHeight0 = xmlDocument.getElementsByTagName("swellHeight_m")['0'].childNodes['0'].nodeValue;
 			  var swellHeight6 = xmlDocument.getElementsByTagName("swellHeight_m")['2'].childNodes['0'].nodeValue;
@@ -401,8 +405,14 @@
 			  overviewTideHeight2.innerHTML = tideHeight2 + "m";
 			  overviewTideHeight3.innerHTML = tideHeight3 + "m";
 			  
-			  if (userHour >= 0 && userHour < 6) {
+			  overviewSunrise.innerHTML = sunrise;
+			  overviewSunset.innerHTML = sunset;
+			  
+			  if (userHour >= 0 & userHour < 6) {
 				overviewWindDirection.innerHTML = '<img src="image/' + overviewWindDirection0 + '.png" alt="windDirection"/>';
+				//
+				//Weather Picture
+				//
 				if (weatherCode0 == 113) {
 				  //SUN
 				  overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
@@ -430,10 +440,37 @@
 				else {
 					//SNOW
 					overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
-				}	
+				}
+				//
+				//Temprature
+				//
+				if (tempC0 < 0) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
+				}
+				else if (tempC0 >= 0 & tempC0 < 5) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
+				}
+				else if (tempC0 >= 5 & tempC0 < 10) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
+				}
+				else if (tempC0 >= 10 & tempC0 < 15) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
+				}
+				else if (tempC0 >= 15 & tempC0 < 20) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
+				}
+				else if (tempC0 >= 20 & tempC0 < 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
+				}
+				else if (tempC0 >= 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
+				}
 			  }
-			  else if (userHour >= 6 && userHour < 9) {
+			  else if (userHour >= 6 & userHour < 9) {
 				overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection6+'.png" alt="windDirection"/>';
+				//
+				//Weather Picture
+				//
 				if (weatherCode6 == 113) {
 				  //SUN
 				  overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
@@ -454,7 +491,7 @@
 					//SHOWERS
 					overviewWeather.innerHTML = '<img src="image/showers.png" alt="showers"/>';
 				}
-				else if (weatherCod6 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				else if (weatherCode6 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
 					//STORM
 					overviewWeather.innerHTML = '<img src="image/storm.png" alt="storm"/>';
 				}
@@ -462,9 +499,36 @@
 					//SNOW
 					overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
 				}
+				//
+				//Temprature
+				//
+				if (tempC6 < 0) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
+				}
+				else if (tempC6 >= 0 & tempC6 < 5) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
+				}
+				else if (tempC6 >= 5 & tempC6 < 10) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
+				}
+				else if (tempC6 >= 10 & tempC6 < 15) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
+				}
+				else if (tempC6 >= 15 & tempC6<20) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
+				}
+				else if (tempC6 >= 20 & tempC6<25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
+				}
+				else if (tempC6 >= 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
+				}
 			  }
-			  else if (userHour >= 9 && userHour < 12) {
+			  else if (userHour >= 9 & userHour < 12) {
 				overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection9+'.png" alt="windDirection"/>';
+				//
+				//Weather Picture
+				//
 				if (weatherCode9 == 113) {
 				  //SUN
 				  overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
@@ -493,9 +557,36 @@
 					//SNOW
 					overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
 				}
+				//
+				//Temprature
+				//
+				if (tempC9 < 0) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
+				}
+				else if (tempC9 >= 0 & tempC9 < 5) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
+				}
+				else if (tempC9 >= 5 & tempC9 < 10) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
+				}
+				else if (tempC9 >= 10 & tempC9 < 15) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
+				}
+				else if (tempC9 >= 15 & tempC9 < 20) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
+				}
+				else if (tempC9 >= 20 & tempC9 < 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
+				}
+				else if (tempC9 >= 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
+				}			
 			  }
-			  else if (userHour >= 12 && userHour < 15) {
+			  else if (userHour >= 12 & userHour < 15) {
 				overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection12+'.png" alt="windDirection"/>';
+				//
+				//Weather Picture
+				//
 				if (weatherCode12 == 113) {
 				  //SUN
 				  overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
@@ -524,9 +615,38 @@
 					//SNOW
 					overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
 				}
+				//
+				//Temprature
+				//
+				overviewTemp.innerHTML = tempC12 + "°C";
+				//
+				if (tempC12 < 0) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
+				}
+				else if (tempC12 >= 0 & tempC12 < 5) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
+				}
+				else if (tempC12 >= 5 & tempC12 < 10) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
+				}
+				else if (tempC12 >= 10 & tempC12 < 15) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
+				}
+				else if (tempC12 >= 15 & tempC12 < 20) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
+				}
+				else if (tempC12 >= 20 & tempC12 < 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
+				}
+				else if (tempC12 >= 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
+				}
 			  }
-			  else if (userHour >= 15 && userHour < 21) {
+			  else if (userHour >= 15 & userHour < 21) {
 				overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection15+'.png" alt="windDirection"/>';
+				//
+				//Weather Picture
+				//
 				if (weatherCode15 == 113) {
 				  //SUN
 				  overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
@@ -555,9 +675,38 @@
 					//SNOW
 					overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
 				}
+				//
+				//Temprature
+				//
+				overviewTemp.innerHTML = tempC15 + "°C";
+				//
+				if (tempC15 < 0) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
+				}
+				else if (tempC15 >= 0 && tempC15 < 5) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
+				}
+				else if (tempC15 >= 5 && tempC15 < 10) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
+				}
+				else if (tempC15 >= 10 && tempC15 < 15) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
+				}
+				else if (tempC15 >= 15 && tempC15 < 20) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
+				}
+				else if (tempC15 >= 20 && tempC15 < 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
+				}
+				else if (tempC15 >= 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
+				}
 			  }
 			  else if (userHour >= 21) {
 				overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection21+'.png" alt="windDirection"/>';
+				//
+				//Weather Picture
+				//
 				if (weatherCode21 == 113) {
 				  //SUN
 				  overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
@@ -585,6 +734,32 @@
 				else {
 					//SNOW
 					overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
+				}
+				//
+				//Temprature
+				//
+				overviewTemp.innerHTML = tempC21 + "°C";
+				//
+				if (tempC21 < 0) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
+				}
+				else if (tempC21 >= 0 && tempC21 < 5) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
+				}
+				else if (tempC21 >= 5 && tempC21 < 10) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
+				}
+				else if (tempC21 >= 10 && tempC21 < 15) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
+				}
+				else if (tempC21 >= 15 && tempC21 < 20) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
+				}
+				else if (tempC21 >= 20 && tempC21 < 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
+				}
+				else if (tempC21 >= 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
 				}
 			  }
 			  

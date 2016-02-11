@@ -562,17 +562,51 @@ transform:rotate(360deg)
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: 2.5em;
 	text-align: center;
-	margin: auto; 
+	margin: auto;
+	background-image: url(../../image/temp10.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top center;
 }
 .overviewTemp img {
 	max-height: 100%;
 	max-width: 100%;	
 }
+.overviewSun {
+	position: fixed;
+	bottom: 45%;
+	width: 100%;
+	height: 6%;
+	background-color: #cccccc;
+}
+.overviewSunImg {
+	float: left;	
+	width: 33.33%;
+	padding-top: 1%;
+}
+.overviewSun img {
+	max-height: 100%;
+	max-width: 45%;
+}
+.overviewSunrise {
+	float: left;
+	width: 33.33%;
+	height: 100%;
+	line-height: 190%;
+	text-align: right;
+}
+.overviewSunset {
+	float: left;
+	width: 33.33%;
+	height: 100%;
+	line-height: 190%;
+	text-align: left;
+}
 .overviewTides {
 	position: fixed;
 	bottom: 5%;
 	width: 100%;
-	height: 45%;
+	height: 40%;
 }
 .overviewWeather {
 	position: fixed;
@@ -614,19 +648,20 @@ transform:rotate(360deg)
 	float: left;
 	width: 10%;
 	margin-left: 2%;
+	line-height: 50%;
 }
 .overviewTideTime {
 	width: 44%;
 	height: 100%;
 	float: left;
-	line-height: 190%;
+	line-height: 175%;
 	font-size: 2em;
 }
 .overviewTideHeight {
 	width: 44%;
 	height: 100%;
 	float: left;
-	line-height: 190%;
+	line-height: 175%;
 	font-size: 2em;
 }
 .todayHeader {
@@ -824,7 +859,7 @@ forecastSubHeader {
     right: 0;
     bottom: 0;
     opacity: 0.5;
-
+	
     filter: blur(10px);
     -webkit-filter: blur(10px);
     -moz-filter: blur(10px);
