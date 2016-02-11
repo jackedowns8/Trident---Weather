@@ -14,6 +14,27 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:700,700italic,400italic,400,100italic,100,300);
 
+html, body {
+	position: relative;
+	height: 100%;
+}
+body {
+	background: #e6e6e6;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 14px;
+	color:#000;
+	margin: 0;
+	padding: 0;
+}
+.swiper-container {
+	width: 100%;
+	height: 100%;
+}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #e6e6e6;
+}
 .swiper-container {
 	margin: 0 auto;
 	position: relative;
@@ -795,4 +816,24 @@ forecastSubHeader {
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
+}
+#blur {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='svgMask'><feGaussianBlur stdDeviation='10' /></filter></svg>#svgMask");
+}
+#loading {
+	position: relative;
+	left: 50%;
+	bottom: 50%;
 }
