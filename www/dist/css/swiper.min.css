@@ -185,7 +185,8 @@ body {
 	z-index: 10;
 	background-color: #b6b6b6;
 	width: 100%;
-	height: 5%;
+	padding-top: 1.75%;
+	padding-bottom: 1.75%;
 }
 .swiper-pagination.swiper-pagination-hidden {
 	opacity: 0
@@ -560,7 +561,8 @@ transform:rotate(360deg)
 	width: 60%;
 	height: 25%;
 	font-family: 'Josefin Sans', sans-serif;
-	font-size: 2.5em;
+	padding-top: 2.5%;
+	font-size: 10.5vmin;
 	text-align: center;
 	margin: auto;
 	background-image: url(../../image/temp10.png);
@@ -592,15 +594,17 @@ transform:rotate(360deg)
 	float: left;
 	width: 33.33%;
 	height: 100%;
-	line-height: 190%;
+	line-height: 200%;
 	text-align: right;
+	font-size: 5vmin;
 }
 .overviewSunset {
 	float: left;
 	width: 33.33%;
 	height: 100%;
-	line-height: 190%;
+	line-height: 200%;
 	text-align: left;
+	font-size: 5vmin;
 }
 .overviewTides {
 	position: fixed;
@@ -636,11 +640,13 @@ transform:rotate(360deg)
 	width: 100%;
 	height: 25%;
 	background-color: #d7d7d7;
+	font-size: 4.5vmin;
 }
 .overviewTide1 {
 	width: 100%;
 	height: 25%;
 	background-color: #ebebeb;
+	font-size: 4.5vmin;
 }
 .overviewTideType {
 	transform: rotate(90deg);
@@ -648,20 +654,20 @@ transform:rotate(360deg)
 	float: left;
 	width: 10%;
 	margin-left: 2%;
-	line-height: 50%;
+	line-height: 100%;
 }
 .overviewTideTime {
 	width: 44%;
 	height: 100%;
 	float: left;
-	line-height: 175%;
+	line-height: 200%;
 	font-size: 2em;
 }
 .overviewTideHeight {
 	width: 44%;
 	height: 100%;
 	float: left;
-	line-height: 175%;
+	line-height: 200%;
 	font-size: 2em;
 }
 .todayHeader {
@@ -669,11 +675,11 @@ transform:rotate(360deg)
 	width: 100%;
 	height: 10%;
 	font-family: 'Josefin Sans', sans-serif;
-	font-size: 2.5em;
 	text-align: center;
 	vertical-align: middle;
 	line-height: 1.4; 
 	background-color: rgb(235, 235, 235);
+	font-size: 12.5vmin;
 }
 .today0 {
 	width: 100%;
@@ -682,6 +688,7 @@ transform:rotate(360deg)
 	font-family: 'Josefin Sans', sans-serif;
 	vertical-align: central;
 	text-align: center;
+	font-size: 4.5vmin;
 }
 .today1 {
 	width: 100%;
@@ -690,6 +697,7 @@ transform:rotate(360deg)
 	font-family: 'Josefin Sans', sans-serif;
 	vertical-align: central;
 	text-align: center;
+	font-size: 4.5vmin;
 }
 .todayTime {
 	transform: rotate(90deg);
@@ -697,6 +705,16 @@ transform:rotate(360deg)
 	float: left;
 	width: 10%;
 	margin-left: 2%;
+}
+.todayWeather {
+	float: left;
+	width: 20%;
+	height: 100%;
+}
+.todayWeather img {
+	max-height: 90%;
+	position: relative;
+	top: 5%;
 }
 .forecastHeader {
 	postition: absolute;

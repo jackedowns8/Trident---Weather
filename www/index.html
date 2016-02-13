@@ -18,7 +18,7 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="overviewButtonSettings"><a href="settings.html"><img src="image/settings.png" alt="settings"/></a></div>
-              <div class="overviewTemp" id="overviewTemp">120</div>
+              <div class="overviewTemp" id="overviewTemp">15°C</div>
               <div class="overviewButtonInfo"><a href="about.html"><img src="image/info.png" alt="info"/></a></div>
               <div class="overviewWeather" id="overviewWeather"><img src="image/sunny.png" alt="weatherType"/></div>
               <div class="overviewWind" id="overviewWindDirection"><img src="image/N.png" alt="windDirection"/></div>
@@ -444,6 +444,8 @@
 				//
 				//Temprature
 				//
+				overviewTemp.innerHTML = tempC0 + "°C";
+				//
 				if (tempC0 < 0) {
 					document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
 				}
@@ -502,6 +504,8 @@
 				//
 				//Temprature
 				//
+				overviewTemp.innerHTML = tempC6 + "°C";
+				//
 				if (tempC6 < 0) {
 					document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
 				}
@@ -559,6 +563,8 @@
 				}
 				//
 				//Temprature
+				//
+				overviewTemp.innerHTML = tempC9 + "°C";
 				//
 				if (tempC9 < 0) {
 					document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
