@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.myapp.sample" version="0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.myapp.sample" version="0.51" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Trident - Tides and Weather</name>
     <description>
         Tide and weather information for where you are, when you need it.
     </description>
-    <author email="jack@downsy.co.nz" href="http://downs.kiwi/">
-        Jack Downs
+    <author email="TridentAppDesign@gmail.com" href="http://downs.kiwi/">
+        Trident App Design
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
