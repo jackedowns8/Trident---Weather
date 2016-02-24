@@ -539,7 +539,7 @@ transform:rotate(360deg)
 	height: 5%;
 	float: left;
 	position: fixed;
-	bottom: 52.5%;
+	bottom: 48.5%;
 	right: 0;
 }
 .overviewButtonRefresh img {
@@ -548,7 +548,7 @@ transform:rotate(360deg)
 }
 .overviewLocation {
 	position: fixed;
-	top: 43.8%;
+	top: 48.8%;
 	width: 100%;
 	height: 20%;
 	color: #969696;
@@ -576,7 +576,7 @@ transform:rotate(360deg)
 }
 .overviewSun {
 	position: fixed;
-	bottom: 45%;
+	bottom: 40%;
 	width: 100%;
 	height: 6%;
 	background-color: #cccccc;
@@ -608,14 +608,33 @@ transform:rotate(360deg)
 }
 .overviewTides {
 	position: fixed;
-	bottom: 5%;
+	bottom: 0%;
 	width: 100%;
 	height: 40%;
 }
+.overviewWeatherWindLabel {
+	position: fixed;
+	top: 21%;
+	width: 100%;
+}
+.overviewWindLabel {
+	float: left;
+	width: 50%;
+	text-align: center;
+	font-size: 3.5vmin;
+	color: #969696;
+}
+.overviewWeatherLabel {
+	float: left;
+	width: 50%;
+	text-align: center;
+	font-size: 3.5vmin;
+	color: #969696;
+}
 .overviewWeather {
 	position: fixed;
-	top: 20%;
-	left: 10%;
+	top: 25%;
+	left: 5%;
 	width: 40%;
 	height: 20%;
 	float: left;
@@ -626,8 +645,8 @@ transform:rotate(360deg)
 }
 .overviewWind {
 	position: fixed;
-	top: 20%;
-	right: 10%;
+	top: 25%;
+	right: 5%;
 	width: 40%;
 	height: 20%;
 	float: left;
