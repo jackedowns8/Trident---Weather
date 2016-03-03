@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.tridentappdesign.weather" versionCode = "53" version="0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Trident - Weather</name>
+<widget id="com.tridentappdesign.weather" versionCode = "54" version="0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Trident - Weather (Beta)</name>
     <description>
         Tides and weather information for where you are, when you need it.
     </description>
@@ -18,19 +18,9 @@
     <preference name="ios-statusbarstyle" value="black-opaque" />
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
-    <preference name="show-splash-screen-spinner" value="true" />
-    <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="android-installLocation" value="auto" />
-	<preference name="SplashScreen" value="foo" />
-	<preference name="ShowSplashScreen" value="false" />
-	<preference name="ShowSplashScreenSpinner" value="true"/>
-	<preference name="SplashScreenBackgroundColor" value="#e6e6e6" />
-	<preference name="SplashScreenWidth" value="100%" />
-    <preference name="SplashScreenHeight" value="100%" />
-	<preference name="FadeSplashScreen" value="true"/>
-	<preference name="FadeSplashScreenDuration" value="3000"/>
     <!--<gap:plugin name="org.apache.cordova.battery-status" />-->
     <!--<gap:plugin name="org.apache.cordova.camera" />-->
     <!--<gap:plugin name="org.apache.cordova.media-capture" />-->
