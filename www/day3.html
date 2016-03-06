@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Trident</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="dist/css/swiper.min.css">
+
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            
+            <div class="swiper-slide">
+            	<div class="dayXHeader"><div class="dayXBack"><a href="index.html"><img src="image/backArrow.png" alt="backArrow"/></a></div><div class="dayXDay" id="date">day3</div></div>
+                <div class="today0">
+                	<div class="todayTime">12:00am</div>
+                    <div class="todayWeather" id="day3Weather0"><img src="image/sunny.png" alt="weatherType"/></div>
+                    <div class="todayTemp" id="day3Temp0">21</div>
+                    <div class="todayDetails">
+                    	<div id="day3WaterTemp0">WATER TEMP: <strong>15</strong></div>
+                        <div id="day3WindDir0">WIND DIR: <strong>NNE</strong></div>
+                        <div id="day3SwellHeight0">SWELL HEIGHT: <strong>0.8m</strong></div>
+                        <div id="day3SwellDir0">SWELL DIR: <strong>W</strong></div>
+                        <div id="day3SwellPer0">SWELL PER: <strong>12.5sec</strong></div>
+                    </div>
+                </div>
+                <div class="today1">
+                	<div class="todayTime">6:00am</div>
+                    <div class="todayWeather" id="day3Weather6"><img src="image/sunny.png" alt="weatherType"/></div>
+                    <div class="todayTemp" id="day3Temp6">21</div>
+                    <div class="todayDetails">
+                    	<div id="day3WaterTemp6">WATER TEMP: <strong>15</strong></div>
+                        <div id="day3WindDir6">WIND DIR: <strong>NNE</strong></div>
+                        <div id="day3SwellHeight6">SWELL HEIGHT: <strong>0.8m</strong></div>
+                        <div id="day3SwellDir6">SWELL DIR: <strong>W</strong></div>
+                        <div id="day3SwellPer6">SWELL PER: <strong>12.5sec</strong></div>
+                    </div>
+                </div>
+                <div class="today0">
+                	<div class="todayTime">9:00am</div>
+                    <div class="todayWeather" id="day3Weather9"><img src="image/sunny.png" alt="weatherType"/></div>
+                    <div class="todayTemp" id="day3Temp9">21</div>
+                    <div class="todayDetails">
+                    	<div id="day3WaterTemp9">WATER TEMP: <strong>15</strong></div>
+                        <div id="day3WindDir9">WIND DIR: <strong>NNE</strong></div>
+                        <div id="day3SwellHeight9">SWELL HEIGHT: <strong>0.8m</strong></div>
+                        <div id="day3SwellDir9">SWELL DIR: <strong>W</strong></div>
+                        <div id="day3SwellPer9">SWELL PER: <strong>12.5sec</strong></div>
+                    </div>
+                </div>
+                <div class="today1">
+                	<div class="todayTime">12:00pm</div>
+                    <div class="todayWeather" id="day3Weather12"><img src="image/sunny.png" alt="weatherType"/></div>
+                    <div class="todayTemp" id="day3Temp12">21</div>
+                    <div class="todayDetails">
+                    	<div id="day3WaterTemp12">WATER TEMP: <strong>15</strong></div>
+                        <div id="day3WindDir12">WIND DIR: <strong>NNE</strong></div>
+                        <div id="day3SwellHeight12">SWELL HEIGHT: <strong>0.8m</strong></div>
+                        <div id="day3SwellDir12">SWELL DIR: <strong>W</strong></div>
+                        <div id="day3SwellPer12">SWELL PER: <strong>12.5sec</strong></div>
+                    </div>
+                </div>
+                <div class="today0">
+                	<div class="todayTime">3:00pm</div>
+                    <div class="todayWeather" id="day3Weather15"><img src="image/sunny.png" alt="weatherType"/></div>
+                    <div class="todayTemp" id="day3Temp15">21</div>
+                    <div class="todayDetails">
+                    	<div id="day3WaterTemp15">WATER TEMP: <strong>15</strong></div>
+                        <div id="day3WindDir15">WIND DIR: <strong>NNE</strong></div>
+                        <div id="day3SwellHeight15">SWELL HEIGHT: <strong>0.8m</strong></div>
+                        <div id="day3SwellDir15">SWELL DIR: <strong>W</strong></div>
+                        <div id="day3SwellPer15">SWELL PER: <strong>12.5sec</strong></div>
+                    </div>
+                </div>
+                <div class="today1">
+                	<div class="todayTime">9:00pm</div>
+                    <div class="todayWeather" id="day3Weather21"><img src="image/sunny.png" alt="weatherType"/></div>
+                    <div class="todayTemp" id="day3Temp21">21</div>
+                    <div class="todayDetails">
+                    	<div id="day3WaterTemp21">WATER TEMP: <strong>15</strong></div>
+                        <div id="day3WindDir21">WIND DIR: <strong>NNE</strong></div>
+                        <div id="day3SwellHeight21">SWELL HEIGHT: <strong>0.8m</strong></div>
+                        <div id="day3SwellDir21">SWELL DIR: <strong>W</strong></div>
+                        <div id="day3SwellPer21">SWELL PER: <strong>12.5sec</strong></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="dist/js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+    </script>
+    
+    <!-- Weather + Tides Etc. -->
+    <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript">
+            app.initialize();
+			var day3Date = document.getElementById('date');
+			var day3Tides = document.getElementById('day3Tides');
+			var day3WeatherCond = document.getElementById('day3WeatherCond');
+			var day3MaxTemp = document.getElementById('day3MaxTemp');
+			var day3MinTemp = document.getElementById('day3MinTemp');
+			var day3WeatherCond0 = document.getElementById('day3WeatherCond0');
+			var day3WeatherCond6 = document.getElementById('day3WeatherCond6');
+			var day3WeatherCond9 = document.getElementById('day3WeatherCond9');
+			var day3WeatherCond12 = document.getElementById('day3WeatherCond12');
+			var day3WeatherCond15 = document.getElementById('day3WeatherCond15');
+			var day3WeatherCond21 = document.getElementById('day3WeatherCond21');
+			var day3Temp0 = document.getElementById('day3Temp0');
+			var day3Temp6 = document.getElementById('day3Temp6');
+			var day3Temp9 = document.getElementById('day3Temp9');
+			var day3Temp12 = document.getElementById('day3Temp12');
+			var day3Temp15 = document.getElementById('day3Temp15');
+			var day3Temp21 = document.getElementById('day3Temp21');
+			var day3WaterTemp0 = document.getElementById('day3WaterTemp0');
+			var day3WaterTemp6 = document.getElementById('day3WaterTemp6');
+			var day3WaterTemp9 = document.getElementById('day3WaterTemp9');
+			var day3WaterTemp12 = document.getElementById('day3WaterTemp12');
+			var day3WaterTemp15 = document.getElementById('day3WaterTemp15');
+			var day3WaterTemp21 = document.getElementById('day3WaterTemp21');
+			var day3WindDir0 = document.getElementById('day3WindDir0');
+			var day3WindDir6 = document.getElementById('day3WindDir6');
+			var day3WindDir9 = document.getElementById('day3WindDir9');
+			var day3WindDir12 = document.getElementById('day3WindDir12');
+			var day3WindDir15 = document.getElementById('day3WindDir15');
+			var day3WindDir21 = document.getElementById('day3WindDir21');
+			var day3SwellHeight0 = document.getElementById('day3SwellHeight0');
+			var day3SwellHeight6 = document.getElementById('day3SwellHeight6');
+			var day3SwellHeight9 = document.getElementById('day3SwellHeight9');
+			var day3SwellHeight12 = document.getElementById('day3SwellHeight12');
+			var day3SwellHeight15 = document.getElementById('day3SwellHeight15');
+			var day3SwellHeight21 = document.getElementById('day3SwellHeight21');
+			var day3SwellDir0 = document.getElementById('day3SwellDir0');
+			var day3SwellDir6 = document.getElementById('day3SwellDir6');
+			var day3SwellDir9 = document.getElementById('day3SwellDir9');
+			var day3SwellDir12 = document.getElementById('day3SwellDir12');
+			var day3SwellDir15 = document.getElementById('day3SwellDir15');
+			var day3SwellDir21 = document.getElementById('day3SwellDir21');
+			var day3SwellPer0 = document.getElementById('day3SwellPer0');
+			var day3SwellPer6 = document.getElementById('day3SwellPer6');
+			var day3SwellPer9 = document.getElementById('day3SwellPer9');
+			var day3SwellPer12 = document.getElementById('day3SwellPer12');
+			var day3SwellPer15 = document.getElementById('day3SwellPer15');
+			var day3SwellPer21 = document.getElementById('day3SwellPer21');
+			
+			var coordinates = "Please Wait...";
+			
+			// onSuccess Callback
+			// This method accepts a Position object, which contains the
+			// current GPS coordinates
+			//
+			var onSuccess = function(position) {
+			  coordinates = position.coords.latitude+','+position.coords.longitude;
+			  
+			  //Weather/Tide API
+			  var xhr = new XMLHttpRequest();
+			  xhr.open("GET", "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=7256225c1f04fee7a0721a16f9a36&format=xml&q="+coordinates+"&tide=yes&fx=yes", false);
+			  xhr.setRequestHeader('Content-Type', 'text/xml');
+			  xhr.send();
+			  
+			  //GeocodeAPI
+			  var geocode = new XMLHttpRequest();
+			  geocode.open("GET", "https://maps.googleapis.com/maps/api/geocode/xml?latlng="+coordinates+"&key=AIzaSyDN4qy3o977iZtq5ImLMrtl8z18cikKJJU", false);
+			  //geocode.setRequestHeader('Content-Type', 'text/xml');
+			  geocode.send();
+			  
+			  //Location
+			  xmlDocument = geocode.responseXML;
+			  var location = xmlDocument.getElementsByTagName("long_name")['2'].childNodes['0'].nodeValue + ", " + xmlDocument.getElementsByTagName("long_name")['3'].childNodes['0'].nodeValue + ", " + xmlDocument.getElementsByTagName("long_name")['5'].childNodes['0'].nodeValue;
+			
+			  xmlDocument = xhr.responseXML;
+			  
+			  //day3 (Forecast1)
+			  var day3TideType0 = xmlDocument.getElementsByTagName("tide_type")['4'].childNodes['0'].nodeValue;
+			  var day3TideType1 = xmlDocument.getElementsByTagName("tide_type")['5'].childNodes['0'].nodeValue;
+			  var day3TideType2 = xmlDocument.getElementsByTagName("tide_type")['6'].childNodes['0'].nodeValue;
+			  var day3TideType3 = xmlDocument.getElementsByTagName("tide_type")['7'].childNodes['0'].nodeValue;
+	
+			  var day3TideTime0 = xmlDocument.getElementsByTagName("tideTime")['4'].childNodes['0'].nodeValue;
+			  var day3TideTime1 = xmlDocument.getElementsByTagName("tideTime")['5'].childNodes['0'].nodeValue;
+			  var day3TideTime2 = xmlDocument.getElementsByTagName("tideTime")['6'].childNodes['0'].nodeValue;
+			  var day3TideTime3 = xmlDocument.getElementsByTagName("tideTime")['7'].childNodes['0'].nodeValue;
+			  
+			  var day3TideHeight0 = xmlDocument.getElementsByTagName("tideHeight_mt")['4'].childNodes['0'].nodeValue;
+			  var day3TideHeight1 = xmlDocument.getElementsByTagName("tideHeight_mt")['5'].childNodes['0'].nodeValue;
+			  var day3TideHeight2 = xmlDocument.getElementsByTagName("tideHeight_mt")['6'].childNodes['0'].nodeValue;
+			  var day3TideHeight3 = xmlDocument.getElementsByTagName("tideHeight_mt")['7'].childNodes['0'].nodeValue;
+			  
+			  var date = xmlDocument.getElementsByTagName("date")['1'].childNodes['0'].nodeValue;
+			  
+			  if (day3TideTime0.length == 7) {
+				var day3TideHour0 = day3TideTime0.charAt(0).toString();
+				var day3TideMin0 = day3TideTime0.charAt(2 + 3).toString();
+			  }
+			  else {
+				var day3TideHour0 = day3TideTime0.charAt(0 + 1).toString();
+				var day3TideMin0 = day3TideTime0.charAt(3 + 4).toString();
+			  }
+			  
+			  if (day3TideTime1.length == 7) {
+				var day3TideHour1 = day3TideTime1.charAt(0).toString();
+				var day3TideMin1 = day3TideTime1.charAt(2 + 3).toString();
+			  }
+			  else {
+				var day3TideHour1 = day3TideTime1.charAt(0 + 1).toString();
+				var day3TideMin1 = day3TideTime1.charAt(3 + 4).toString();
+			  }
+			  
+			  if (day3TideTime2.length == 7) {
+				var day3TideHour2 = day3TideTime2.charAt(0).toString();
+				var day3TideMin2 = day3TideTime2.charAt(2 + 3).toString();
+			  }
+			  else {
+				var day3TideHour2 = day3TideTime2.charAt(0 + 1).toString();
+				var day3TideMin2 = day3TideTime2.charAt(3 + 4).toString();
+			  }
+			  
+			  if (day3TideTime3.length == 7) {
+				var day3TideHour3 = day3TideTime3.charAt(0).toString();
+				var day3TideMin3 = day3TideTime3.charAt(2 + 3).toString();
+			  }
+			  else {
+				var day3TideHour3 = day3TideTime3.charAt(0 + 1).toString();
+				var day3TideMin3 = day3TideTime3.charAt(3 + 4).toString();
+			  }
+			  
+			  //DAY 1 WEATHER
+			  //TEMP
+			  var day3Temp0Val = xmlDocument.getElementsByTagName("tempC")['24'].childNodes['0'].nodeValue;
+			  var day3Temp6Val = xmlDocument.getElementsByTagName("tempC")['26'].childNodes['0'].nodeValue;
+			  var day3Temp9Val = xmlDocument.getElementsByTagName("tempC")['27'].childNodes['0'].nodeValue;
+			  var day3Temp12Val = xmlDocument.getElementsByTagName("tempC")['28'].childNodes['0'].nodeValue;
+			  var day3Temp15Val = xmlDocument.getElementsByTagName("tempC")['29'].childNodes['0'].nodeValue;
+			  var day3Temp21Val = xmlDocument.getElementsByTagName("tempC")['31'].childNodes['0'].nodeValue;
+			  //CONDITIONS
+			  var conditions0 = xmlDocument.getElementsByTagName("weatherDesc")['24'].childNodes['0'].nodeValue;
+			  var conditions6 = xmlDocument.getElementsByTagName("weatherDesc")['26'].childNodes['0'].nodeValue;
+			  var conditions9 = xmlDocument.getElementsByTagName("weatherDesc")['27'].childNodes['0'].nodeValue;
+			  var conditions12 = xmlDocument.getElementsByTagName("weatherDesc")['28'].childNodes['0'].nodeValue;
+			  var conditions15 = xmlDocument.getElementsByTagName("weatherDesc")['29'].childNodes['0'].nodeValue;
+			  var conditions21 = xmlDocument.getElementsByTagName("weatherDesc")['31'].childNodes['0'].nodeValue;
+			  //WEATHERCODE
+			  var day3WeatherCode0 = xmlDocument.getElementsByTagName("weatherCode")['24'].childNodes['0'].nodeValue;
+			  var day3WeatherCode6 = xmlDocument.getElementsByTagName("weatherCode")['26'].childNodes['0'].nodeValue;
+			  var day3WeatherCode9 = xmlDocument.getElementsByTagName("weatherCode")['27'].childNodes['0'].nodeValue;
+			  var day3WeatherCode12 = xmlDocument.getElementsByTagName("weatherCode")['28'].childNodes['0'].nodeValue;
+			  var day3WeatherCode15 = xmlDocument.getElementsByTagName("weatherCode")['29'].childNodes['0'].nodeValue;
+			  var day3WeatherCode21 = xmlDocument.getElementsByTagName("weatherCode")['31'].childNodes['0'].nodeValue;
+			  //SUNRISE/SET
+			  var sunrise = xmlDocument.getElementsByTagName("sunrise")['1'].childNodes['0'].nodeValue;
+			  var sunset = xmlDocument.getElementsByTagName("sunset")['1'].childNodes['0'].nodeValue;
+			  //DATE
+			  var date = xmlDocument.getElementsByTagName("date")['1'].childNodes['0'].nodeValue;
+			  //SWELL
+			  var day3SwellHeight0Val = xmlDocument.getElementsByTagName("swellHeight_m")['24'].childNodes['0'].nodeValue;
+			  var day3SwellHeight6Val = xmlDocument.getElementsByTagName("swellHeight_m")['26'].childNodes['0'].nodeValue;
+			  var day3SwellHeight9Val = xmlDocument.getElementsByTagName("swellHeight_m")['27'].childNodes['0'].nodeValue;
+			  var day3SwellHeight12Val = xmlDocument.getElementsByTagName("swellHeight_m")['28'].childNodes['0'].nodeValue;
+			  var day3SwellHeight15Val = xmlDocument.getElementsByTagName("swellHeight_m")['29'].childNodes['0'].nodeValue;
+			  var day3SwellHeight21Val = xmlDocument.getElementsByTagName("swellHeight_m")['31'].childNodes['0'].nodeValue;
+			  var day3SwellDir0Val = xmlDocument.getElementsByTagName("swellDir16Point")['24'].childNodes['0'].nodeValue;
+			  var day3SwellDir6Val = xmlDocument.getElementsByTagName("swellDir16Point")['26'].childNodes['0'].nodeValue;
+			  var day3SwellDir9Val = xmlDocument.getElementsByTagName("swellDir16Point")['27'].childNodes['0'].nodeValue;
+			  var day3SwellDir12Val = xmlDocument.getElementsByTagName("swellDir16Point")['28'].childNodes['0'].nodeValue;
+			  var day3SwellDir15Val = xmlDocument.getElementsByTagName("swellDir16Point")['29'].childNodes['0'].nodeValue;
+			  var day3SwellDir21Val = xmlDocument.getElementsByTagName("swellDir16Point")['31'].childNodes['0'].nodeValue;
+			  var day3SwellPer0Val = xmlDocument.getElementsByTagName("swellPeriod_secs")['24'].childNodes['0'].nodeValue;
+			  var day3SwellPer6Val = xmlDocument.getElementsByTagName("swellPeriod_secs")['26'].childNodes['0'].nodeValue;
+			  var day3SwellPer9Val = xmlDocument.getElementsByTagName("swellPeriod_secs")['27'].childNodes['0'].nodeValue;
+			  var day3SwellPer12Val = xmlDocument.getElementsByTagName("swellPeriod_secs")['28'].childNodes['0'].nodeValue;
+			  var day3SwellPer15Val = xmlDocument.getElementsByTagName("swellPeriod_secs")['29'].childNodes['0'].nodeValue;
+			  var day3SwellPer21Val = xmlDocument.getElementsByTagName("swellPeriod_secs")['31'].childNodes['0'].nodeValue;
+			  //WATER TEMP
+			  var day3WaterTemp0Val = xmlDocument.getElementsByTagName("waterTemp_C")['24'].childNodes['0'].nodeValue;
+			  var day3WaterTemp6Val = xmlDocument.getElementsByTagName("waterTemp_C")['26'].childNodes['0'].nodeValue;
+			  var day3WaterTemp9Val = xmlDocument.getElementsByTagName("waterTemp_C")['27'].childNodes['0'].nodeValue;
+			  var day3WaterTemp12Val = xmlDocument.getElementsByTagName("waterTemp_C")['28'].childNodes['0'].nodeValue;
+			  var day3WaterTemp15Val = xmlDocument.getElementsByTagName("waterTemp_C")['29'].childNodes['0'].nodeValue;
+			  var day3WaterTemp21Val = xmlDocument.getElementsByTagName("waterTemp_C")['31'].childNodes['0'].nodeValue;
+			  //WIND DIR
+			  var day3WindDir0Val = xmlDocument.getElementsByTagName("winddir16Point")['24'].childNodes['0'].nodeValue;
+			  var day3WindDir6Val = xmlDocument.getElementsByTagName("winddir16Point")['26'].childNodes['0'].nodeValue;
+			  var day3WindDir9Val = xmlDocument.getElementsByTagName("winddir16Point")['27'].childNodes['0'].nodeValue;
+			  var day3WindDir12Val = xmlDocument.getElementsByTagName("winddir16Point")['28'].childNodes['0'].nodeValue;
+			  var day3WindDir15Val = xmlDocument.getElementsByTagName("winddir16Point")['29'].childNodes['0'].nodeValue;
+			  var day3WindDir21Val = xmlDocument.getElementsByTagName("winddir16Point")['31'].childNodes['0'].nodeValue;
+			  //DAY 1
+			  
+			  //GET DAY OF WEEK (day3)
+			  var d = new Date();
+			  var weekday = new Array(7);
+			  weekday[0]=  "Sunday";
+			  weekday[1] = "Monday";
+			  weekday[2] = "Tuesday";
+			  weekday[3] = "Wednesday";
+			  weekday[4] = "Thursday";
+			  weekday[5] = "Friday";
+			  weekday[6] = "Saturday";
+			  
+			  var n = weekday[d.getDay()+3];
+			  //
+			  
+			  //Day 1
+			  day3Date.innerHTML = n;
+			  day3SwellHeight0.innerHTML = "SWELL HEIGHT: <strong>" + day3SwellHeight0Val + "m</strong>";
+			  day3SwellHeight6.innerHTML = "SWELL HEIGHT: <strong>" + day3SwellHeight6Val + "m</strong>";
+			  day3SwellHeight9.innerHTML = "SWELL HEIGHT: <strong>" + day3SwellHeight9Val + "m</strong>";
+			  day3SwellHeight12.innerHTML = "SWELL HEIGHT: <strong>" + day3SwellHeight12Val + "m</strong>";
+			  day3SwellHeight15.innerHTML = "SWELL HEIGHT: <strong>" + day3SwellHeight15Val + "m</strong>";
+			  day3SwellHeight21.innerHTML = "SWELL HEIGHT: <strong>" + day3SwellHeight21Val + "m</strong>";
+			  
+			  day3SwellDir0.innerHTML = "SWELL DIR: <strong>" + day3SwellDir0Val + "</strong>";
+			  day3SwellDir6.innerHTML = "SWELL DIR: <strong>" + day3SwellDir6Val + "</strong>";
+			  day3SwellDir9.innerHTML = "SWELL DIR: <strong>" + day3SwellDir9Val + "</strong>";
+			  day3SwellDir12.innerHTML = "SWELL DIR: <strong>" + day3SwellDir12Val + "</strong>";
+			  day3SwellDir15.innerHTML = "SWELL DIR: <strong>" + day3SwellDir15Val + "</strong>";
+			  day3SwellDir21.innerHTML = "SWELL DIR: <strong>" + day3SwellDir21Val + "</strong>";
+			  
+			  day3SwellPer0.innerHTML = "SWELL PER: <strong>" + day3SwellPer0Val + "secs</strong>";
+			  day3SwellPer6.innerHTML = "SWELL PER: <strong>" + day3SwellPer6Val + "secs</strong>";
+			  day3SwellPer9.innerHTML = "SWELL PER: <strong>" + day3SwellPer9Val + "secs</strong>";
+			  day3SwellPer12.innerHTML = "SWELL PER: <strong>" + day3SwellPer12Val + "secs</strong>";
+			  day3SwellPer15.innerHTML = "SWELL PER: <strong>" + day3SwellPer15Val + "secs</strong>";
+			  day3SwellPer21.innerHTML = "SWELL PER: <strong>" + day3SwellPer21Val + "secs</strong>";
+			  
+			  day3Temp0.innerHTML = day3Temp0Val + "°C";
+			  day3Temp6.innerHTML = day3Temp6Val + "°C";
+			  day3Temp9.innerHTML = day3Temp9Val + "°C";
+			  day3Temp12.innerHTML = day3Temp12Val + "°C";
+			  day3Temp15.innerHTML = day3Temp15Val + "°C";
+			  day3Temp21.innerHTML = day3Temp21Val + "°C";
+			  
+			  //Weather0
+			  if (day3WeatherCode0 == 113) {
+				//SUN
+				day3Weather0.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
+			  }
+			  else if (day3WeatherCode0 == 122 || 116) {
+				  //PARTLY CLOUDY
+				  day3Weather0.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
+			  }
+			  else if (day3WeatherCode0 == 143 || 119) {
+				  //CLOUDY
+				  day3Weather0.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
+			  }
+			  else if (day3WeatherCode0 == 353 || 302 || 299 || 296 || 293) {
+				  //RAIN
+				  day3Weather0.innerHTML = '<img src="image/rain.png" alt="rain"/>';
+			  }
+			  else if (day3WeatherCode0 == 266 || 263 || 176) {
+				  //SHOWERS
+				  day3Weather0.innerHTML = '<img src="image/showers.png" alt="showers"/>';
+			  }
+			  else if (day3WeatherCode0 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				  //STORM
+				  day3Weather0.innerHTML = '<img src="image/storm.png" alt="storm"/>';
+			  }
+			  else {
+				  //SNOW
+				  day3Weather0.innerHTML = '<img src="image/snow.png" alt="snow"/>';
+			  }
+			  
+			  //Weather11
+			  if (day3WeatherCode6 == 113) {
+				//SUN
+				day3Weather6.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
+			  }
+			  else if (day3WeatherCode6 == 122 || 116) {
+				  //PARTLY CLOUDY
+				  day3Weather6.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
+			  }
+			  else if (day3WeatherCode6 == 143 || 119) {
+				  //CLOUDY
+				  day3Weather6.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
+			  }
+			  else if (day3WeatherCode6 == 353 || 302 || 299 || 296 || 293) {
+				  //RAIN
+				  day3Weather6.innerHTML = '<img src="image/rain.png" alt="rain"/>';
+			  }
+			  else if (day3WeatherCode6 == 266 || 263 || 176) {
+				  //SHOWERS
+				  day3Weather6.innerHTML = '<img src="image/showers.png" alt="showers"/>';
+			  }
+			  else if (day3WeatherCode6 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				  //STORM
+				  day3Weather6.innerHTML = '<img src="image/storm.png" alt="storm"/>';
+			  }
+			  else {
+				  //SNOW
+				  day3Weather6.innerHTML = '<img src="image/snow.png" alt="snow"/>';
+			  }
+			  
+			  //Weather12
+			  if (day3WeatherCode9 == 113) {
+				//SUN
+				day3Weather9.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
+			  }
+			  else if (day3WeatherCode9 == 122 || 116) {
+				  //PARTLY CLOUDY
+				  day3Weather9.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
+			  }
+			  else if (day3WeatherCode9 == 143 || 119) {
+				  //CLOUDY
+				  day3Weather9.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
+			  }
+			  else if (day3WeatherCode9 == 353 || 302 || 299 || 296 || 293) {
+				  //RAIN
+				  day3Weather9.innerHTML = '<img src="image/rain.png" alt="rain"/>';
+			  }
+			  else if (day3WeatherCode9 == 266 || 263 || 176) {
+				  //SHOWERS
+				  day3Weather9.innerHTML = '<img src="image/showers.png" alt="showers"/>';
+			  }
+			  else if (day3WeatherCode9 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				  //STORM
+				  day3Weather9.innerHTML = '<img src="image/storm.png" alt="storm"/>';
+			  }
+			  else {
+				  //SNOW
+				  day3Weather9.innerHTML = '<img src="image/snow.png" alt="snow"/>';
+			  }
+			  
+			  //Weather13
+			  if (day3WeatherCode12 == 113) {
+				//SUN
+				day3Weather12.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
+			  }
+			  else if (day3WeatherCode12 == 122 || 116) {
+				  //PARTLY CLOUDY
+				  day3Weather12.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
+			  }
+			  else if (day3WeatherCode12 == 143 || 119) {
+				  //CLOUDY
+				  day3Weather12.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
+			  }
+			  else if (day3WeatherCode12 == 353 || 302 || 299 || 296 || 293) {
+				  //RAIN
+				  day3Weather12.innerHTML = '<img src="image/rain.png" alt="rain"/>';
+			  }
+			  else if (day3WeatherCode12 == 266 || 263 || 176) {
+				  //SHOWERS
+				  day3Weather12.innerHTML = '<img src="image/showers.png" alt="showers"/>';
+			  }
+			  else if (day3WeatherCode12 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				  //STORM
+				  day3Weather12.innerHTML = '<img src="image/storm.png" alt="storm"/>';
+			  }
+			  else {
+				  //SNOW
+				  day3Weather12.innerHTML = '<img src="image/snow.png" alt="snow"/>';
+			  }
+			  
+			  //Weather15
+			  if (day3WeatherCode15 == 113) {
+				//SUN
+				day3Weather15.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
+			  }
+			  else if (day3WeatherCode15 == 122 || 116) {
+				  //PARTLY CLOUDY
+				  day3Weather15.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
+			  }
+			  else if (day3WeatherCode15 == 143 || 119) {
+				  //CLOUDY
+				  day3Weather15.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
+			  }
+			  else if (day3WeatherCode15 == 353 || 302 || 299 || 296 || 293) {
+				  //RAIN
+				  day3Weather15.innerHTML = '<img src="image/rain.png" alt="rain"/>';
+			  }
+			  else if (day3WeatherCode15 == 266 || 263 || 176) {
+				  //SHOWERS
+				  day3Weather15.innerHTML = '<img src="image/showers.png" alt="showers"/>';
+			  }
+			  else if (day3WeatherCode15 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				  //STORM
+				  day3Weather15.innerHTML = '<img src="image/storm.png" alt="storm"/>';
+			  }
+			  else {
+				  //SNOW
+				  day3Weather15.innerHTML = '<img src="image/snow.png" alt="snow"/>';
+			  }
+			  
+			  //Weather21
+			  if (day3WeatherCode21 == 113) {
+				//SUN
+				day3Weather21.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
+			  }
+			  else if (day3WeatherCode21 == 122 || 116) {
+				  //PARTLY CLOUDY
+				  day3Weather21.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
+			  }
+			  else if (day3WeatherCode21 == 143 || 119) {
+				  //CLOUDY
+				  day3Weather21.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
+			  }
+			  else if (day3WeatherCode21 == 353 || 302 || 299 || 296 || 293) {
+				  //RAIN
+				  day3Weather21.innerHTML = '<img src="image/rain.png" alt="rain"/>';
+			  }
+			  else if (day3WeatherCode21 == 266 || 263 || 176) {
+				  //SHOWERS
+				  day3Weather21.innerHTML = '<img src="image/showers.png" alt="showers"/>';
+			  }
+			  else if (day3WeatherCode21 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				  //STORM
+				  day3Weather21.innerHTML = '<img src="image/storm.png" alt="storm"/>';
+			  }
+			  else {
+				  //SNOW
+				  day3Weather21.innerHTML = '<img src="image/snow.png" alt="snow"/>';
+			  }
+			  
+			  //document.getElementById("blur").setAttribute("id", "");	  
+			  
+			//FORECAST
+			//day3
+			  
+			//SHOWS DETAILS
+			// onError Callback receives a PositionError object
+			//
+			};
+			
+			function onError(error) {
+			  alert('Error Code: '    + error.code    + '\n' +
+					'Error Message: ' + error.message + '\n');
+			}
+			
+			navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			
+        </script>
+</body>
+</html>
