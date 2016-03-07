@@ -410,7 +410,17 @@
 			// current GPS coordinates
 			//
 			var onSuccess = function(position) {
-			  coordinates = position.coords.latitude+','+position.coords.longitude;		  	  
+			  localStorage.key("firstLoad");
+			  if (localStorage.getItem("firstLoad") == "0") {
+			  	coordinates = localStorage.getItem("coordinates");
+				console.log("old coords");
+			  }
+			  else {
+				coordinates = position.coords.latitude+','+position.coords.longitude;
+				localStorage.setItem("coordinates", coordinates);
+				console.log("new coords");
+			  }
+			  localStorage.setItem("firstLoad", "0");		  	  
 			  
 			  //Weather/Tide API
 			  var xhr = new XMLHttpRequest();
@@ -431,8 +441,11 @@
 			  overviewLocation.innerHTML = localStorage.savedLocation;
 			  localStorage.savedLocation = location;
 			  overviewLocation.innerHTML = localStorage.savedLocation;
-			
+			  
 			  xmlDocument = xhr.responseXML;
+			  if( xmlDocument.getElementsByTagName("tide_type").length == 0 ){
+			   alert("no tides");
+			  }
 			  //TIDEINFO
 			  //Day0 (Today)
 			  var tideType0 = xmlDocument.getElementsByTagName("tide_type")['0'].childNodes['0'].nodeValue;
