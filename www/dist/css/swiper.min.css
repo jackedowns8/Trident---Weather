@@ -521,6 +521,8 @@ transform:rotate(360deg)
 	position: fixed;
 	top: 2.5%;
 	left: 0;
+	border: none;
+	background-color: transparent;
 }
 .overviewButtonSettings img {
 	max-height: 100%;
@@ -533,6 +535,8 @@ transform:rotate(360deg)
 	position: fixed;
 	top: 2.5%;
 	right: 0;
+	border: none;
+	background-color: transparent;
 }
 .overviewButtonInfo img {
 	max-height: 100%;
@@ -545,6 +549,8 @@ transform:rotate(360deg)
 	position: fixed;
 	bottom: 52.5%;
 	left: 0;
+	border: none;
+	background-color: transparent;
 }
 .overviewButtonSearch img {
 	max-height: 100%;
@@ -557,6 +563,8 @@ transform:rotate(360deg)
 	position: fixed;
 	bottom: 52.5%;
 	right: 0;
+	border: none;
+	background-color: transparent;
 }
 .overviewButtonRefresh img {
 	max-height: 100%;
@@ -736,16 +744,18 @@ transform:rotate(360deg)
 	background-color: rgb(235, 235, 235);
 	font-size: 8vh;
 }
-.dayXDay {
+.subheader {
 	padding-right: 15%;
 }
-.dayXBack {
+.back {
 	width: 15%;
 	float: left;
 	height: 100%;
 	vertical-align: middle;
+	border: none;
+	background-color: transparent;
 }
-.dayXBack img {
+.back img {
 	max-height: 70%;
 	min-height: 70%;
 }
@@ -860,7 +870,7 @@ forecastSubHeader {
 .weatherTides {
 	float: left;
 	width: 30%;
-	font-size: 3vh;
+	font-size: 2.5vh;
 	align-content:center;
 	text-align:left;
 	padding-left: 0.5em;
@@ -870,6 +880,8 @@ forecastSubHeader {
 	float: left;
 	width: 5%;
 	padding-top: 5vh;
+	border: none;
+	background-color:transparent;
 }
 .arrow img {
 	max-width: 3vh;
@@ -975,8 +987,74 @@ forecastSubHeader {
 }
 /*MAPS*/
 #map {
-	height: 50%;
+	height: 71%;
+	width: 100%;
+	margin: auto;
 }
 #current {
-    padding-top: 25px;
+	position: fixed;
+	bottom: 8%;
+    padding-top: 2%;
+	width: 100%;
+	height: 10%;
+	background-color: #d7d7d7;
+	text-align: center;
+	font-size: 5vmin;
+	line-height: 8.5vh;
+	word-wrap: normal;
+}
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 72.5%;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-container {
+  font-family: inherit;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 300;
+}
+#target {
+  width: 345px;
+}
+.saveLocation {
+	position: fixed;
+	bottom: 0%;
+	border: none;
+	width: 100%;
+	height: 8%;
+	padding: 2%;
+	font-family: inherit;
+	font-size: 5vh;
+	margin:auto;
 }
