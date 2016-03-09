@@ -13,7 +13,6 @@
  * Released on: February 7, 2016
  */
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:700,700italic,400italic,400,100italic,100,300);
-
 html, body {
 	position: relative;
 	height: 100%;
@@ -22,9 +21,23 @@ body {
 	background: #e6e6e6;
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: 14px;
-	color:#000;
+	color: #000;
 	margin: 0;
 	padding: 0;
+}
+* {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+input {
+	-webkit-user-select: auto !important;
+	-khtml-user-select: auto !important;
+	-moz-user-select: auto !important;
+	-ms-user-select: auto !important;
+	user-select: auto !important;
 }
 .swiper-container {
 	width: 100%;
@@ -185,8 +198,7 @@ body {
 	z-index: 10;
 	background-color: #b6b6b6;
 	width: 100%;
-	padding-top: 1.75%;
-	padding-bottom: 1.75%;
+	height: 5%;
 }
 .swiper-pagination.swiper-pagination-hidden {
 	opacity: 0
@@ -496,15 +508,49 @@ button.swiper-pagination-bullet {
 transform:rotate(360deg)
 }
 }
-
 /* CUSTOM CSS */
-.overviewButtonSettings {
-	width: 20%;
-	height: 5%;
-	float: left;
+.cover {
 	position: fixed;
-	top: 2.5%;
+	top: 0;
 	left: 0;
+	/*-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px);*/
+	background-color: rgba(255,255,255,0.8);
+	z-index: 5;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.coverBlur {
+	height: 100%;
+	width: 100%;
+}
+.cover img{
+	max-height: 25%;
+	max-width: 25%;	
+	position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	opacity: 0.9;
+}
+.load img {
+	opacity: 1.0;
+}
+.overviewButtonSettings {
+ width: 20%;
+ height: 5%;
+ float: left;
+ position: fixed;
+ top: 2.5%;
+ left: 0;
+ border: none;
+ background-color: transparent;
 }
 .overviewButtonSettings img {
 	max-height: 100%;
@@ -517,6 +563,8 @@ transform:rotate(360deg)
 	position: fixed;
 	top: 2.5%;
 	right: 0;
+	border: none;
+	background-color: transparent;
 }
 .overviewButtonInfo img {
 	max-height: 100%;
@@ -529,6 +577,8 @@ transform:rotate(360deg)
 	position: fixed;
 	bottom: 52.5%;
 	left: 0;
+	border: none;
+	background-color: transparent;
 }
 .overviewButtonSearch img {
 	max-height: 100%;
@@ -541,6 +591,8 @@ transform:rotate(360deg)
 	position: fixed;
 	bottom: 48.5%;
 	right: 0;
+	border: none;
+	background-color: transparent;
 }
 .overviewButtonRefresh img {
 	max-height: 100%;
@@ -552,7 +604,7 @@ transform:rotate(360deg)
 	width: 100%;
 	height: 20%;
 	color: #969696;
-	text-align:center;
+	text-align: center;
 	font-size: 4.5vmin;
 }
 .overviewTemp {
@@ -561,18 +613,18 @@ transform:rotate(360deg)
 	width: 60%;
 	height: 25%;
 	font-family: 'Josefin Sans', sans-serif;
-	padding-top: 2.5%;
-	font-size: 10.5vmin;
+	line-height: 8.5vh;
+	font-size: 7vh;
 	text-align: center;
 	margin: auto;
-	background-image: url(../../image/temp10.png);
-	background-size: contain;
+	background: url(../../image/temp10.png);
+	background-size: 35vh;
 	background-repeat: no-repeat;
 	background-position: top center;
 }
 .overviewTemp img {
 	max-height: 100%;
-	max-width: 100%;	
+	max-width: 100%;
 }
 .overviewSun {
 	position: fixed;
@@ -582,12 +634,12 @@ transform:rotate(360deg)
 	background-color: #cccccc;
 }
 .overviewSunImg {
-	float: left;	
+	float: left;
 	width: 33.33%;
 	padding-top: 1%;
 }
 .overviewSun img {
-	max-height: 100%;
+	max-height: 80%;
 	max-width: 45%;
 }
 .overviewSunrise {
@@ -596,7 +648,7 @@ transform:rotate(360deg)
 	height: 100%;
 	line-height: 200%;
 	text-align: right;
-	font-size: 5vmin;
+	font-size: 3.5vh;
 }
 .overviewSunset {
 	float: left;
@@ -604,7 +656,7 @@ transform:rotate(360deg)
 	height: 100%;
 	line-height: 200%;
 	text-align: left;
-	font-size: 5vmin;
+	font-size: 3.5vh;
 }
 .overviewTides {
 	position: fixed;
@@ -640,8 +692,8 @@ transform:rotate(360deg)
 	float: left;
 }
 .overviewWeather img {
-	max-width: 100%;	
-	max-height: 100%;	
+	max-width: 100%;
+	max-height: 100%;
 }
 .overviewWind {
 	position: fixed;
@@ -652,20 +704,20 @@ transform:rotate(360deg)
 	float: left;
 }
 .overviewWind img {
-	max-height:100%;
-	max-width: 100%;	
+	max-height: 100%;
+	max-width: 100%;
 }
 .overviewTide0 {
 	width: 100%;
 	height: 25%;
 	background-color: #d7d7d7;
-	font-size: 4.5vmin;
+	font-size: 3vh;
 }
 .overviewTide1 {
 	width: 100%;
 	height: 25%;
 	background-color: #ebebeb;
-	font-size: 4.5vmin;
+	font-size: 3vh;
 }
 .overviewTideType {
 	transform: rotate(90deg);
@@ -673,21 +725,48 @@ transform:rotate(360deg)
 	float: left;
 	width: 10%;
 	margin-left: 2%;
-	line-height: 100%;
+	text-align: center;
+	vertical-align: middle;
 }
 .overviewTideTime {
 	width: 44%;
 	height: 100%;
 	float: left;
 	line-height: 200%;
-	font-size: 2em;
+	font-size: 6vh;
 }
 .overviewTideHeight {
 	width: 44%;
 	height: 100%;
 	float: left;
 	line-height: 200%;
-	font-size: 2em;
+	font-size: 6vh;
+}
+.overviewWeatherWindLabel {
+	position: fixed;
+	top: 17.5%;
+	width: 100%;
+}
+.overviewWindLabel {
+	float: right;
+	position: fixed;
+	right: 5%;
+	width: 50%;
+	font-size: 2vh;
+	color: #969696;
+}
+.overviewWeatherLabel {
+	float: left;
+	position: fixed;
+	left: 5%;
+	width: 50%;
+	font-size: 2vh;
+	color: #969696;
+}
+.aboutBody {
+	width: 100%;
+	height: 85%;
+	margin: 2%;
 }
 .todayHeader {
 	postition: absolute;
@@ -696,27 +775,53 @@ transform:rotate(360deg)
 	font-family: 'Josefin Sans', sans-serif;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 1.4; 
+	line-height: 11vh;
 	background-color: rgb(235, 235, 235);
-	font-size: 12.5vmin;
+	font-size: 8vh;
+}
+.dayXHeader {
+	postition: absolute;
+	width: 100%;
+	height: 10%;
+	font-family: 'Josefin Sans', sans-serif;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 11vh;
+	background-color: rgb(235, 235, 235);
+	font-size: 8vh;
+}
+.subheader {
+	padding-right: 15%;
+}
+.back {
+	width: 15%;
+	float: left;
+	height: 100%;
+	vertical-align: middle;
+	border: none;
+	background-color: transparent;
+}
+.back img {
+	max-height: 70%;
+	min-height: 70%;
 }
 .today0 {
 	width: 100%;
-	height: 14.16666666666667%;	
+	height: 14.16666666666667%;
 	background-color: #d7d7d7;
 	font-family: 'Josefin Sans', sans-serif;
 	vertical-align: central;
 	text-align: center;
-	font-size: 4.5vmin;
+	font-size: 3vh;
 }
 .today1 {
 	width: 100%;
-	height: 14.16666666666667%;	
+	height: 14.16666666666667%;
 	background-color: #ebebeb;
 	font-family: 'Josefin Sans', sans-serif;
 	vertical-align: central;
 	text-align: center;
-	font-size: 4.5vmin;
+	font-size: 3vh;
 }
 .todayTime {
 	transform: rotate(90deg);
@@ -725,6 +830,23 @@ transform:rotate(360deg)
 	width: 10%;
 	margin-left: 2%;
 }
+.todayTemp {
+	float: left;
+	text-align: center;
+	width: 10%;
+	font-size: 7vh;
+	height: 100%;
+	line-height: 200%;
+}
+.todayDetails {
+	text-align: left;
+	width: 40%;
+	height: 100%;
+	float: right;
+	padding-top: 0.2vh;
+	font-size: 2vh;
+	line-height: 2.8vh;
+}
 .todayWeather {
 	float: left;
 	width: 20%;
@@ -732,75 +854,88 @@ transform:rotate(360deg)
 }
 .todayWeather img {
 	max-height: 90%;
+	max-width: 95%;
 	position: relative;
 	top: 5%;
+	right: 25%;
 }
 .forecastHeader {
 	postition: absolute;
 	width: 100%;
 	height: 10%;
 	font-family: 'Josefin Sans', sans-serif;
-	font-size: 2.5em;
+	font-size: 8vh;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 1.4; 
+	line-height: 11vh;
 	background-color: rgb(235, 235, 235);
 }
 forecastSubHeader {
-	font-size: 0.5em;
+	font-size: 0.5vh;
 }
 .forecastDay0 {
 	width: 100%;
-	height: 28.33333333333333%;	
+	height: 17%;
 	background-color: #d7d7d7;
 	font-family: 'Josefin Sans', sans-serif;
-	vertical-align:middle;
+	vertical-align: middle;
 }
 .forecastDay1 {
 	width: 100%;
-	height: 28.33333333333333%;	
+	height: 17%;
 	background-color: #ebebeb;
 	font-family: 'Josefin Sans', sans-serif;
 	vertical-align: central;
 	text-align: center;
 }
+.forecastComingSoon {
+	width: 100%;
+	font-size: 7vh;
+	line-height: 18vh;
+	color: #969696;
+}
 .dayOfWeek {
 	transform: rotate(90deg);
-	transform-origin: bottom left;
+	transform-origin: center left;
 	float: left;
-	width: 10%;
+	width: 8%;
+	font-size: 3vh;
+	margin-left: 2.5%;
 }
 .weatherCondition {
 	float: left;
 	width: 25%;
-	padding-top: 0.5em;
+	padding-top: 1.5vh;
 }
 .weatherTemp {
 	float: left;
 	width: 25%;
-	font-size: 2em;
-	line-height: 2.5em;
+	font-size: 6vh;
+	line-height: 17vh;
 }
 .weatherTides {
 	float: left;
-	width: 30%;
-	align-content:center;
-	text-align:left;
+	width: 28%;
+	margin-top: 6%;
+	font-size: 2.3vh;
+	align-content: center;
+	text-align: left;
 	padding-left: 0.5em;
-	padding-top: 0.6em;
 }
 .arrow {
 	float: left;
 	width: 5%;
-	padding-top: 1.4em;
+	margin-top: 5vh;
+	border: none;
+	background-color: transparent;
 }
 .arrow img {
-	max-width:100%;
-	max-height:100%;
+	max-width: 3vh;
+	max-height: 7vh;
 }
 .weatherCondition img {
-	max-width:80%;
-	max-height:80%;
+	max-width: 80%;
+	max-height: 80%;
 }
 /*ForecastInfo*/
 .forecastInfoButton {
@@ -815,10 +950,10 @@ forecastSubHeader {
 .forecastInfoLocation {
 	width: 60%;
 	height: 20%;
-	float: left;	
+	float: left;
 }
 .forecastInfoTides {
-	position:absolute;
+	position: absolute;
 	width: 100%;
 	height: 30%;
 }
@@ -856,12 +991,12 @@ forecastSubHeader {
 	font-size: 2.5em;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 1.4; 
+	line-height: 1.4;
 	background-color: rgb(235, 235, 235);
 }
 .forecastInfo0 {
 	width: 100%;
-	height: 28.33333333333333%;	
+	height: 28.33333333333333%;
 	background-color: #d7d7d7;
 	font-family: 'Josefin Sans', sans-serif;
 	vertical-align: central;
@@ -869,7 +1004,7 @@ forecastSubHeader {
 }
 .forecastInfo1 {
 	width: 100%;
-	height: 14.16666666666667%;	
+	height: 14.16666666666667%;
 	background-color: #ebebeb;
 	font-family: 'Josefin Sans', sans-serif;
 	vertical-align: central;
@@ -883,29 +1018,84 @@ forecastSubHeader {
 }
 /*Other CSS */
 .rotate180 {
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
-#blur {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.5;
-	
-    filter: blur(10px);
-    -webkit-filter: blur(10px);
-    -moz-filter: blur(10px);
-    -o-filter: blur(10px);
-    -ms-filter: blur(10px);
-    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='svgMask'><feGaussianBlur stdDeviation='10' /></filter></svg>#svgMask");
+.blur {
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px);
 }
-#loading {
-	position: relative;
-	left: 50%;
-	bottom: 50%;
+/*MAPS*/
+#map {
+	height: 71%;
+	width: 100%;
+	margin: auto;
+}
+#current {
+	position: fixed;
+	bottom: 8%;
+	padding-top: 2%;
+	width: 100%;
+	height: 10%;
+	background-color: #d7d7d7;
+	text-align: center;
+	font-size: 5vmin;
+	line-height: 8.5vh;
+	word-wrap: normal;
+}
+.controls {
+	margin-top: 10px;
+	border: 1px solid transparent;
+	border-radius: 2px 0 0 2px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 32px;
+	outline: none;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+#pac-input {
+	background-color: #fff;
+	font-family: inherit;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 12px;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	width: 72.5%;
+}
+#pac-input:focus {
+	border-color: #4d90fe;
+}
+.pac-container {
+	font-family: inherit;
+}
+#type-selector {
+	color: #fff;
+	background-color: #4d90fe;
+	padding: 5px 11px 0px 11px;
+}
+#type-selector label {
+	font-family: inherit;
+	font-size: 13px;
+	font-weight: 300;
+}
+#target {
+	width: 345px;
+}
+.saveLocation {
+	position: fixed;
+	bottom: 0%;
+	border: none;
+	width: 100%;
+	height: 8%;
+	padding: 2%;
+	font-family: inherit;
+	font-size: 5vh;
+	margin: auto;
 }
