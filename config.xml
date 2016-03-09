@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.tridentappdesign.weather" versionCode = "57" version="0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.tridentappdesign.weather" versionCode = "58" version="0.95" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Trident - Weather (Alpha)</name>
     <description>
         Tides and weather information for where you are, when you need it.
@@ -74,6 +74,7 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+		<preference name="orientation" value="portrait" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />

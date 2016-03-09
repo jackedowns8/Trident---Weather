@@ -13,8 +13,8 @@
             	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="subheader">Search</div></div>
                 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
    				<div id="map"></div>
-                <div id="current">Please drag the pin to a desired location, or type your location in the search box above.</div>
-                <button class="saveLocation" type="button" id="submitLocation" onclick="history.go(-1); localStorage.setItem('refresh', '1');">Save Location</button>
+                <div id="current">Loading Location...</div>
+                <button class="saveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!');">Save Location</button>
 				  <script>
 					function initMap() {
 					  var map = new google.maps.Map(document.getElementById('map'), {
@@ -155,6 +155,8 @@
     <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="toastPlugin.js"></script>
+    <script type="text/java" src="ToastPlugin.java"></script>
     <script type="text/javascript">
             app.initialize();
 			
