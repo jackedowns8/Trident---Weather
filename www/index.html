@@ -1407,10 +1407,29 @@
 			  weekday[5] = "Friday";
 			  weekday[6] = "Saturday";
 			  
-			  var day0Day = weekday[d.getDay()];
-			  var day1Day = weekday[d.getDay()+1];
-			  var day2Day = weekday[d.getDay()+2];
-			  var day3Day = weekday[d.getDay()+3];
+			  var day0Num = d.getDay();
+			  var day1Num = d.getDay()+1;
+			  var day2Num = d.getDay()+2;
+			  var day3Num = d.getDay()+3;
+			  if (day1Num > 6) {
+				  var day1Day = weekday[day1Num - 7];
+			  }
+			  else {
+				  var day1Day = weekday[day1Num];
+			  }
+			  if (day2Num > 6) {
+				  var day2Day = weekday[day2Num - 7];
+			  }
+			  else {
+				  var day2Day = weekday[day2Num];
+			  }
+			  if (day3Num > 6) {
+				  var day3Day = weekday[day3Num - 7];
+			  }
+			  else {
+				  var day3Day = weekday[day3Num];
+			  }
+			  
 			  //
 			  
 			  day1.innerHTML = day1Day;
