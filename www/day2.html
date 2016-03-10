@@ -285,7 +285,13 @@
 			weekday[5] = "Friday";
 			weekday[6] = "Saturday";
 			
-			var n = weekday[d.getDay()+2];
+			var dayNum = d.getDay()+2;
+			if (dayNum > 6) {
+				var n = weekday[dayNum - 7];
+			}
+			else {
+				var n = weekday[dayNum];
+			}
 			//
 			
 			//Day 1
