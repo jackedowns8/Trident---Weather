@@ -117,6 +117,12 @@
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
             app.initialize();
+			function onDeviceReady() {
+    			window.analytics.startTrackerWithId('UA-75031935-1');
+				window.analytics.trackView('day1');
+				window.analytics.trackTiming('Category', 2500, 'Variable', 'Label');
+			}
+			document.addEventListener("deviceready", onDeviceReady, false);
 			var day1Date = document.getElementById('date');
 			var day1Tides = document.getElementById('day1Tides');
 			var day1WeatherCond = document.getElementById('day1WeatherCond');
