@@ -16,6 +16,12 @@
                 <div id="current">Loading Location...</div>
                 <button class="saveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!');">Save Location</button>
 				  <script>
+				  	function onDeviceReady() {
+						window.analytics.startTrackerWithId('UA-75031935-1');
+						window.analytics.trackView('Search');
+						window.analytics.trackTiming('Category', 2500, 'Variable', 'Label');
+					}
+					document.addEventListener("deviceready", onDeviceReady, false);
 					function initMap() {
 					  var map = new google.maps.Map(document.getElementById('map'), {
 						zoom: 10,
