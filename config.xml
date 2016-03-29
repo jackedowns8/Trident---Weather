@@ -79,6 +79,7 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+		<preference name="fullscreen" value="true" />
     </platform>
 	<platform name="winphone" />
 </widget>
