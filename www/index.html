@@ -20,7 +20,8 @@
               <div class="overviewWind" id="overviewWindDirection"><img src="image/N.png" alt="windDirection"/></div>
               <button class="overviewButtonSearch" onClick="window.location = 'search.html'"><img src="image/search.png" alt="search"/></button>
               <div class="overviewLocation" id="overviewLocation">Loading Location...</div>
-              <button class="overviewButtonRefresh" onClick="location.reload();"><img src="image/refresh.png" alt="refresh"/></button>
+              <button class="overviewButtonRefresh" onClick="location.reload()"><img src="image/refresh.png" alt="refresh"/></button>
+              
               <div class="overviewSun"><div class="overviewSunrise" id="overviewSunrise">12:00am</div><div class="overviewSunImg"><img src="image/sunriseSunset.png" alt="sunrise/set img"/></div><div class="overviewSunset" id="overviewSunset">12:00pm</div></div>
               <div class="overviewTides">
                 <div class="overviewTide0">
@@ -53,11 +54,7 @@
                     <div class="todayWeather" id="day0Weather0"><img src="image/sunny.png" alt="weatherType"/></div>
                     <div class="todayTemp" id="day0Temp0">null</div>
                     <div class="todayDetails">
-                    	<div id="day0WaterTemp0">WATER TEMP: <strong>null</strong></div>
-                        <div id="day0WindDir0">WIND DIR: <strong>null</strong></div>
-                        <div id="day0SwellHeight0">SWELL HEIGHT: <strong>null</strong></div>
-                        <div id="day0SwellDir0">SWELL DIR: <strong>null</strong></div>
-                        <div id="day0SwellPer0">SWELL PER: <strong>null</strong></div>
+                    	<button class="moreInfo" onClick="day0MoreInfoPopup0()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
                 </div>
                 <div class="today1">
@@ -65,11 +62,7 @@
                     <div class="todayWeather" id="day0Weather6"><img src="image/sunny.png" alt="weatherType"/></div>
                     <div class="todayTemp" id="day0Temp6">21</div>
                     <div class="todayDetails">
-                    	<div id="day0WaterTemp6">WATER TEMP: <strong>null</strong></div>
-                        <div id="day0WindDir6">WIND DIR: <strong>null</strong></div>
-                        <div id="day0SwellHeight6">SWELL HEIGHT: <strong>null</strong></div>
-                        <div id="day0SwellDir6">SWELL DIR: <strong>null</strong></div>
-                        <div id="day0SwellPer6">SWELL PER: <strong>null</strong></div>
+                    	<button class="moreInfo" onClick="day0MoreInfoPopup6()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
                 </div>
                 <div class="today0">
@@ -77,11 +70,7 @@
                     <div class="todayWeather" id="day0Weather9">null</div>
                     <div class="todayTemp" id="day0Temp9">null</div>
                     <div class="todayDetails">
-                    	<div id="day0WaterTemp9">WATER TEMP: <strong>null</strong></div>
-                        <div id="day0WindDir9">WIND DIR: <strong>null</strong></div>
-                        <div id="day0SwellHeight9">SWELL HEIGHT: <strong>null</strong></div>
-                        <div id="day0SwellDir9">SWELL DIR: <strong>null</strong></div>
-                        <div id="day0SwellPer9">SWELL PER: <strong>null</strong></div>
+                    	<button class="moreInfo" onClick="day0MoreInfoPopup9()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
                 </div>
                 <div class="today1">
@@ -89,11 +78,7 @@
                     <div class="todayWeather" id="day0Weather12"><img src="image/sunny.png" alt="weatherType"/></div>
                     <div class="todayTemp" id="day0Temp12">null</div>
                     <div class="todayDetails">
-                    	<div id="day0WaterTemp12">WATER TEMP: <strong>null</strong></div>
-                        <div id="day0WindDir12">WIND DIR: <strong>null</strong></div>
-                        <div id="day0SwellHeight12">SWELL HEIGHT: <strong>null</strong></div>
-                        <div id="day0SwellDir12">SWELL DIR: <strong>null</strong></div>
-                        <div id="day0SwellPer12">SWELL PER: <strong>null</strong></div>
+                    	<button class="moreInfo" onClick="day0MoreInfoPopup12()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
                 </div>
                 <div class="today0">
@@ -101,11 +86,7 @@
                     <div class="todayWeather" id="day0Weather15"><img src="image/sunny.png" alt="weatherType"/></div>
                     <div class="todayTemp" id="day0Temp15">null</div>
                     <div class="todayDetails">
-                    	<div id="day0WaterTemp15">WATER TEMP: <strong>null</strong></div>
-                        <div id="day0WindDir15">WIND DIR: <strong>null</strong></div>
-                        <div id="day0SwellHeight15">SWELL HEIGHT: <strong>null</strong></div>
-                        <div id="day0SwellDir15">SWELL DIR: <strong>null</strong></div>
-                        <div id="day0SwellPer15">SWELL PER: <strong>null</strong></div>
+                    	<button class="moreInfo" onClick="day0MoreInfoPopup15()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
                 </div>
                 <div class="today1">
@@ -113,11 +94,7 @@
                     <div class="todayWeather" id="day0Weather21"><img src="image/sunny.png" alt="weatherType"/></div>
                     <div class="todayTemp" id="day0Temp21">null</div>
                     <div class="todayDetails">
-                    	<div id="day0WaterTemp21">WATER TEMP: <strong>null</strong></div>
-                        <div id="day0WindDir21">WIND DIR: <strong>null</strong></div>
-                        <div id="day0SwellHeight21">SWELL HEIGHT: <strong>null</strong></div>
-                        <div id="day0SwellDir21">SWELL DIR: <strong>null</strong></div>
-                        <div id="day0SwellPer21">SWELL PER: <strong>null</strong></div>
+                    	<button class="moreInfo" onClick="day0MoreInfoPopup21()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
                 </div>
             </div>
@@ -196,16 +173,20 @@
     
     <!-- Weather + Tides Etc. -->
     <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script src="Sweet Alert/dist/sweetalert.min.js"></script>
+    <script src="../plugins/cordova-plugin-google-analytics/www/analytics.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="Sweet Alert/dist/sweetalert.css">
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
             app.initialize();
 			function onDeviceReady() {
-    			window.analytics.startTrackerWithId('UA-75031935-1');
+				console.log("1");
+    			window.analytics.startTrackerWithId('UA-75031935-4');
 				window.analytics.trackView('Home');
-				window.analytics.trackTiming('Category', 2500, 'Variable', 'Label');
+				console.log("2");
 			}
-			document.addEventListener("deviceready", onDeviceReady, false);
+			//document.addEventListener("deviceready", onDeviceReady, false);
 			var overviewLocation = document.getElementById('overviewLocation');
 			var overviewTideTime0 = document.getElementById('overviewTideTime0');
 			var overviewTideTime1 = document.getElementById('overviewTideTime1');
@@ -461,7 +442,7 @@
 			  
 			  xmlDocument = xhr.responseXML;
 			  if( xmlDocument.getElementsByTagName("tide_type").length == 0 ){
-			   alert("No Tides Avalable Here...");
+			   alert("No Marine Data Avalable Here...");
 			  }
 			  
 			  else {
@@ -719,6 +700,7 @@
 				localStorage.setItem("day0SwellPer6Val",day0SwellPer6Val);
 				localStorage.setItem("day0SwellPer9Val",day0SwellPer9Val);
 				localStorage.setItem("day0SwellPer12Val",day0SwellPer12Val);
+				localStorage.setItem("day0SwellPer15Val",day0SwellPer15Val);
 				localStorage.setItem("day0SwellPer21Val",day0SwellPer21Val);
 				//WATER TEMP
 				var day0WaterTemp0Val = xmlDocument.getElementsByTagName("waterTemp_C")['0'].childNodes['0'].nodeValue;
@@ -915,6 +897,7 @@
 				overviewTideHeight3.innerHTML = tideHeight3 + "m";
 				
 				//TODAY
+				/*
 				day0SwellHeight0.innerHTML = "SWELL HEIGHT: <strong>" + day0SwellHeight0Val + "m</strong>";
 				day0SwellHeight6.innerHTML = "SWELL HEIGHT: <strong>" + day0SwellHeight6Val + "m</strong>";
 				day0SwellHeight9.innerHTML = "SWELL HEIGHT: <strong>" + day0SwellHeight9Val + "m</strong>";
@@ -943,6 +926,14 @@
 				day0WaterTemp15.innerHTML = "WATER TEMP: <strong>" + day0WaterTemp15Val + "°C</strong>";
 				day0WaterTemp21.innerHTML = "WATER TEMP: <strong>" + day0WaterTemp21Val + "°C</strong>";
 				
+				day0WindDir0.innerHTML = "WIND DIR: <strong>" + day0WindDir0Val + "</strong>";
+				day0WindDir6.innerHTML = "WIND DIR: <strong>" + day0WindDir6Val + "</strong>";
+				day0WindDir9.innerHTML = "WIND DIR: <strong>" + day0WindDir9Val + "</strong>";
+				day0WindDir12.innerHTML = "WIND DIR: <strong>" + day0WindDir12Val + "</strong>";
+				day0WindDir15.innerHTML = "WIND DIR: <strong>" + day0WindDir15Val + "</strong>";
+				day0WindDir21.innerHTML = "WIND DIR: <strong>" + day0WindDir21Val + "</strong>";
+				*/
+				
 				//DAY 1 Tides
 				day1Tides.innerHTML = day1TideType0 + ": <strong>" + day1TideTime0 + "</strong></br>" + day1TideType1 + ": <strong>" + day1TideTime1 + "</strong></br>" + day1TideType2 + ": <strong>" + day1TideTime2 + "</strong></br>" + day1TideType3 + ": <strong>" + day1TideTime3 + "</strong>";
 				//DAY 2 Tides
@@ -960,7 +951,7 @@
 			  var time21 = xmlDocument.getElementsByTagName("time")['7'].childNodes['0'].nodeValue;
 			  
 			  //DAY0 WEATHER
-			  //WIND
+			  //WIND DIR
 			  var overviewWindDirection0 = xmlDocument.getElementsByTagName("winddir16Point")['0'].childNodes['0'].nodeValue;
 			  var overviewWindDirection6 = xmlDocument.getElementsByTagName("winddir16Point")['2'].childNodes['0'].nodeValue;
 			  var overviewWindDirection9 = xmlDocument.getElementsByTagName("winddir16Point")['3'].childNodes['0'].nodeValue;
@@ -998,6 +989,27 @@
 			  var day0WindDir12Val = xmlDocument.getElementsByTagName("winddir16Point")['4'].childNodes['0'].nodeValue;
 			  var day0WindDir15Val = xmlDocument.getElementsByTagName("winddir16Point")['5'].childNodes['0'].nodeValue;
 			  var day0WindDir21Val = xmlDocument.getElementsByTagName("winddir16Point")['7'].childNodes['0'].nodeValue;
+			  //WIND DIR SAVE LOCAL
+			  localStorage.setItem("day0WindDir0Val",day0WindDir0Val);
+			  localStorage.setItem("day0WindDir6Val",day0WindDir6Val);
+			  localStorage.setItem("day0WindDir9Val",day0WindDir9Val);
+			  localStorage.setItem("day0WindDir12Val",day0WindDir12Val);
+			  localStorage.setItem("day0WindDir15Val",day0WindDir15Val);
+			  localStorage.setItem("day0WindDir21Val",day0WindDir21Val);
+			  //WIND SPEED
+			  var day0WindSpeed0 = xmlDocument.getElementsByTagName("windspeedKmph")['0'].childNodes['0'].nodeValue;
+			  var day0WindSpeed6 = xmlDocument.getElementsByTagName("windspeedKmph")['2'].childNodes['0'].nodeValue;
+			  var day0WindSpeed9 = xmlDocument.getElementsByTagName("windspeedKmph")['3'].childNodes['0'].nodeValue;
+			  var day0WindSpeed12 = xmlDocument.getElementsByTagName("windspeedKmph")['4'].childNodes['0'].nodeValue;
+			  var day0WindSpeed15 = xmlDocument.getElementsByTagName("windspeedKmph")['5'].childNodes['0'].nodeValue;
+			  var day0WindSpeed21 = xmlDocument.getElementsByTagName("windspeedKmph")['7'].childNodes['0'].nodeValue;
+			  //WIND SPEED SAVE LOCAL
+			  localStorage.setItem("day0WindSpeed0",day0WindSpeed0);
+			  localStorage.setItem("day0WindSpeed6",day0WindSpeed6);
+			  localStorage.setItem("day0WindSpeed9",day0WindSpeed9);
+			  localStorage.setItem("day0WindSpeed12",day0WindSpeed12);
+			  localStorage.setItem("day0WindSpeed15",day0WindSpeed15);
+			  localStorage.setItem("day0WindSpeed21",day0WindSpeed21);
 			  //DAY 0
 			  
 			  //DAY 1 WEATHER
@@ -1295,13 +1307,6 @@
 			  day0Temp12.innerHTML = day0Temp12Val + "°C";
 			  day0Temp15.innerHTML = day0Temp15Val + "°C";
 			  day0Temp21.innerHTML = day0Temp21Val + "°C";
-			  
-			  day0WindDir0.innerHTML = "WIND DIR: <strong>" + day0WindDir0Val + "</strong>";
-			  day0WindDir6.innerHTML = "WIND DIR: <strong>" + day0WindDir6Val + "</strong>";
-			  day0WindDir9.innerHTML = "WIND DIR: <strong>" + day0WindDir9Val + "</strong>";
-			  day0WindDir12.innerHTML = "WIND DIR: <strong>" + day0WindDir12Val + "</strong>";
-			  day0WindDir15.innerHTML = "WIND DIR: <strong>" + day0WindDir15Val + "</strong>";
-			  day0WindDir21.innerHTML = "WIND DIR: <strong>" + day0WindDir21Val + "</strong>";
 			  
 			  //Setting values of elements
 			  overviewSunrise.innerHTML = sunrise;
@@ -1810,23 +1815,23 @@
 				  //SUN
 				  day0Weather0.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
 				}
-				else if (day0WeatherCode0 == 122 || 116) {
+				else if (day0WeatherCode0 == 122 || day0WeatherCode0 == 116) {
 					//PARTLY CLOUDY
 					day0Weather0.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
 				}
-				else if (day0WeatherCode0 == 143 || 119) {
+				else if (day0WeatherCode0 == 143 || day0WeatherCode0 == 119) {
 					//CLOUDY
 					day0Weather0.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
 				}
-				else if (day0WeatherCode0 == 353 || 302 || 299 || 296 || 293) {
+				else if (day0WeatherCode0 == 353 || day0WeatherCode0 == 302 || day0WeatherCode0 == 299 || day0WeatherCode0 == 296 || day0WeatherCode0 == 293) {
 					//RAIN
 					day0Weather0.innerHTML = '<img src="image/rain.png" alt="rain"/>';
 				}
-				else if (day0WeatherCode0 == 266 || 263 || 176) {
+				else if (day0WeatherCode0 == 266 || day0WeatherCode0 == 263 || day0WeatherCode0 == 176) {
 					//SHOWERS
 					day0Weather0.innerHTML = '<img src="image/showers.png" alt="showers"/>';
 				}
-				else if (day0WeatherCode0 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				else if (day0WeatherCode0 == 386 || day0WeatherCode0 == 359 || day0WeatherCode0 == 356 || day0WeatherCode0 == 308 || day0WeatherCode0 == 305 || day0WeatherCode0 == 248 || day0WeatherCode0 == 200) {
 					//STORM
 					day0Weather0.innerHTML = '<img src="image/storm.png" alt="storm"/>';
 				}
@@ -1840,23 +1845,23 @@
 				  //SUN
 				  day0Weather6.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
 				}
-				else if (day0WeatherCode6 == 122 || 116) {
+				else if (day0WeatherCode6 == 122 || day0WeatherCode6 == 116) {
 					//PARTLY CLOUDY
 					day0Weather6.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
 				}
-				else if (day0WeatherCode6 == 143 || 119) {
+				else if (day0WeatherCode6 == 143 || day0WeatherCode6 == 119) {
 					//CLOUDY
 					day0Weather6.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
 				}
-				else if (day0WeatherCode6 == 353 || 302 || 299 || 296 || 293) {
+				else if (day0WeatherCode6 == 353 || day0WeatherCode6 == 302 || day0WeatherCode6 == 299 || day0WeatherCode6 == 296 || day0WeatherCode6 == 293) {
 					//RAIN
 					day0Weather6.innerHTML = '<img src="image/rain.png" alt="rain"/>';
 				}
-				else if (day0WeatherCode6 == 266 || 263 || 176) {
+				else if (day0WeatherCode6 == 266 || day0WeatherCode6 == 263 || day0WeatherCode6 == 176) {
 					//SHOWERS
 					day0Weather6.innerHTML = '<img src="image/showers.png" alt="showers"/>';
 				}
-				else if (day0WeatherCode6 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				else if (day0WeatherCode6 == 386 || day0WeatherCode6 == 359 || day0WeatherCode6 == 356 || day0WeatherCode6 == 308 || day0WeatherCode6 == 305 || day0WeatherCode6 == 248 || day0WeatherCode6 == 200) {
 					//STORM
 					day0Weather6.innerHTML = '<img src="image/storm.png" alt="storm"/>';
 				}
@@ -1870,23 +1875,23 @@
 				  //SUN
 				  day0Weather9.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
 				}
-				else if (day0WeatherCode9 == 122 || 116) {
+				else if (day0WeatherCode9 == 122 || day0WeatherCode9 == 116) {
 					//PARTLY CLOUDY
 					day0Weather9.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
 				}
-				else if (day0WeatherCode9 == 143 || 119) {
+				else if (day0WeatherCode9 == 143 || day0WeatherCode9 == 119) {
 					//CLOUDY
 					day0Weather9.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
 				}
-				else if (day0WeatherCode9 == 353 || 302 || 299 || 296 || 293) {
+				else if (day0WeatherCode9 == 353 || day0WeatherCode9 == 302 || day0WeatherCode9 == 299 || day0WeatherCode9 == 296 || day0WeatherCode9 == 293) {
 					//RAIN
 					day0Weather9.innerHTML = '<img src="image/rain.png" alt="rain"/>';
 				}
-				else if (day0WeatherCode9 == 266 || 263 || 176) {
+				else if (day0WeatherCode9 == 266 || day0WeatherCode9 == 263 || day0WeatherCode9 == 176) {
 					//SHOWERS
 					day0Weather9.innerHTML = '<img src="image/showers.png" alt="showers"/>';
 				}
-				else if (day0WeatherCode9 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				else if (day0WeatherCode9 == 386 || day0WeatherCode9 == 359 || day0WeatherCode9 == 356 || day0WeatherCode9 == 308 || day0WeatherCode9 == 305 || day0WeatherCode9 == 248 || day0WeatherCode9 == 200) {
 					//STORM
 					day0Weather9.innerHTML = '<img src="image/storm.png" alt="storm"/>';
 				}
@@ -1900,23 +1905,23 @@
 				  //SUN
 				  day0Weather12.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
 				}
-				else if (day0WeatherCode12 == 122 || 116) {
+				else if (day0WeatherCode12 == 122 || day0WeatherCode12 == 116) {
 					//PARTLY CLOUDY
 					day0Weather12.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
 				}
-				else if (day0WeatherCode12 == 143 || 119) {
+				else if (day0WeatherCode12 == 143 || day0WeatherCode12 == 119) {
 					//CLOUDY
 					day0Weather12.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
 				}
-				else if (day0WeatherCode12 == 353 || 302 || 299 || 296 || 293) {
+				else if (day0WeatherCode12 == 353 || day0WeatherCode12 == 302 || day0WeatherCode12 == 299 || day0WeatherCode12 == 296 || day0WeatherCode12 == 293) {
 					//RAIN
 					day0Weather12.innerHTML = '<img src="image/rain.png" alt="rain"/>';
 				}
-				else if (day0WeatherCode12 == 266 || 263 || 176) {
+				else if (day0WeatherCode12 == 266 || day0WeatherCode12 == 263 || day0WeatherCode12 == 176) {
 					//SHOWERS
 					day0Weather12.innerHTML = '<img src="image/showers.png" alt="showers"/>';
 				}
-				else if (day0WeatherCode12 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				else if (day0WeatherCode12 == 386 || day0WeatherCode12 == 359 || day0WeatherCode12 == 356 || day0WeatherCode12 == 308 || day0WeatherCode12 == 305 || day0WeatherCode12 == 248 || day0WeatherCode12 == 200) {
 					//STORM
 					day0Weather12.innerHTML = '<img src="image/storm.png" alt="storm"/>';
 				}
@@ -1930,23 +1935,23 @@
 				  //SUN
 				  day0Weather15.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
 				}
-				else if (day0WeatherCode15 == 122 || 116) {
+				else if (day0WeatherCode15 == 122 || day0WeatherCode15 == 116) {
 					//PARTLY CLOUDY
 					day0Weather15.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
 				}
-				else if (day0WeatherCode15 == 143 || 119) {
+				else if (day0WeatherCode15 == 143 || day0WeatherCode15 == 119) {
 					//CLOUDY
 					day0Weather15.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
 				}
-				else if (day0WeatherCode15 == 353 || 302 || 299 || 296 || 293) {
+				else if (day0WeatherCode15 == 353 || day0WeatherCode15 == 302 || day0WeatherCode15 == 299 || day0WeatherCode15 == 296 || day0WeatherCode15 == 293) {
 					//RAIN
 					day0Weather15.innerHTML = '<img src="image/rain.png" alt="rain"/>';
 				}
-				else if (day0WeatherCode15 == 266 || 263 || 176) {
+				else if (day0WeatherCode15 == 266 || day0WeatherCode15 == 263 || day0WeatherCode15 == 176) {
 					//SHOWERS
 					day0Weather15.innerHTML = '<img src="image/showers.png" alt="showers"/>';
 				}
-				else if (day0WeatherCode15 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				else if (day0WeatherCode15 == 386 || day0WeatherCode15 == 359 || day0WeatherCode15 == 356 || day0WeatherCode15 == 308 || day0WeatherCode15 == 305 || day0WeatherCode15 == 248 || day0WeatherCode15 == 200) {
 					//STORM
 					day0Weather15.innerHTML = '<img src="image/storm.png" alt="storm"/>';
 				}
@@ -1960,23 +1965,23 @@
 				  //SUN
 				  day0Weather21.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
 				}
-				else if (day0WeatherCode21 == 122 || 116) {
+				else if (day0WeatherCode21 == 122 || day0WeatherCode21 == 116) {
 					//PARTLY CLOUDY
 					day0Weather21.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
 				}
-				else if (day0WeatherCode21 == 143 || 119) {
+				else if (day0WeatherCode21 == 143 || day0WeatherCode21 == 119) {
 					//CLOUDY
 					day0Weather21.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
 				}
-				else if (day0WeatherCode21 == 353 || 302 || 299 || 296 || 293) {
+				else if (day0WeatherCode21 == 353 || day0WeatherCode21 == 302 || day0WeatherCode21 == 299 || day0WeatherCode21 == 296 || day0WeatherCode21 == 293) {
 					//RAIN
 					day0Weather21.innerHTML = '<img src="image/rain.png" alt="rain"/>';
 				}
-				else if (day0WeatherCode21 == 266 || 263 || 176) {
+				else if (day0WeatherCode21 == 266 || day0WeatherCode21 == 263 || day0WeatherCode21 == 176) {
 					//SHOWERS
 					day0Weather21.innerHTML = '<img src="image/showers.png" alt="showers"/>';
 				}
-				else if (day0WeatherCode21 == 386 || 359 || 356 || 308 || 305 || 248 || 200) {
+				else if (day0WeatherCode21 == 386 || day0WeatherCode21 == 359 || day0WeatherCode21 == 356 || day0WeatherCode21 == 308 || day0WeatherCode21 == 305 || day0WeatherCode21 == 248 || day0WeatherCode21 == 200) {
 					//STORM
 					day0Weather21.innerHTML = '<img src="image/storm.png" alt="storm"/>';
 				}
@@ -1996,11 +2001,100 @@
 			};
 			
 			function onError(error) {
-			  alert('Error Code: '    + error.code    + '\n' +
-					'Error Message: ' + error.message + '\n');
+			  if (error.code == 3){
+				var errorMsg = "Loading of location timed out. Please check that you have GPS/ Location services enabled and try again.";  
+			  }
+			  else if (error.code == 1){
+				var errorMsg = "Please enable or allow Trident - Weather to use your device's location services.";  
+			  }
+			  else if (error.code == 2){
+				var errorMsg = error.message;  
+			  }
+			  swal({   
+			  	title: "Something Happened!",
+				text: errorMsg,
+				type: "error",
+				confirmButtonText: "Ok" 
+			  });
 			}
 			
-			navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 10000});
+					
+			function day0MoreInfoPopup0(){
+			var day0WaterTemp0Val = localStorage.getItem("day0WaterTemp0Val");
+			var day0WindDir0Val = localStorage.getItem("day0WindDir0Val");
+			var day0SwellHeight0Val = localStorage.getItem("day0SwellHeight0Val");
+			var day0SwellDir0Val = localStorage.getItem("day0SwellDir0Val");
+			var day0SwellPer0Val = localStorage.getItem("day0SwellPer0Val");
+				swal({
+					title: "<small>Weather Today at 12:00am</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp0Val + '°C</strong></br>Wind Dir:<strong> ' + day0WindDir0Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight0Val + 'm</strong></br>Swell Dir: <strong>' + day0SwellDir0Val + '</strong></br>Swell Per: <strong>' + day0SwellPer0Val +'sec</strong>',
+					html: true
+				});
+			};
+			function day0MoreInfoPopup6(){
+			var day0WaterTemp6Val = localStorage.getItem("day0WaterTemp6Val");
+			var day0WindDir6Val = localStorage.getItem("day0WindDir6Val");
+			var day0SwellHeight6Val = localStorage.getItem("day0SwellHeight6Val");
+			var day0SwellDir6Val = localStorage.getItem("day0SwellDir6Val");
+			var day0SwellPer6Val = localStorage.getItem("day0SwellPer6Val");
+				swal({
+					title: "<small>Weather Today at 6:00am</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp6Val + '°C</strong></br>Wind Dir:<strong> ' + day0WindDir6Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight6Val + 'm</strong></br>Swell Dir: <strong>' + day0SwellDir6Val + '</strong></br>Swell Per: <strong>' + day0SwellPer6Val +'sec</strong>',
+					html: true
+				});
+			};
+			function day0MoreInfoPopup9(){
+			var day0WaterTemp9Val = localStorage.getItem("day0WaterTemp9Val");
+			var day0WindDir9Val = localStorage.getItem("day0WindDir9Val");
+			var day0SwellHeight9Val = localStorage.getItem("day0SwellHeight9Val");
+			var day0SwellDir9Val = localStorage.getItem("day0SwellDir9Val");
+			var day0SwellPer9Val = localStorage.getItem("day0SwellPer9Val");
+				swal({
+					title: "<small>Weather Today at 9:00am</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp9Val + '°C</strong></br>Wind Dir:<strong> ' + day0WindDir9Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight9Val + 'm</strong></br>Swell Dir: <strong>' + day0SwellDir9Val + '</strong></br>Swell Per: <strong>' + day0SwellPer9Val +'sec</strong>',
+					html: true
+				});
+			};
+			function day0MoreInfoPopup12(){
+			var day0WaterTemp12Val = localStorage.getItem("day0WaterTemp12Val");
+			var day0WindDir12Val = localStorage.getItem("day0WindDir12Val");
+			var day0SwellHeight12Val = localStorage.getItem("day0SwellHeight12Val");
+			var day0SwellDir12Val = localStorage.getItem("day0SwellDir12Val");
+			var day0SwellPer12Val = localStorage.getItem("day0SwellPer12Val");
+				swal({
+					title: "<small>Weather Today at 12:00pm</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp12Val + '°C</strong></br>Wind Dir:<strong> ' + day0WindDir12Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight12Val + 'm</strong></br>Swell Dir: <strong>' + day0SwellDir12Val + '</strong></br>Swell Per: <strong>' + day0SwellPer12Val +'sec</strong>',
+					html: true
+				});
+			};
+			function day0MoreInfoPopup15(){
+			var day0WaterTemp15Val = localStorage.getItem("day0WaterTemp15Val");
+			var day0WindDir15Val = localStorage.getItem("day0WindDir15Val");
+			var day0SwellHeight15Val = localStorage.getItem("day0SwellHeight15Val");
+			var day0SwellDir15Val = localStorage.getItem("day0SwellDir15Val");
+			var day0SwellPer15Val = localStorage.getItem("day0SwellPer15Val");
+				swal({
+					title: "<small>Weather Today at 3:00pm</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp15Val + '°C</strong></br>Wind Dir:<strong> ' + day0WindDir15Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight15Val + 'm</strong></br>Swell Dir: <strong>' + day0SwellDir15Val + '</strong></br>Swell Per: <strong>' + day0SwellPer15Val +'sec</strong>',
+					html: true
+				});
+			};
+			function day0MoreInfoPopup21(){
+			var day0WaterTemp21Val = localStorage.getItem("day0WaterTemp21Val");
+			var day0WindDir21Val = localStorage.getItem("day0WindDir21Val");
+			var day0WindSpeed21Val = localStorage.getItem("day0WindSpeed21");
+			var day0SwellHeight21Val = localStorage.getItem("day0SwellHeight21Val");
+			var day0SwellDir21Val = localStorage.getItem("day0SwellDir21Val");
+			var day0SwellPer21Val = localStorage.getItem("day0SwellPer21Val");
+				swal({
+					title: "<small>Weather Today at 9:00pm</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp21Val + '°C</strong></br>Wind Dir:<strong> ' + day0WindDir21Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed21Val + 'kmph</strong></br>Swell Height:<strong> ' + day0SwellHeight21Val + 'm</strong></br>Swell Dir: <strong>' + day0SwellDir21Val + '</strong></br>Swell Per: <strong>' + day0SwellPer21Val +'sec</strong>',
+					html: true
+				});
+			};
+			
+			onDeviceReady();
         </script>
 </body>
 </html>

@@ -600,12 +600,13 @@ transform:rotate(360deg)
 }
 .overviewLocation {
 	position: fixed;
-	top: 43.8%;
-	width: 100%;
+	top: 44.2%;
+	width: 60%;
 	height: 20%;
 	color: #969696;
 	text-align: center;
-	font-size: 4.5vmin;
+	font-size: 2.5vh;
+	left: 20%;
 }
 .overviewTemp {
 	postition: fixed;
@@ -821,10 +822,10 @@ transform:rotate(360deg)
 }
 .todayDetails {
 	text-align: left;
-	width: 40%;
+	width: 10%;
 	height: 100%;
 	float: right;
-	padding-top: 0.2vh;
+	margin: auto;
 	font-size: 2vh;
 	line-height: 2.8vh;
 }
@@ -1079,4 +1080,17 @@ forecastSubHeader {
 	font-family: inherit;
 	font-size: 5vh;
 	margin: auto;
+}
+.moreInfo {
+	width: 100%;
+	height: 100%;
+	border: none;
+	font-family: inherit;
+	font-size: 4vh;
+	margin: auto;
+	background-color:transparent;
+}
+.moreInfo img{
+	max-width: 100%;
+	max-height: 100%;
 }
