@@ -200,12 +200,7 @@
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
             app.initialize();
-			function onDeviceReady() {
-    			window.analytics.startTrackerWithId('UA-75031935-1');
-				window.analytics.trackView('Home');
-				window.analytics.trackTiming('Category', 2500, 'Variable', 'Label');
-			}
-			document.addEventListener("deviceready", onDeviceReady, false);
+			
 			var overviewLocation = document.getElementById('overviewLocation');
 			var overviewTideTime0 = document.getElementById('overviewTideTime0');
 			var overviewTideTime1 = document.getElementById('overviewTideTime1');
