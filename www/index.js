@@ -34,6 +34,10 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+		onDeviceReady: function() {
+      	adbuddiz.setAndroidPublisherKey("1ca0bda3-e6e0-4395-8255-333448265716");
+		adbuddiz.cacheAds();
+   	}
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
