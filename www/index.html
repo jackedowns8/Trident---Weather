@@ -14,7 +14,7 @@
             <div class="swiper-slide">
               <button class="overviewButtonSettings" onClick="window.location = 'settings.html'"><img src="image/settings.png" alt="settings"/></button>
               <div class="overviewTemp" id="overviewTemp">15°C</div>
-              <button class="overviewButtonInfo" onClick="adbuddiz.showAd();"><img src="image/info.png" alt="info"/></button>
+              <button class="overviewButtonInfo" onClick="window.location = 'about.html'"><img src="image/info.png" alt="info"/></button>
               <div class="overviewWeatherWindLabel"><div class="overviewWeatherLabel">Weather Conditions</div><div class="overviewWindLabel">Wind Direction</div></div>
               <div class="overviewWeather" id="overviewWeather"><img src="image/sunny.png" alt="weatherType"/></div>
               <div class="overviewWind" id="overviewWindDirection"><img src="image/N.png" alt="windDirection"/></div>
@@ -200,6 +200,7 @@
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
             app.initialize();
+			//adbuddiz.showAd();
 			
 			var overviewLocation = document.getElementById('overviewLocation');
 			var overviewTideTime0 = document.getElementById('overviewTideTime0');
