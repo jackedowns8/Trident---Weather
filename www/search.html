@@ -4,13 +4,12 @@
     <meta charset="utf-8">
     <title>Trident</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="dist/css/swiper.min.css">
-
 </head>
 <body>
             	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="subheader">Search</div></div>
+                <button class="saveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!');">Favourites</button>
                 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
    				<div id="map"></div>
                 <div id="current">Loading Location...</div>

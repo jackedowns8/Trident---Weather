@@ -14,7 +14,7 @@
             <div class="swiper-slide">
               <button class="overviewButtonSettings" onClick="window.location = 'settings.html'"><img src="image/settings.png" alt="settings"/></button>
               <div class="overviewTemp" id="overviewTemp">15°C</div>
-              <button class="overviewButtonInfo" onClick="window.location = 'about.html'"><img src="image/info.png" alt="info"/></button>
+              <button class="overviewButtonInfo" onClick="resetLocation(); location.reload();"><img src="image/info.png" alt="info"/></button>
               <div class="overviewWeatherWindLabel"><div class="overviewWeatherLabel">Weather Conditions</div><div class="overviewWindLabel">Wind Direction</div></div>
               <div class="overviewWeather" id="overviewWeather"><img src="image/sunny.png" alt="weatherType"/></div>
               <div class="overviewWind" id="overviewWindDirection"><img src="image/N.png" alt="windDirection"/></div>
@@ -417,6 +417,14 @@
 			// This method accepts a Position object, which contains the
 			// current GPS coordinates
 			//
+			
+			function resetLocation() {
+				 coordinates = localStorage.getItem("userLat")+','+localStorage.getItem("userLong");
+				 localStorage.setItem("coordinates", coordinates);
+				 console.log("users coords");
+				 localStorage.setItem("firstLoad", "1");
+			}
+			
 			var onSuccess = function(position) {
 			  localStorage.key("firstLoad");
 			  
@@ -431,7 +439,7 @@
 				coordinates = position.coords.latitude+','+position.coords.longitude;
 				localStorage.setItem("coordinates", coordinates);
 				console.log("users coords");
-			  }		  	  
+			  }
 			  
 			  localStorage.setItem("firstLoad", "0");
 			  

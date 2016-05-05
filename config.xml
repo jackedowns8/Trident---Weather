@@ -11,14 +11,14 @@
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
-    <preference name="fullscreen" value="false" />
-    <preference name="webviewbounce" value="true" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
     <preference name="prerendered-icon" value="true" />
     <preference name="stay-in-webview" value="false" />
     <preference name="ios-statusbarstyle" value="black-opaque" />
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
-    <preference name="disable-cursor" value="false" />
+    <preference name="disable-cursor" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="android-installLocation" value="auto" />
     <!--<gap:plugin name="org.apache.cordova.battery-status" />-->
@@ -39,6 +39,9 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <!--<gap:plugin name="org.apache.cordova.splashscreen" />-->
     <gap:plugin name="org.apache.cordova.vibration" />
+	<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance" overwrite="true">
+    	<false/>
+	</gap:config-file>
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
     <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
