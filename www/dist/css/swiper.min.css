@@ -814,8 +814,16 @@ transform:rotate(360deg)
 }
 .todayTemp {
 	float: left;
+	text-align: left;
+	width: 25%;
+	font-size: 7vh;
+	height: 100%;
+	line-height: 200%;
+}
+.todayRain {
+	float: left;
 	text-align: center;
-	width: 10%;
+	width: 25%;
 	font-size: 7vh;
 	height: 100%;
 	line-height: 200%;
@@ -899,21 +907,21 @@ forecastSubHeader {
 	float: left;
 	width: 28%;
 	margin-top: 6%;
-	font-size: 2.3vh;
+	font-size: 2vh;
 	align-content: center;
 	text-align: left;
 	padding-left: 0.5em;
 }
 .arrow {
 	float: left;
-	width: 5%;
+	width: 8%;
 	margin-top: 5vh;
 	border: none;
 	background-color: transparent;
 }
 .arrow img {
-	max-width: 3vh;
-	max-height: 7vh;
+	max-width: 100%;
+	max-height: 100%;
 }
 .weatherCondition img {
 	max-width: 80%;
@@ -997,6 +1005,49 @@ forecastSubHeader {
 	transform-origin: bottom left;
 	float: left;
 	width: 10%;
+}
+.settingsMetric {
+	width: 100%;
+	height: 5%;
+	background-color: #d7d7d7;
+}
+.settingsMetricA2 {
+	float: left;
+	width: 50%;
+	height: 100%;
+	background-color: rgba(0,132,255,1.00);
+}
+.settingsMetricB2 {
+	float: left;
+	width: 50%;
+	height: 100%;
+	background-color: rgba(2,255,0,1.00);
+}
+.settingsMetricA3 {
+	float: left;
+	width: 33.33%;
+	height: 100%;
+	background-color: rgba(0,132,255,1.00);
+}
+.settingsMetricB3 {
+	float: left;
+	width: 33.33%;
+	height: 100%;
+	background-color: rgba(2,255,0,1.00);
+}
+.settingsMetricC3 {
+	float: left;
+	width: 33.33%;
+	height: 100%;
+	background-color: rgba(0,132,255,1.00);
+}
+.celsiusSelect {
+    height: 100%;
+    width: 100%;
+}
+.fahrenheitSelect {
+	width: 100%;
+	height: 100%;
 }
 /*Other CSS */
 .rotate180 {
@@ -1094,3 +1145,74 @@ forecastSubHeader {
 	max-width: 100%;
 	max-height: 100%;
 }
+/*Custom Checkboxes*/
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old){
+  width     : 2em;
+  margin    : 0;
+  padding   : 0;
+  font-size : 1em;
+  opacity   : 0;
+}
+
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -2em;
+  line-height  : 1.5em;
+}
+
+input[type=checkbox]:not(old) + label > span,
+input[type=radio   ]:not(old) + label > span{
+  display          : inline-block;
+  width            : 0.875em;
+  height           : 0.875em;
+  margin           : 0.25em 0.5em 0.25em 0.25em;
+  border           : 0.0625em solid rgb(192,192,192);
+  border-radius    : 0.25em;
+  background       : rgb(224,224,224);
+  background-image :    -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :     -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :      -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :         linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  vertical-align   : bottom;
+}
+
+input[type=checkbox]:not(old):checked + label > span,
+input[type=radio   ]:not(old):checked + label > span{
+  background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+
+input[type=checkbox]:not(old):checked + label > span:before{
+  content     : '✓';
+  display     : block;
+  width       : 1em;
+  color       : rgb(153,204,102);
+  font-size   : 0.875em;
+  line-height : 1em;
+  text-align  : center;
+  text-shadow : 0 0 0.0714em rgb(115,153,77);
+  font-weight : bold;
+}
+
+input[type=radio]:not(old):checked +  label > span > span{
+  display          : block;
+  width            : 0.5em;
+  height           : 0.5em;
+  margin           : 0.125em;
+  border           : 0.0625em solid rgb(115,153,77);
+  border-radius    : 0.125em;
+  background       : rgb(153,204,102);
+  background-image :    -moz-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :     -ms-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :      -o-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image : -webkit-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :         linear-gradient(rgb(179,217,140),rgb(153,204,102));
+}
+
+

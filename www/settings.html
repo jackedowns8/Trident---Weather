@@ -7,10 +7,44 @@
 
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="dist/css/swiper.min.css">
-
 </head>
-<body>
+<body>    	
+     <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
             	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1);"><img src="image/backArrow.png" alt="backArrow"/></button><div class="subheader">Settings</div></div>
+                <div class="settingsMetric">
+                	<div class="settingsMetricA2">
+                    	<input id="radioCelsius" type="radio" name="temp" value="1" checked="checked" onClick="temprature();"><label for="radio2"><span><span></span></span>Celsius</label>
+                    </div>
+                    <div class="settingsMetricB2">
+                    	<input id="radioFahrenheit" type="radio" name="temp" value="2" onClick="temprature();"><label for="radio2" ><span><span></span></span>Fahrenheit</label>
+                    </div>
+                </div>
+                <div class="settingsMetric">
+                	<div class="settingsMetricA2">
+                    	<input id="radioMeters" type="radio" name="leng" value="1" checked="checked" onClick="length();"><label for="radio2"><span><span></span></span>Meters/ Centimeters</label>
+                    </div>
+                    <div class="settingsMetricB2">
+                    	<input id="radioFeet" type="radio" name="leng" value="2" onClick="length();"><label for="radio2" ><span><span></span></span>Feet/ Inches</label>
+                    </div>
+                </div>
+                <div class="settingsMetric">
+                	<div class="settingsMetricA3">
+                    	<input id="radioKMPH" type="radio" name="speed" value="1" checked="checked" onClick="speed();"><label for="radio2"><span><span></span></span>kmph</label>
+                    </div>
+                    <div class="settingsMetricB3">
+                    	<input id="radioMPH" type="radio" name="speed" value="2" onClick="speed();"><label for="radio2" ><span><span></span></span>mph</label>
+                    </div>
+                    <div class="settingsMetricC3">
+                    	<input id="radioKN" type="radio" name="speed" value="3" onClick="speed();"><label for="radio2" ><span><span></span></span>Knots</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
     <!-- Swiper JS -->
     <script src="dist/js/swiper.min.js"></script>
 
@@ -28,7 +62,51 @@
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
             app.initialize();
+			function temprature() {
+				if (document.getElementById('radioCelsius').checked) {
+					console.log("User Selected Celsius");
+					localStorage.setItem("tempMeasurement", "C");
+				}
+				else if (document.getElementById('radioFahrenheit').checked) {
+					console.log("User Selected Fahrenheit");
+					localStorage.setItem("tempMeasurement", "F");
+				}
+				else {
+					// DO NOTHING
+				}
+			}
 			
+			function length() {
+				if (document.getElementById('radioMeters').checked) {
+					console.log("User Selected Meters");
+					localStorage.setItem("lengthMeasurement", "m");
+				}
+				else if (document.getElementById('radioFeet').checked) {
+					console.log("User Selected Feet");
+					localStorage.setItem("lengthMeasurement", "ft");
+				}
+				else {
+					// DO NOTHING
+				}
+			}
+			
+			function speed() {
+				if (document.getElementById('radioKMPH').checked) {
+					console.log("User Selected Kilometers Per Hour");
+					localStorage.setItem("speedMeasurement", "kmph");
+				}
+				else if (document.getElementById('radioMPH').checked) {
+					console.log("User Selected Miles Per Hour");
+					localStorage.setItem("speedMeasurement", "mph");
+				}
+				else if (document.getElementById('radioKN').checked) {
+					console.log("User Selected Knots");
+					localStorage.setItem("speedMeasurement", "knots");
+				}
+				else {
+					// DO NOTHING
+				}
+			}
         </script>
 </body>
 </html>
