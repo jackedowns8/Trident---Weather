@@ -49,6 +49,7 @@
             
             <div class="swiper-slide">
             	<div class="todayHeader">Today</div>
+                <div class="todaySubHeader" id="todayTimeDate"> Time/ Date</div>
                 <div class="today0">
                 	<div class="todayTime">12:00am</div>
                     <div class="todayWeather" id="day0Weather0"><img src="image/sunny.png" alt="weatherType"/></div>
@@ -203,6 +204,7 @@
 			var overviewTemp = document.getElementById('overviewTemp');
 			var overviewSunrise = document.getElementById('overviewSunrise');
 			var overviewSunset = document.getElementById('overviewSunset');
+			var todayTimeDate = document.getElementById('todayTimeDate');
 			var day0Weather0 = document.getElementById('day0Weather0');
 			var day0Weather6 = document.getElementById('day0Weather6');
 			var day0Weather9 = document.getElementById('day0Weather9');
@@ -459,6 +461,10 @@
 			  
 			  //Normal Weather
 			  xmlDocument = normalWeather.responseXML;
+			  //Current Conditions
+			  var currentWeatherConditions = xmlDocument.getElementsByTagName("weatherCode")['0'].childNodes['0'].nodeValue;
+			  var currentTemp = xmlDocument.getElementsByTagName("temp_C")['0'].childNodes['0'].nodeValue;
+			  var currentWindDir = xmlDocument.getElementsByTagName("winddir16Point")['0'].childNodes['0'].nodeValue;
 			  //Chance Of Rain
 			  //Day0
 			  var day0ChanceOfRain0 = xmlDocument.getElementsByTagName("chanceofrain")['0'].childNodes['0'].nodeValue;
@@ -1427,6 +1433,20 @@
 				localStorage.setItem("day2WindDir12Val",day2WindDir12Val);
 				localStorage.setItem("day2WindDir15Val",day2WindDir15Val);
 				localStorage.setItem("day2WindDir21Val",day2WindDir21Val);
+				//WIND SPEED
+				var day2WindSpeed0 = xmlDocument.getElementsByTagName("windspeedKmph")['16'].childNodes['0'].nodeValue;
+				var day2WindSpeed6 = xmlDocument.getElementsByTagName("windspeedKmph")['18'].childNodes['0'].nodeValue;
+				var day2WindSpeed9 = xmlDocument.getElementsByTagName("windspeedKmph")['19'].childNodes['0'].nodeValue;
+				var day2WindSpeed12 = xmlDocument.getElementsByTagName("windspeedKmph")['20'].childNodes['0'].nodeValue;
+				var day2WindSpeed15 = xmlDocument.getElementsByTagName("windspeedKmph")['21'].childNodes['0'].nodeValue;
+				var day2WindSpeed21 = xmlDocument.getElementsByTagName("windspeedKmph")['23'].childNodes['0'].nodeValue;
+				//WIND SPEED SAVE LOCAL
+				localStorage.setItem("day2WindSpeed0",day2WindSpeed0);
+				localStorage.setItem("day2WindSpeed6",day2WindSpeed6);
+				localStorage.setItem("day2WindSpeed9",day2WindSpeed9);
+				localStorage.setItem("day2WindSpeed12",day2WindSpeed12);
+				localStorage.setItem("day2WindSpeed15",day2WindSpeed15);
+				localStorage.setItem("day2WindSpeed21",day2WindSpeed21);
 				//DAY 2
 				
 				//DAY 3 WEATHER
@@ -1523,6 +1543,20 @@
 				localStorage.setItem("day3WindDir12Val",day3WindDir12Val);
 				localStorage.setItem("day3WindDir15Val",day3WindDir15Val);
 				localStorage.setItem("day3WindDir21Val",day3WindDir21Val);
+				//WIND SPEED
+				var day3WindSpeed0 = xmlDocument.getElementsByTagName("windspeedKmph")['24'].childNodes['0'].nodeValue;
+				var day3WindSpeed6 = xmlDocument.getElementsByTagName("windspeedKmph")['26'].childNodes['0'].nodeValue;
+				var day3WindSpeed9 = xmlDocument.getElementsByTagName("windspeedKmph")['27'].childNodes['0'].nodeValue;
+				var day3WindSpeed12 = xmlDocument.getElementsByTagName("windspeedKmph")['28'].childNodes['0'].nodeValue;
+				var day3WindSpeed15 = xmlDocument.getElementsByTagName("windspeedKmph")['29'].childNodes['0'].nodeValue;
+				var day3WindSpeed21 = xmlDocument.getElementsByTagName("windspeedKmph")['31'].childNodes['0'].nodeValue;
+				//WIND SPEED SAVE LOCAL
+				localStorage.setItem("day3WindSpeed0",day3WindSpeed0);
+				localStorage.setItem("day3WindSpeed6",day3WindSpeed6);
+				localStorage.setItem("day3WindSpeed9",day3WindSpeed9);
+				localStorage.setItem("day3WindSpeed12",day3WindSpeed12);
+				localStorage.setItem("day3WindSpeed15",day3WindSpeed15);
+				localStorage.setItem("day3WindSpeed21",day3WindSpeed21);
 				//DAY 3
 				
 				//Overview
@@ -1679,366 +1713,84 @@
 				day2.innerHTML = day2Day;
 				day3.innerHTML = day3Day;
 				
+				var currentdate = new Date();
+				var currentTime;
 				
-				if (userHour >= 0 & userHour < 6) {
+				var currentTimeMin = currentdate.getMinutes();
+				if (currentTimeMin < 10) {
+					currentTimeMin = "0" + currentdate.getMinutes();
+				}
+				else {
+					currentTimeMin = currentdate.getMinutes();
+				}
+				
+				var currentTimeHour = currentdate.getHours();
+				if (currentTimeHour > 12) {
+					currentTime = currentdate.getHours()-12 + ":" + currentTimeMin + "pm";
+				}
+				else {
+					currentTime = currentdate.getHours() + ":" + currentTimeMin + "am";
+				}
+				
+				var datetime = "<strong>Last updated: </strong>" + currentdate.getDate() + "/" + (currentdate.getMonth()+1)  + "/" + currentdate.getFullYear() + " at " + currentTime;
+								
+				todayTimeDate.innerHTML = datetime;
+				
 				  overviewWindDirection.innerHTML = '<img src="image/' + overviewWindDirection0 + '.png" alt="windDirection"/>';
-				  //
-				  //Weather Picture
-				  //
-				  if (day0WeatherCode0 == 113) {
-					//SUN
-					overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
-				  }
-				  else if (day0WeatherCode0 == 122 || day0WeatherCode0 == 116) {
-					  //PARTLY CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
-				  }
-				  else if (day0WeatherCode0 == 143 || day0WeatherCode0 == 119) {
-					  //CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
-				  }
-				  else if (day0WeatherCode0 == 353 || day0WeatherCode0 == 302 || day0WeatherCode0 == 299 || day0WeatherCode0 == 296 || day0WeatherCode0 == 293) {
-					  //RAIN
-					  overviewWeather.innerHTML = '<img src="image/rain.png" alt="rain"/>';
-				  }
-				  else if (day0WeatherCode0 == 266 || day0WeatherCode0 == 263 || day0WeatherCode0 == 176) {
-					  //SHOWERS
-					  overviewWeather.innerHTML = '<img src="image/showers.png" alt="showers"/>';
-				  }
-				  else if (day0WeatherCode0 == 386 || day0WeatherCode0 == 359 || day0WeatherCode0 == 356 || day0WeatherCode0 == 308 || day0WeatherCode0 == 305 || day0WeatherCode0 == 248 || day0WeatherCode0 == 200) {
-					  //STORM
-					  overviewWeather.innerHTML = '<img src="image/storm.png" alt="storm"/>';
-				  }
-				  else {
-					  //SNOW
-					  overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
-				  }
-				  //
-				  //Temprature
-				  //
-				  overviewTemp.innerHTML = day0Temp0Val + "°C";
-				  //
-				  if (day0Temp0Val < 5) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
-				  }
-				  else if (day0Temp0Val >= 5 & day0Temp0Val < 10) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
-				  }
-				  else if (day0Temp0Val >= 10 & day0Temp0Val < 15) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
-				  }
-				  else if (day0Temp0Val >= 15 & day0Temp0Val < 20) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
-				  }
-				  else if (day0Temp0Val >= 20 & day0Temp0Val < 25) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
-				  }
-				  else if (day0Temp0Val >= 25 & day0Temp0Val < 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
-				  }
-				  else if (day0Temp0Val >= 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
-				  }
+
+				if (currentWeatherConditions == 113) {
+				  //SUN
+				  overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
 				}
-				else if (userHour >= 6 & userHour < 9) {
-				  overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection6+'.png" alt="windDirection"/>';
-				  //
-				  //Weather Picture
-				  //
-				  if (day0WeatherCode6 == 113) {
-					//SUN
-					overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
-				  }
-				  else if (day0WeatherCode6 == 122 || day0WeatherCode6 == 116) {
-					  //PARTLY CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
-				  }
-				  else if (day0WeatherCode6 == 143 || day0WeatherCode6 == 119) {
-					  //CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
-				  }
-				  else if (day0WeatherCode6 == 353 || day0WeatherCode6 == 302 || day0WeatherCode6 == 299 || day0WeatherCode6 == 296 || day0WeatherCode6 == 293) {
-					  //RAIN
-					  overviewWeather.innerHTML = '<img src="image/rain.png" alt="rain"/>';
-				  }
-				  else if (day0WeatherCode6 == 266 || day0WeatherCode6 == 263 || day0WeatherCode6 == 176) {
-					  //SHOWERS
-					  overviewWeather.innerHTML = '<img src="image/showers.png" alt="showers"/>';
-				  }
-				  else if (day0WeatherCode6 == 386 || day0WeatherCode6 == 359 || day0WeatherCode6 == 356 || day0WeatherCode6 == 308 || day0WeatherCode6 == 305 || day0WeatherCode6 == 248 || day0WeatherCode6 == 200) {
-					  //STORM
-					  overviewWeather.innerHTML = '<img src="image/storm.png" alt="storm"/>';
-				  }
-				  else {
-					  //SNOW
-					  overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
-				  }
-				  //
-				  //Temprature
-				  //
-				  overviewTemp.innerHTML = day0Temp6Val + "°C";
-				  //
-				  if (day0Temp6Val < 5) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
-				  }
-				  else if (day0Temp6Val >= 5 & day0Temp6Val < 10) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
-				  }
-				  else if (day0Temp6Val >= 10 & day0Temp6Val < 15) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
-				  }
-				  else if (day0Temp6Val >= 15 & day0Temp6Val < 20) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
-				  }
-				  else if (day0Temp6Val >= 20 & day0Temp6Val< 25) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
-				  }
-				  else if (day0Temp6Val >= 25 & day0Temp6Val< 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
-				  }
-				  else if (day0Temp6Val >= 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
-				  }
+				else if (currentWeatherConditions == 122 || currentWeatherConditions == 116) {
+					//PARTLY CLOUDY
+					overviewWeather.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
 				}
-				else if (userHour >= 9 & userHour < 12) {
-				  overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection9+'.png" alt="windDirection"/>';
-				  //
-				  //Weather Picture
-				  //
-				  if (day0WeatherCode9 == 113) {
-					//SUN
-					overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
-				  }
-				  else if (day0WeatherCode9 == 122 || day0WeatherCode9 == 116) {
-					  //PARTLY CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
-				  }
-				  else if (day0WeatherCode9 == 143 || day0WeatherCode9 == 119) {
-					  //CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
-				  }
-				  else if (day0WeatherCode9 == 353 || day0WeatherCode9 == 302 || day0WeatherCode9 == 299 || day0WeatherCode9 == 296 || day0WeatherCode9 == 293) {
-					  //RAIN
-					  overviewWeather.innerHTML = '<img src="image/rain.png" alt="rain"/>';
-				  }
-				  else if (day0WeatherCode9 == 266 || day0WeatherCode9 == 263 || day0WeatherCode9 == 176) {
-					  //SHOWERS
-					  overviewWeather.innerHTML = '<img src="image/showers.png" alt="showers"/>';
-				  }
-				  else if (day0WeatherCode9 == 386 || day0WeatherCode9 == 359 || day0WeatherCode9 == 356 || day0WeatherCode9 == 308 || day0WeatherCode9 == 305 || day0WeatherCode9 == 248 || day0WeatherCode9 == 200) {
-					  //STORM
-					  overviewWeather.innerHTML = '<img src="image/storm.png" alt="storm"/>';
-				  }
-				  else {
-					  //SNOW
-					  overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
-				  }
-				  //
-				  //Temprature
-				  //
-				  overviewTemp.innerHTML = day0Temp9Val + "°C";
-				  //
-				  if (day0Temp9Val < 5) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
-				  }
-				  else if (day0Temp9Val >= 5 & day0Temp9Val < 10) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
-				  }
-				  else if (day0Temp9Val >= 10 & day0Temp9Val < 15) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
-				  }
-				  else if (day0Temp9Val >= 15 & day0Temp9Val < 20) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
-				  }
-				  else if (day0Temp9Val >= 20 & day0Temp9Val < 25) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
-				  }
-				  else if (day0Temp9Val >= 25 & day0Temp9Val < 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
-				  }
-				  else if (day0Temp9Val >= 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
-				  }			
+				else if (currentWeatherConditions == 143 || currentWeatherConditions == 119) {
+					//CLOUDY
+					overviewWeather.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
 				}
-				else if (userHour >= 12 & userHour < 15) {
-				  overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection12+'.png" alt="windDirection"/>';
-				  //
-				  //Weather Picture
-				  //
-				  if (day0WeatherCode12 == 113) {
-					//SUN
-					overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
-				  }
-				  else if (day0WeatherCode12 == 122 || day0WeatherCode12 == 116) {
-					  //PARTLY CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
-				  }
-				  else if (day0WeatherCode12 == 143 || day0WeatherCode12 == 119) {
-					  //CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
-				  }
-				  else if (day0WeatherCode12 == 353 || day0WeatherCode12 == 302 || day0WeatherCode12 == 299 || day0WeatherCode12 == 296 || day0WeatherCode12 == 293) {
-					  //RAIN
-					  overviewWeather.innerHTML = '<img src="image/rain.png" alt="rain"/>';
-				  }
-				  else if (day0WeatherCode12 == 266 || day0WeatherCode12 == 263 || day0WeatherCode12 == 176) {
-					  //SHOWERS
-					  overviewWeather.innerHTML = '<img src="image/showers.png" alt="showers"/>';
-				  }
-				  else if (day0WeatherCode12 == 386 || day0WeatherCode12 == 359 || day0WeatherCode12 == 356 || day0WeatherCode12 == 308 || day0WeatherCode12 == 305 || day0WeatherCode12 == 248 || day0WeatherCode12 == 200) {
-					  //STORM
-					  overviewWeather.innerHTML = '<img src="image/storm.png" alt="storm"/>';
-				  }
-				  else {
-					  //SNOW
-					  overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
-				  }
-				  //
-				  //Temprature
-				  //
-				  overviewTemp.innerHTML = day0Temp12Val + "°C";
-				  //
-				  if (day0Temp12Val < 5) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
-				  }
-				  else if (day0Temp12Val >= 5 & day0Temp12Val < 10) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
-				  }
-				  else if (day0Temp12Val >= 10 & day0Temp12Val < 15) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
-				  }
-				  else if (day0Temp12Val >= 15 & day0Temp12Val < 20) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
-				  }
-				  else if (day0Temp12Val >= 20 & day0Temp12Val < 25) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
-				  }
-				  else if (day0Temp12Val >= 25 & day0Temp12Val < 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
-				  }
-				  else if (day0Temp12Val >= 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
-				  }
+				else if (currentWeatherConditions == 353 || currentWeatherConditions == 302 || currentWeatherConditions == 299 || currentWeatherConditions == 296 || currentWeatherConditions == 293) {
+					//RAIN
+					overviewWeather.innerHTML = '<img src="image/rain.png" alt="rain"/>';
 				}
-				else if (userHour >= 15 & userHour < 21) {
-				  overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection15+'.png" alt="windDirection"/>';
-				  //
-				  //Weather Picture
-				  //
-				  if (day0WeatherCode15 == 113) {
-					//SUN
-					overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
-				  }
-				  else if (day0WeatherCode15 == 122 || day0WeatherCode15 == 116) {
-					  //PARTLY CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
-				  }
-				  else if (day0WeatherCode15 == 143 || day0WeatherCode15 == 119) {
-					  //CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
-				  }
-				  else if (day0WeatherCode15 == 353 || day0WeatherCode15 == 302 || day0WeatherCode15 == 299 || day0WeatherCode15 == 296 || day0WeatherCode15 == 293) {
-					  //RAIN
-					  overviewWeather.innerHTML = '<img src="image/rain.png" alt="rain"/>';
-				  }
-				  else if (day0WeatherCode15 == 266 || day0WeatherCode15 == 263 || day0WeatherCode15 == 176) {
-					  //SHOWERS
-					  overviewWeather.innerHTML = '<img src="image/showers.png" alt="showers"/>';
-				  }
-				  else if (day0WeatherCode15 == 386 || day0WeatherCode15 == 359 || day0WeatherCode15 == 356 || day0WeatherCode15 == 308 || day0WeatherCode15 == 305 || day0WeatherCode15 == 248 || day0WeatherCode15 == 200) {
-					  //STORM
-					  overviewWeather.innerHTML = '<img src="image/storm.png" alt="storm"/>';
-				  }
-				  else {
-					  //SNOW
-					  overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
-				  }
-				  //
-				  //Temprature
-				  //
-				  overviewTemp.innerHTML = day0Temp15Val + "°C";
-				  //
-				  if (day0Temp15Val < 5) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
-				  }
-				  else if (day0Temp15Val >= 5 && day0Temp15Val < 10) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
-				  }
-				  else if (day0Temp15Val >= 10 && day0Temp15Val < 15) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
-				  }
-				  else if (day0Temp15Val >= 15 && day0Temp15Val < 20) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
-				  }
-				  else if (day0Temp15Val >= 20 && day0Temp15Val < 25) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
-				  }
-				  else if (day0Temp15Val >= 25 && day0Temp15Val < 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
-				  }
-				  else if (day0Temp15Val >= 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
-				  }
+				else if (currentWeatherConditions == 266 || currentWeatherConditions == 263 || currentWeatherConditions == 176) {
+					//SHOWERS
+					overviewWeather.innerHTML = '<img src="image/showers.png" alt="showers"/>';
 				}
-				else if (userHour >= 21) {
-				  overviewWindDirection.innerHTML = '<img src="image/'+overviewWindDirection21+'.png" alt="windDirection"/>';
-				  //
-				  //Weather Picture
-				  //
-				  if (day0WeatherCode21 == 113) {
-					//SUN
-					overviewWeather.innerHTML = '<img src="image/sunny.png" alt="sunny"/>';
-				  }
-				  else if (day0WeatherCode21 == 122 || day0WeatherCode21 == 116) {
-					  //PARTLY CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/partly cloudy.png" alt="partly cloudy"/>';
-				  }
-				  else if (day0WeatherCode21 == 143 || day0WeatherCode21 == 119) {
-					  //CLOUDY
-					  overviewWeather.innerHTML = '<img src="image/cloudy.png" alt="cloudy"/>';
-				  }
-				  else if (day0WeatherCode21 == 353 || day0WeatherCode21 == 302 || day0WeatherCode21 == 299 || day0WeatherCode21 == 296 || day0WeatherCode21 == 293) {
-					  //RAIN
-					  overviewWeather.innerHTML = '<img src="image/rain.png" alt="rain"/>';
-				  }
-				  else if (day0WeatherCode21 == 266 || day0WeatherCode21 == 263 || day0WeatherCode21 == 176) {
-					  //SHOWERS
-					  overviewWeather.innerHTML = '<img src="image/showers.png" alt="showers"/>';
-				  }
-				  else if (day0WeatherCode21 == 386 || day0WeatherCode21 == 359 || day0WeatherCode21 == 356 || day0WeatherCode21 == 308 || day0WeatherCode21 == 305 || day0WeatherCode21 == 248 || day0WeatherCode21 == 200) {
-					  //STORM
-					  overviewWeather.innerHTML = '<img src="image/storm.png" alt="storm"/>';
-				  }
-				  else {
-					  //SNOW
-					  overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
-				  }
-				  //
-				  //Temprature
-				  //
-				  overviewTemp.innerHTML = day0Temp21Val + "°C";
-				  //
-				  if (day0Temp21Val < 5) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
-				  }
-				  else if (day0Temp21Val >= 5 && day0Temp21Val < 10) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
-				  }
-				  else if (day0Temp21Val >= 10 && day0Temp21Val < 15) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
-				  }
-				  else if (day0Temp21Val >= 15 && day0Temp21Val < 20) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
-				  }
-				  else if (day0Temp21Val >= 20 && day0Temp21Val < 25) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
-				  }
-				  else if (day0Temp21Val >= 25 && day0Temp21Val < 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
-				  }
-				  else if (day0Temp21Val >= 30) {
-					  document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
-				  }
+				else if (currentWeatherConditions == 386 || currentWeatherConditions == 359 || currentWeatherConditions == 356 || currentWeatherConditions == 308 || currentWeatherConditions == 305 || currentWeatherConditions == 248 || currentWeatherConditions == 200) {
+					//STORM
+					overviewWeather.innerHTML = '<img src="image/storm.png" alt="storm"/>';
+				}
+				else {
+					//SNOW
+					overviewWeather.innerHTML = '<img src="image/snow.png" alt="snow"/>';
+				}
+				//
+				//Temprature
+				//
+				overviewTemp.innerHTML = currentTemp + "°C";
+				//
+				if (currentTemp < 5) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/tempNeg5.png')";
+				}
+				else if (currentTemp >= 5 & currentTemp < 10) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp0.png')";
+				}
+				else if (currentTemp >= 10 & currentTemp < 15) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp5.png')";
+				}
+				else if (currentTemp >= 15 & currentTemp < 20) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp10.png')";
+				}
+				else if (currentTemp >= 20 & currentTemp < 25) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp15.png')";
+				}
+				else if (currentTemp >= 25 & currentTemp < 30) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp20.png')";
+				}
+				else if (currentTemp >= 30) {
+					document.getElementById("overviewTemp").style.backgroundImage = "url('image/temp25.png')";
 				}
 				
 				//Overview 3hrly Weather
