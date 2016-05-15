@@ -149,10 +149,7 @@
                 <button class="arrow" onClick="window.location = 'day2.html'"><img src="image/navArrow.png" alt="navArrow"/></button>
               </div>
               <div class="forecastDay0">
-                <div class="forecastComingSoon">
-                  Error (Being fixed)
-                </div>
-              	<!--<div class="dayOfWeek" id="day3">Day3</div>
+              	<div class="dayOfWeek" id="day3">Day3</div>
                 <div class="weatherCondition" id="day3Conditions"><img src="image/sunny.png" alt="sunny"/></div>
                 <div class="weatherTemp" id="day3MaxTemp">null</div>
                 <div class="weatherTides" id="day3Tides">
@@ -161,7 +158,7 @@
                 HIGH: 12:48pm</br>
                 LOW: 8:32pm
                 </div>
-                <button class="arrow" onClick="window.location = 'day3.html'"><img src="image/navArrow.png" alt="navArrow"/></button>-->
+                <button class="arrow" onClick="window.location = 'day3.html'"><img src="image/navArrow.png" alt="navArrow"/></button>
               </div>
               <div class="forecastDay1">
               	<div class="forecastComingSoon">
@@ -356,7 +353,7 @@
 			var day2SwellPer15 = document.getElementById('day2SwellPer15');
 			var day2SwellPer21 = document.getElementById('day2SwellPer21');
 			
-			/*var day3 = document.getElementById('day3');
+			var day3 = document.getElementById('day3');
 			var day3Tides = document.getElementById('day3Tides');
 			var day3WeatherCond = document.getElementById('day3Conditions');
 			var day3MaxTemp = document.getElementById('day3MaxTemp');
@@ -396,7 +393,7 @@
 			var day3SwellPer9 = document.getElementById('day3SwellPer9');
 			var day3SwellPer12 = document.getElementById('day3SwellPer12');
 			var day3SwellPer15 = document.getElementById('day3SwellPer15');
-			var day3SwellPer21 = document.getElementById('day3SwellPer21');*/
+			var day3SwellPer21 = document.getElementById('day3SwellPer21');
 			
 			//TEST
 			var overviewTime = document.getElementById('overviewTime');
@@ -634,7 +631,7 @@
 				  var day2TideHour3 = day2TideTime3.charAt(0 + 1).toString();
 				  var day2TideMin3 = day2TideTime3.charAt(3 + 4).toString();
 				}
-				/*
+				
 				//day3 (Forecast)
 				var day3TideType0 = xmlDocument.getElementsByTagName("tide_type")['12'].childNodes['0'].nodeValue;
 				var day3TideType1 = xmlDocument.getElementsByTagName("tide_type")['13'].childNodes['0'].nodeValue;
@@ -688,7 +685,6 @@
 				  var day3TideHour3 = day3TideTime3.charAt(0 + 1).toString();
 				  var day3TideMin3 = day3TideTime3.charAt(3 + 4).toString();
 				}
-				*/
 				
 				//DAY0
 				//SWELL
@@ -835,6 +831,7 @@
 				localStorage.setItem("day2SwellPer6Val",day2SwellPer6Val);
 				localStorage.setItem("day2SwellPer9Val",day2SwellPer9Val);
 				localStorage.setItem("day2SwellPer12Val",day2SwellPer12Val);
+				localStorage.setItem("day2SwellPer15Val",day2SwellPer15Val);
 				localStorage.setItem("day2SwellPer21Val",day2SwellPer21Val);
 				//WATER TEMP
 				var day2WaterTemp0Val = xmlDocument.getElementsByTagName("waterTemp_C")['0'].childNodes['0'].nodeValue;
@@ -852,7 +849,6 @@
 				localStorage.setItem("day2WaterTemp21Val",day2WaterTemp21Val);
 				//DAY 2
 				
-				/*
 				//DAY 3
 				//SWELL
 				var day3SwellHeight0Val = xmlDocument.getElementsByTagName("swellHeight_m")['8'].childNodes['0'].nodeValue;
@@ -890,6 +886,7 @@
 				localStorage.setItem("day3SwellPer6Val",day3SwellPer6Val);
 				localStorage.setItem("day3SwellPer9Val",day3SwellPer9Val);
 				localStorage.setItem("day3SwellPer12Val",day3SwellPer12Val);
+				localStorage.setItem("day3SwellPer15Val",day3SwellPer15Val);
 				localStorage.setItem("day3SwellPer21Val",day3SwellPer21Val);
 				//WATER TEMP
 				var day3WaterTemp0Val = xmlDocument.getElementsByTagName("waterTemp_C")['0'].childNodes['0'].nodeValue;
@@ -906,7 +903,6 @@
 				localStorage.setItem("day3WaterTemp15Val",day3WaterTemp15Val);
 				localStorage.setItem("day3WaterTemp21Val",day3WaterTemp21Val);
 				//DAY 3
-				*/
 				
 				//OVERVIEW
 				overviewTideType0.innerHTML = "<strong>" + tideType0 + "</strong>";
@@ -957,10 +953,8 @@
 				day1Tides.innerHTML = day1TideType0 + ": <strong>" + day1TideTime0 + "</strong></br>" + day1TideType1 + ": <strong>" + day1TideTime1 + "</strong></br>" + day1TideType2 + ": <strong>" + day1TideTime2 + "</strong></br>" + day1TideType3 + ": <strong>" + day1TideTime3 + "</strong>";
 				//DAY 2 Tides
 				day2Tides.innerHTML = day2TideType0 + ": <strong>" + day2TideTime0 + "</strong></br>" + day2TideType1 + ": <strong>" + day2TideTime1 + "</strong></br>" + day2TideType2 + ": <strong>" + day2TideTime2 + "</strong></br>" + day2TideType3 + ": <strong>" + day2TideTime3 + "</strong>";
-				/*
 				//DAY 3 Tides
 				day3Tides.innerHTML = day3TideType0 + ": <strong>" + day3TideTime0 + "</strong></br>" + day3TideType1 + ": <strong>" + day3TideTime1 + "</strong></br>" + day3TideType2 + ": <strong>" + day3TideTime2 + "</strong></br>" + day3TideType3 + ": <strong>" + day3TideTime3 + "</strong>";
-				*/
 				
 			  }
 			  //TIME
@@ -1204,7 +1198,6 @@
 			  localStorage.setItem("day2WindDir21Val",day2WindDir21Val);
 			  //DAY 2
 			  
-			  /*
 			  //DAY 3 WEATHER
 			  //TEMP
 			  var day3MaxTempVal = xmlDocument.getElementsByTagName("maxtempC")['3'].childNodes['0'].nodeValue;
@@ -1300,7 +1293,6 @@
 			  localStorage.setItem("day3WindDir15Val",day3WindDir15Val);
 			  localStorage.setItem("day3WindDir21Val",day3WindDir21Val);
 			  //DAY 3
-			  */
 			  
 			  //Overview
 			  day0Temp0.innerHTML = day0Temp0Val + "°C";
@@ -1325,10 +1317,8 @@
 			  day1MaxTemp.innerHTML = day1MaxTempVal + "°C";
 			  //DAY 2 Temp
 			  day2MaxTemp.innerHTML = day2MaxTempVal + "°C";
-			  /*
 			  //DAY 3 Temp
 			  day3MaxTemp.innerHTML = day3MaxTempVal + "°C";
-			  */
 			  
 			  //DAY 1 Weather Conditions
 			  if (day1WeatherCode9 == 113) {
@@ -1388,7 +1378,7 @@
 				  //SNOW
 				  day2WeatherCond.innerHTML = '<img src="image/snow.png" alt="snow"/>';
 			  }
-			  /*
+			  
 			  //DAY 3 Weather Conditions
 			  if (day3WeatherCode9 == 113) {
 				//SUN
@@ -1418,7 +1408,6 @@
 				  //SNOW
 				  day3WeatherCond.innerHTML = '<img src="image/snow.png" alt="snow"/>';
 			  }
-			  */
 			  
 			  //FORECAST DAYS OF WEEK
 			  var d = new Date();
@@ -1434,7 +1423,7 @@
 			  var day0Num = d.getDay();
 			  var day1Num = d.getDay()+1;
 			  var day2Num = d.getDay()+2;
-			  /*var day3Num = d.getDay()+3;*/
+			  var day3Num = d.getDay()+3;
 			  if (day1Num > 6) {
 				  var day1Day = weekday[day1Num - 7];
 			  }
@@ -1447,20 +1436,18 @@
 			  else {
 				  var day2Day = weekday[day2Num];
 			  }
-			  /*
+			  
 			  if (day3Num > 6) {
 				  var day3Day = weekday[day3Num - 7];
 			  }
 			  else {
 				  var day3Day = weekday[day3Num];
 			  }
-			  */
 			  
 			  //
-			  
 			  day1.innerHTML = day1Day;
 			  day2.innerHTML = day2Day;
-			  /*day3.innerHTML = day3Day;*/
+			  day3.innerHTML = day3Day;
 			  
 			  
 			  if (userHour >= 0 & userHour < 6) {
