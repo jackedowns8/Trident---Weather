@@ -181,11 +181,34 @@
     <!-- Weather + Tides Etc. -->
     <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <script src="Sweet Alert/dist/sweetalert.min.js"></script>
+    //<script src="../plugins/cordova-admob/www/admob.js"></script>
     <link rel="stylesheet" type="text/css" href="Sweet Alert/dist/sweetalert.css">
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
             app.initialize();
+			/*//function onDeviceReady() {
+			  //document.removeEventListener('deviceready', onDeviceReady, false);
+		
+			  // Set AdMobAds options:
+			  admob.setOptions({
+				publisherId:          "pub-1478097249841914",  // Required
+				//interstitialAdId:     "ca-app-pub-XXXXXXXXXXXXXXXX/IIIIIIIIII",  // Optional
+				//tappxIdiOS:           "/XXXXXXXXX/Pub-XXXX-iOS-IIII",            // Optional
+				//tappxIdAndroid:       "/XXXXXXXXX/Pub-XXXX-Android-AAAA",        // Optional
+				//tappxShare:           0.5                                        // Optional
+			  });
+		
+			  // Start showing banners (atomatic when autoShowBanner is set to true)
+			  admob.createBannerView();
+		
+			  // Request interstitial (will present automatically when autoShowInterstitial is set to true)
+			  admob.requestInterstitialAd();
+			  console.log("deviceReady");
+			//}
+		
+			//document.addEventListener("deviceready", onDeviceReady, false);*/
+			
 			var overviewLocation = document.getElementById('overviewLocation');
 			var overviewTideTime0 = document.getElementById('overviewTideTime0');
 			var overviewTideTime1 = document.getElementById('overviewTideTime1');
@@ -1725,7 +1748,13 @@
 				}
 				
 				var currentTimeHour = currentdate.getHours();
-				if (currentTimeHour > 12) {
+				if (currentTimeHour == 12){
+					currentTime = currentdate.getHours() + ":" + currentTimeMin + "pm";
+				}
+				else if (currentTimeHour == 0){
+					currentTime = currentdate.getHours()+12 + ":" + currentTimeMin + "am";
+				}
+				else if (currentTimeHour > 11) {
 					currentTime = currentdate.getHours()-12 + ":" + currentTimeMin + "pm";
 				}
 				else {
