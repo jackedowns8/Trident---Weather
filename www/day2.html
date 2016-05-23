@@ -294,12 +294,12 @@
 			//Day 1
 			day2Date.innerHTML = n;
 			
-			day2Temp0.innerHTML = day2Temp0Val + "°C";
-			day2Temp6.innerHTML = day2Temp6Val + "°C";
-			day2Temp9.innerHTML = day2Temp9Val + "°C";
-			day2Temp12.innerHTML = day2Temp12Val + "°C";
-			day2Temp15.innerHTML = day2Temp15Val + "°C";
-			day2Temp21.innerHTML = day2Temp21Val + "°C";
+			day2Temp0.innerHTML = day2Temp0Val;
+			day2Temp6.innerHTML = day2Temp6Val;
+			day2Temp9.innerHTML = day2Temp9Val;
+			day2Temp12.innerHTML = day2Temp12Val;
+			day2Temp15.innerHTML = day2Temp15Val;
+			day2Temp21.innerHTML = day2Temp21Val;
 			
 			day2Rain0.innerHTML = day2Rain0Val + "%";
 			day2Rain6.innerHTML = day2Rain6Val + "%";
@@ -497,7 +497,7 @@
 			  var day2SwellPer0Val = localStorage.getItem("day2SwellPer0Val");
 				  swal({
 					  title: "<small>Weather Today at 12:00am</small>",
-					  text: 'Water Temp:<strong> ' + day2WaterTemp0Val + '°C</strong></br>Wind Dir:<strong> ' + day2WindDir0Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed0Val + 'kmph</strong></br>Swell Height:<strong> ' + day2SwellHeight0Val + 'm</strong></br>Swell Dir: <strong>' + day2SwellDir0Val + '</strong></br>Swell Per: <strong>' + day2SwellPer0Val +'sec</strong>',
+					  text: 'Water Temp:<strong> ' + day2WaterTemp0Val + '</strong></br>Wind Dir:<strong> ' + day2WindDir0Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed0Val + '</strong></br>Swell Height:<strong> ' + day2SwellHeight0Val + '</strong></br>Swell Dir: <strong>' + day2SwellDir0Val + '</strong></br>Swell Per: <strong>' + day2SwellPer0Val +'sec</strong>',
 					  html: true
 				  });
 			  };
@@ -510,7 +510,7 @@
 			  var day2SwellPer6Val = localStorage.getItem("day2SwellPer6Val");
 				  swal({
 					  title: "<small>Weather Today at 6:00am</small>",
-					  text: 'Water Temp:<strong> ' + day2WaterTemp6Val + '°C</strong></br>Wind Dir:<strong> ' + day2WindDir6Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed6Val + 'kmph</strong></br>Swell Height:<strong> ' + day2SwellHeight6Val + 'm</strong></br>Swell Dir: <strong>' + day2SwellDir6Val + '</strong></br>Swell Per: <strong>' + day2SwellPer6Val +'sec</strong>',
+					  text: 'Water Temp:<strong> ' + day2WaterTemp6Val + '</strong></br>Wind Dir:<strong> ' + day2WindDir6Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed6Val + '</strong></br>Swell Height:<strong> ' + day2SwellHeight6Val + '</strong></br>Swell Dir: <strong>' + day2SwellDir6Val + '</strong></br>Swell Per: <strong>' + day2SwellPer6Val +'sec</strong>',
 					  html: true
 				  });
 			  };
@@ -523,7 +523,7 @@
 			  var day2SwellPer9Val = localStorage.getItem("day2SwellPer9Val");
 				  swal({
 					  title: "<small>Weather Today at 9:00am</small>",
-					  text: 'Water Temp:<strong> ' + day2WaterTemp9Val + '°C</strong></br>Wind Dir:<strong> ' + day2WindDir9Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed9Val + 'kmph</strong></br>Swell Height:<strong> ' + day2SwellHeight9Val + 'm</strong></br>Swell Dir: <strong>' + day2SwellDir9Val + '</strong></br>Swell Per: <strong>' + day2SwellPer9Val +'sec</strong>',
+					  text: 'Water Temp:<strong> ' + day2WaterTemp9Val + '</strong></br>Wind Dir:<strong> ' + day2WindDir9Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed9Val + '</strong></br>Swell Height:<strong> ' + day2SwellHeight9Val + '</strong></br>Swell Dir: <strong>' + day2SwellDir9Val + '</strong></br>Swell Per: <strong>' + day2SwellPer9Val +'sec</strong>',
 					  html: true
 				  });
 			  };
@@ -536,7 +536,7 @@
 			  var day2SwellPer12Val = localStorage.getItem("day2SwellPer12Val");
 				  swal({
 					  title: "<small>Weather Today at 12:00pm</small>",
-					  text: 'Water Temp:<strong> ' + day2WaterTemp12Val + '°C</strong></br>Wind Dir:<strong> ' + day2WindDir12Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed12Val + 'kmph</strong></br>Swell Height:<strong> ' + day2SwellHeight12Val + 'm</strong></br>Swell Dir: <strong>' + day2SwellDir12Val + '</strong></br>Swell Per: <strong>' + day2SwellPer12Val +'sec</strong>',
+					  text: 'Water Temp:<strong> ' + day2WaterTemp12Val + '</strong></br>Wind Dir:<strong> ' + day2WindDir12Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed12Val + '</strong></br>Swell Height:<strong> ' + day2SwellHeight12Val + '</strong></br>Swell Dir: <strong>' + day2SwellDir12Val + '</strong></br>Swell Per: <strong>' + day2SwellPer12Val +'sec</strong>',
 					  html: true
 				  });
 			  };
@@ -549,7 +549,7 @@
 			  var day2SwellPer15Val = localStorage.getItem("day2SwellPer15Val");
 				  swal({
 					  title: "<small>Weather Today at 3:00pm</small>",
-					  text: 'Water Temp:<strong> ' + day2WaterTemp15Val + '°C</strong></br>Wind Dir:<strong> ' + day2WindDir15Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed15Val + 'kmph</strong></br>Swell Height:<strong> ' + day2SwellHeight15Val + 'm</strong></br>Swell Dir: <strong>' + day2SwellDir15Val + '</strong></br>Swell Per: <strong>' + day2SwellPer15Val +'sec</strong>',
+					  text: 'Water Temp:<strong> ' + day2WaterTemp15Val + '</strong></br>Wind Dir:<strong> ' + day2WindDir15Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed15Val + '</strong></br>Swell Height:<strong> ' + day2SwellHeight15Val + '</strong></br>Swell Dir: <strong>' + day2SwellDir15Val + '</strong></br>Swell Per: <strong>' + day2SwellPer15Val +'sec</strong>',
 					  html: true
 				  });
 			  };
@@ -562,7 +562,7 @@
 			  var day2SwellPer21Val = localStorage.getItem("day2SwellPer21Val");
 				  swal({
 					  title: "<small>Weather Today at 9:00pm</small>",
-					  text: 'Water Temp:<strong> ' + day2WaterTemp21Val + '°C</strong></br>Wind Dir:<strong> ' + day2WindDir21Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed21Val + 'kmph</strong></br>Swell Height:<strong> ' + day2SwellHeight21Val + 'm</strong></br>Swell Dir: <strong>' + day2SwellDir21Val + '</strong></br>Swell Per: <strong>' + day2SwellPer21Val +'sec</strong>',
+					  text: 'Water Temp:<strong> ' + day2WaterTemp21Val + '</strong></br>Wind Dir:<strong> ' + day2WindDir21Val + '</strong></br>Wind Speed: <strong>' + day2WindSpeed21Val + '</strong></br>Swell Height:<strong> ' + day2SwellHeight21Val + '</strong></br>Swell Dir: <strong>' + day2SwellDir21Val + '</strong></br>Swell Per: <strong>' + day2SwellPer21Val +'sec</strong>',
 					  html: true
 				  });
 			  	

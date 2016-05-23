@@ -9,103 +9,184 @@
     <link rel="stylesheet" href="dist/css/swiper.min.css">
 </head>
 <body>    	
-     <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
             	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1);"><img src="image/backArrow.png" alt="backArrow"/></button><div class="subheader">Settings</div></div>
+                <div class="settingsTitle">Temperature</div>
                 <div class="settingsMetric">
-                	<div class="settingsMetricA2">
-                    	<input id="radioCelsius" type="radio" name="temp" value="1" checked="checked" onClick="temprature();"><label for="radio2"><span><span></span></span>Celsius</label>
-                    </div>
-                    <div class="settingsMetricB2">
-                    	<input id="radioFahrenheit" type="radio" name="temp" value="2" onClick="temprature();"><label for="radio2" ><span><span></span></span>Fahrenheit</label>
-                    </div>
+                    	<button class="sC" id="radioCelsius" type="button" onClick="temperatureC()">°C</button>
+                    	<button class="sF" id="radioFahrenheit" type="button" onClick="temperatureF()">°F</button>
                 </div>
+                <div class="settingsTitle">Distance</div>
                 <div class="settingsMetric">
-                	<div class="settingsMetricA2">
-                    	<input id="radioMeters" type="radio" name="leng" value="1" checked="checked" onClick="length();"><label for="radio2"><span><span></span></span>Meters/ Centimeters</label>
-                    </div>
-                    <div class="settingsMetricB2">
-                    	<input id="radioFeet" type="radio" name="leng" value="2" onClick="length();"><label for="radio2" ><span><span></span></span>Feet/ Inches</label>
-                    </div>
+                    	<button class="sM" id="radioMeters" type="button" onClick="lengthM()">M</button>
+                    	<button class="sFt" id="radioFeet" type="button" onClick="lengthFt()">Ft</button>
                 </div>
+                <div class="settingsTitle">Speed</div>
                 <div class="settingsMetric">
-                	<div class="settingsMetricA3">
-                    	<input id="radioKMPH" type="radio" name="speed" value="1" checked="checked" onClick="speed();"><label for="radio2"><span><span></span></span>kmph</label>
-                    </div>
-                    <div class="settingsMetricB3">
-                    	<input id="radioMPH" type="radio" name="speed" value="2" onClick="speed();"><label for="radio2" ><span><span></span></span>mph</label>
-                    </div>
-                    <div class="settingsMetricC3">
-                    	<input id="radioKN" type="radio" name="speed" value="3" onClick="speed();"><label for="radio2" ><span><span></span></span>Knots</label>
-                    </div>
+                    	<button class="sKMPH" id="radioKMPH" type="button" onClick="speedKmph()">Kmph</button>
+                    	<button class="sMPH" id="radioMPH" type="button" onClick="speedMph()">Mph</button>
+                    	<button class="sKNOTS" id="radioKN" type="button" onClick="speedKnots()">Knots</button>
                 </div>
-            </div>
-        </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-    </div>
-    <!-- Swiper JS -->
-    <script src="dist/js/swiper.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true
-    });
-    </script>
-    
+                <button class="settingsSave" type="button" onClick="history.go(-1);">Save Settings</button>
     <!-- Weather + Tides Etc. -->
     <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
             app.initialize();
-			function temprature() {
-				if (document.getElementById('radioCelsius').checked) {
-					console.log("User Selected Celsius");
-					localStorage.setItem("tempMeasurement", "C");
-				}
-				else if (document.getElementById('radioFahrenheit').checked) {
-					console.log("User Selected Fahrenheit");
-					localStorage.setItem("tempMeasurement", "F");
-				}
-				else {
-					// DO NOTHING
-				}
+			//Length
+			if(localStorage.getItem("lengthMeasurement") == "m") {
+			  document.getElementById('radioMeters').style.backgroundColor = "#666";
+			  document.getElementById('radioFeet').style.backgroundColor = "#222";
+			  document.getElementById('radioMeters').style.color = "#fff";
+			  document.getElementById('radioFeet').style.color = "#666";
+			  document.getElementById('radioMeters').style.fontWeight = "bold";
+			  document.getElementById('radioFeet').style.fontWeight = "normal";
+			}
+			else {
+			  document.getElementById('radioMeters').style.backgroundColor = "#222";
+			  document.getElementById('radioFeet').style.backgroundColor = "#666";
+			  document.getElementById('radioMeters').style.color = "#666";
+			  document.getElementById('radioFeet').style.color = "#fff";
+			  document.getElementById('radioMeters').style.fontWeight = "normal";
+			  document.getElementById('radioFeet').style.fontWeight = "bold";
 			}
 			
-			function length() {
-				if (document.getElementById('radioMeters').checked) {
-					console.log("User Selected Meters");
-					localStorage.setItem("lengthMeasurement", "m");
-				}
-				else if (document.getElementById('radioFeet').checked) {
-					console.log("User Selected Feet");
-					localStorage.setItem("lengthMeasurement", "ft");
-				}
-				else {
-					// DO NOTHING
-				}
+			//TEMP
+			if(localStorage.getItem("tempMeasurement") == "C") {
+			  document.getElementById('radioCelsius').style.backgroundColor = "#666";
+			  document.getElementById('radioFahrenheit').style.backgroundColor = "#222";
+			  document.getElementById('radioCelsius').style.color = "#fff";
+			  document.getElementById('radioFahrenheit').style.color = "#666";
+			  document.getElementById('radioCelsius').style.fontWeight = "bold";
+			  document.getElementById('radioFahrenheit').style.fontWeight = "normal";
+			}
+			else {
+			  document.getElementById('radioFahrenheit').style.backgroundColor = "#666";
+			  document.getElementById('radioCelsius').style.backgroundColor = "#222";
+			  document.getElementById('radioCelsius').style.color = "#666";
+			  document.getElementById('radioFahrenheit').style.color = "#fff";
+			  document.getElementById('radioCelsius').style.fontWeight = "normal";
+			  document.getElementById('radioFahrenheit').style.fontWeight = "bold";
 			}
 			
-			function speed() {
-				if (document.getElementById('radioKMPH').checked) {
-					console.log("User Selected Kilometers Per Hour");
-					localStorage.setItem("speedMeasurement", "kmph");
-				}
-				else if (document.getElementById('radioMPH').checked) {
-					console.log("User Selected Miles Per Hour");
-					localStorage.setItem("speedMeasurement", "mph");
-				}
-				else if (document.getElementById('radioKN').checked) {
-					console.log("User Selected Knots");
-					localStorage.setItem("speedMeasurement", "knots");
-				}
-				else {
-					// DO NOTHING
-				}
+			//SPEED
+			if(localStorage.getItem("speedMeasurement") == "kmph") {
+			  document.getElementById('radioKMPH').style.backgroundColor = "#666";
+			  document.getElementById('radioMPH').style.backgroundColor = "#222";
+			  document.getElementById('radioKN').style.backgroundColor = "#222";
+			  document.getElementById('radioKMPH').style.color = "#fff";
+			  document.getElementById('radioMPH').style.color = "#666";
+			  document.getElementById('radioKN').style.color = "#666";
+			  document.getElementById('radioKMPH').style.fontWeight = "bold";
+			  document.getElementById('radioMPH').style.fontWeight = "normal";
+			  document.getElementById('radioKN').style.fontWeight = "normal";
+			}
+			else if(localStorage.getItem("speedMeasurement") == "mph"){
+			  document.getElementById('radioKMPH').style.backgroundColor = "#222";
+			  document.getElementById('radioMPH').style.backgroundColor = "#666";
+			  document.getElementById('radioKN').style.backgroundColor = "#222";
+			  document.getElementById('radioKMPH').style.color = "#666";
+			  document.getElementById('radioMPH').style.color = "#fff";
+			  document.getElementById('radioKN').style.color = "#666";
+			  document.getElementById('radioKMPH').style.fontWeight = "normal";
+			  document.getElementById('radioMPH').style.fontWeight = "bold";
+			  document.getElementById('radioKN').style.fontWeight = "normal";
+			}
+			else {
+			  document.getElementById('radioKMPH').style.backgroundColor = "#222";
+			  document.getElementById('radioMPH').style.backgroundColor = "#222";
+			  document.getElementById('radioKN').style.backgroundColor = "#666";
+			  document.getElementById('radioKMPH').style.color = "#666";
+			  document.getElementById('radioMPH').style.color = "#666";
+			  document.getElementById('radioKN').style.color = "#fff";
+			  document.getElementById('radioKMPH').style.fontWeight = "normal";
+			  document.getElementById('radioMPH').style.fontWeight = "normal";
+			  document.getElementById('radioKN').style.fontWeight = "bold";
+			}
+			
+			//TEMP
+			function temperatureC() {
+			  console.log("User Selected Celsius");
+			  localStorage.setItem("tempMeasurement", "C");
+			  document.getElementById('radioCelsius').style.backgroundColor = "#666";
+			  document.getElementById('radioFahrenheit').style.backgroundColor = "#222";
+			  document.getElementById('radioCelsius').style.color = "#fff";
+			  document.getElementById('radioFahrenheit').style.color = "#666";
+			  document.getElementById('radioCelsius').style.fontWeight = "bold";
+			  document.getElementById('radioFahrenheit').style.fontWeight = "normal";
+			}
+			function temperatureF() {
+			  console.log("User Selected Fahrenheit");
+			  localStorage.setItem("tempMeasurement", "F");
+			  document.getElementById('radioCelsius').style.backgroundColor = "#222";
+			  document.getElementById('radioFahrenheit').style.backgroundColor = "#666";
+			  document.getElementById('radioCelsius').style.color = "#666";
+			  document.getElementById('radioFahrenheit').style.color = "#fff";
+			  document.getElementById('radioCelsius').style.fontWeight = "normal";
+			  document.getElementById('radioFahrenheit').style.fontWeight = "bold";
+			}
+			
+			//DISTANCE
+			function lengthM() {
+			  console.log("User Selected Meters");
+			  localStorage.setItem("lengthMeasurement", "m");
+			  document.getElementById('radioMeters').style.backgroundColor = "#666";
+			  document.getElementById('radioFeet').style.backgroundColor = "#222";
+			  document.getElementById('radioMeters').style.color = "#fff";
+			  document.getElementById('radioFeet').style.color = "#666";
+			  document.getElementById('radioMeters').style.fontWeight = "bold";
+			  document.getElementById('radioFeet').style.fontWeight = "normal";
+			}
+			function lengthFt() {
+			  console.log("User Selected Feet");
+			  localStorage.setItem("lengthMeasurement", "ft");
+			  document.getElementById('radioFeet').style.backgroundColor = "#666";
+			  document.getElementById('radioMeters').style.backgroundColor = "#222";
+			  document.getElementById('radioMeters').style.color = "#666";
+			  document.getElementById('radioFeet').style.color = "#fff";
+			  document.getElementById('radioMeters').style.fontWeight = "normal";
+			  document.getElementById('radioFeet').style.fontWeight = "bold";
+			}
+			
+			//SPEED
+			function speedKmph() {
+			  console.log("User Selected Kilometers Per Hour");
+			  localStorage.setItem("speedMeasurement", "kmph");
+			  document.getElementById('radioKMPH').style.backgroundColor = "#666";
+			  document.getElementById('radioMPH').style.backgroundColor = "#222";
+			  document.getElementById('radioKN').style.backgroundColor = "#222";
+			  document.getElementById('radioKMPH').style.color = "#fff";
+			  document.getElementById('radioMPH').style.color = "#666";
+			  document.getElementById('radioKN').style.color = "#666";
+			  document.getElementById('radioKMPH').style.fontWeight = "bold";
+			  document.getElementById('radioMPH').style.fontWeight = "normal";
+			  document.getElementById('radioKN').style.fontWeight = "normal";
+			}
+			function speedMph() {
+			  console.log("User Selected Miles Per Hour");
+			  localStorage.setItem("speedMeasurement", "mph");
+			  document.getElementById('radioKMPH').style.backgroundColor = "#222";
+			  document.getElementById('radioMPH').style.backgroundColor = "#666";
+			  document.getElementById('radioKN').style.backgroundColor = "#222";
+			  document.getElementById('radioKMPH').style.color = "#666";
+			  document.getElementById('radioMPH').style.color = "#fff";
+			  document.getElementById('radioKN').style.color = "#666";
+			  document.getElementById('radioKMPH').style.fontWeight = "normal";
+			  document.getElementById('radioMPH').style.fontWeight = "bold";
+			  document.getElementById('radioKN').style.fontWeight = "normal";
+			}
+			function speedKnots() {
+			  console.log("User Selected Knots");
+			  localStorage.setItem("speedMeasurement", "knots");
+			  document.getElementById('radioKMPH').style.backgroundColor = "#222";
+			  document.getElementById('radioMPH').style.backgroundColor = "#222";
+			  document.getElementById('radioKN').style.backgroundColor = "#666";
+			  document.getElementById('radioKMPH').style.color = "#666";
+			  document.getElementById('radioMPH').style.color = "#666";
+			  document.getElementById('radioKN').style.color = "#fff";
+			  document.getElementById('radioKMPH').style.fontWeight = "normal";
+			  document.getElementById('radioMPH').style.fontWeight = "normal";
+			  document.getElementById('radioKN').style.fontWeight = "bold";
 			}
         </script>
 </body>
