@@ -37,9 +37,6 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 		console.log("deviceReady");
-		adbuddiz.setTestModeActive();
-			 adbuddiz.setAndroidPublisherKey("1ca0bda3-e6e0-4395-8255-333448265716");
-			 adbuddiz.cacheAds();
 		
     },
     // Update DOM on a Received Event
