@@ -141,7 +141,7 @@
                 </div>
               </div>
               <div class="forecastDay0">
-                <button class="forecastUpgrade" onClick="">
+                <button class="forecastUpgrade" onClick="adbuddiz.showAd();">
                   Upgrade to Trident - Weather (Premium)</br>for more features!
                 </button>
               </div>
@@ -2388,7 +2388,10 @@
 			 
 			 navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 10000});
 			 
-			 admob.createBannerView({publisherId: "ca-app-pub-1478097249841914/6476098583"});
+			 adbuddiz.setTestModeActive();
+			 adbuddiz.setAndroidPublisherKey("1ca0bda3-e6e0-4395-8255-333448265716");
+			 adbuddiz.cacheAds();
+			 
         </script>
 </body>
 </html>
