@@ -141,7 +141,7 @@
                 </div>
               </div>
               <div class="forecastDay0">
-                <button class="forecastUpgrade" onClick="adbuddiz.showAd();">
+                <button class="forecastUpgrade" onClick="AdBuddiz.showAd();">
                   Upgrade to Trident - Weather (Premium)</br>for more features!
                 </button>
               </div>
@@ -174,16 +174,16 @@
     <script src="Sweet Alert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="Sweet Alert/dist/sweetalert.css">
     <script src="../plugins/com.purplebrain.adbuddiz.sdk/www/adbuddiz.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
             app.initialize();
 			
-			AdBuddiz.setTestModeActive();
-			AdBuddiz.setAndroidPublisherKey("1ca0bda3-e6e0-4395-8255-333448265716");
-			AdBuddiz.cacheAds();
+			//AdBuddiz.setTestModeActive();
+			//AdBuddiz.setAndroidPublisherKey("1ca0bda3-e6e0-4395-8255-333448265716");
+			//AdBuddiz.cacheAds();
 			
-			AdBuddiz.showAd();
+			//AdBuddiz.showAd();
 			
 			clearStorage = function(exceptions){
 			  var storage = localStorage
@@ -1872,7 +1872,7 @@
 					//SHOWERS
 					day1WeatherCond.innerHTML = '<img src="image/showers.png" alt="showers"/>';
 				}
-				else if (day1WeatherCode9 == 386 || day1WeatherCode9 == 359 || day1WeatherCode9 == 356 || day1WeatherCode9 == 308 || day1WeatherCode9 == 305 || day1WeatherCode9 == 248 || day1WeatherCode9 == 200) {
+				else if (day1WeatherCode9 == 386 || day1WeatherCode9 == 359 || day1WeatherCode9 == 356 || day1WeatherCode9 == 308 || day1WeatherCode9 == 305 || day1WeatherCode9 == 248 || day1WeatherCode9 == 200 || day0WeatherCode12 == 389) {
 					//STORM
 					day1WeatherCond.innerHTML = '<img src="image/storm.png" alt="storm"/>';
 				}
@@ -1901,7 +1901,7 @@
 					//SHOWERS
 					day2WeatherCond.innerHTML = '<img src="image/showers.png" alt="showers"/>';
 				}
-				else if (day2WeatherCode9 == 386 || day2WeatherCode9 == 359 || day2WeatherCode9 == 356 || day2WeatherCode9 == 308 || day2WeatherCode9 == 305 || day2WeatherCode9 == 248 || day2WeatherCode9 == 200) {
+				else if (day2WeatherCode9 == 386 || day2WeatherCode9 == 359 || day2WeatherCode9 == 356 || day2WeatherCode9 == 308 || day2WeatherCode9 == 305 || day2WeatherCode9 == 248 || day2WeatherCode9 == 200 || day0WeatherCode12 == 389) {
 					//STORM
 					day2WeatherCond.innerHTML = '<img src="image/storm.png" alt="storm"/>';
 				}
@@ -1930,7 +1930,7 @@
 					//SHOWERS
 					day3WeatherCond.innerHTML = '<img src="image/showers.png" alt="showers"/>';
 				}
-				else if (day3WeatherCode9 == 386 || day3WeatherCode9 == 359 || day3WeatherCode9 == 356 || day3WeatherCode9 == 308 || day3WeatherCode9 == 305 || day3WeatherCode9 == 248 || day3WeatherCode9 == 200) {
+				else if (day3WeatherCode9 == 386 || day3WeatherCode9 == 359 || day3WeatherCode9 == 356 || day3WeatherCode9 == 308 || day3WeatherCode9 == 305 || day3WeatherCode9 == 248 || day3WeatherCode9 == 200 || day0WeatherCode12 == 389) {
 					//STORM
 					day3WeatherCond.innerHTML = '<img src="image/storm.png" alt="storm"/>';
 				}
@@ -2378,12 +2378,12 @@
 				  var errorMsg = error.message;  
 				}
 				swal({   
-			  	title: "Something Happened!",
-				text: errorMsg,
-				type: "error",
-				showCancelButton: false,
-				confirmButtonText: "Retry" 
-				 },
+				  title: "Something Happened!",
+				  text: errorMsg,
+				  type: "error",
+				  showCancelButton: false,
+				  confirmButtonText: "Retry" 
+				},
 				 function(isConfirm){
 					 if (isConfirm) {
 						 location.reload();
@@ -2394,6 +2394,6 @@
 			 
 			 navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 10000});
 			 
-        </script>
+    </script>
 </body>
 </html>

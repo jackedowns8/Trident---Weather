@@ -784,8 +784,13 @@ transform:rotate(360deg)
 	background-color: rgb(235, 235, 235);
 	font-size: 8vh;
 }
-.subheader {
-	padding-right: 15%;
+.back {
+	width: 15%;
+	float: left;
+	height: 100%;
+	vertical-align: middle;
+	border: none;
+	background-color: transparent;
 }
 .back {
 	width: 15%;
@@ -796,6 +801,18 @@ transform:rotate(360deg)
 	background-color: transparent;
 }
 .back img {
+	max-height: 70%;
+	min-height: 70%;
+}
+.favourites {
+	width: 15%;
+	float: right;
+	height: 100%;
+	vertical-align: middle;
+	border: none;
+	background-color: transparent;
+}
+.favourites img {
 	max-height: 70%;
 	min-height: 70%;
 }
@@ -1041,6 +1058,10 @@ forecastSubHeader {
 	text-align: center;
 	line-height: 3vh;
 	height: 2.5%;
+}
+.title {
+	width:70%;
+	float:left;
 }
 .sC {
 	float:left;

@@ -10,7 +10,7 @@
 
 </head>
 <body>
-            	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="subheader">Search</div></div>
+            	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Search</div><button class="favourites" type="button" id="favouritesButton" onclick="favourites();"><img src="image/favourites.png" alt="favourites"/></div>
                 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
    				<div id="map"></div>
                 <div id="current">Loading Location...</div>
@@ -153,6 +153,8 @@
     
     <!-- Weather + Tides Etc. -->
     <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script src="Sweet Alert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Sweet Alert/dist/sweetalert.css">
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="toastPlugin.js"></script>
@@ -160,6 +162,22 @@
     <script type="text/javascript">
             app.initialize();
 			
-        </script>
+			var coordinates = localStorage.getItem("coordinates");
+			
+			function favourites(){
+			  var favourite0 = localStorage.getItem("favourite0");
+			  var favourite1 = localStorage.getItem("favourite1");
+			  var favourite2 = localStorage.getItem("favourite2");
+			  var favourite3 = localStorage.getItem("favourite3");
+			  var favourite4 = localStorage.getItem("favourite4");
+				  swal({
+					  title: "<small>Favourites</small>",
+					  text: '<button class="favourite0" type="button" id="favourite0" onclick=console.log("test"); location.reload();>' + coordinates + '</button>',
+					  showCancelButton: false,
+					  showConfirmButton: false,
+					  html: true
+				  });
+			  };
+    </script>
 </body>
 </html>
