@@ -804,18 +804,6 @@ transform:rotate(360deg)
 	max-height: 70%;
 	min-height: 70%;
 }
-.favourites {
-	width: 15%;
-	float: right;
-	height: 100%;
-	vertical-align: middle;
-	border: none;
-	background-color: transparent;
-}
-.favourites img {
-	max-height: 70%;
-	min-height: 70%;
-}
 .today0 {
 	width: 100%;
 	height: 14.16666666666667%;
