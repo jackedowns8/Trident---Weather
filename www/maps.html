@@ -7,13 +7,13 @@
 
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="dist/css/swiper.min.css">
+
 </head>
 <body>
-            	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Search</div><button class="favourites" type="button" id="favouritesButton" onclick="favourites();"><img src="image/favourites.png" alt="favourites"/></div>
+            	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Maps</div></div>
                 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-   				<div id="map"></div>
+   				<div id="maps"></div>
                 <div id="current">Loading Location...</div>
-                <button class="saveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!');">Save Location</button>
 				  <script>
 					function initMap() {
 					  var map = new google.maps.Map(document.getElementById('map'), {
