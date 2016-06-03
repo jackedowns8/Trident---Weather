@@ -136,9 +136,10 @@
                 <button class="arrow" onClick="window.location = 'day3.html'"><img src="image/navArrow.png" alt="navArrow"/></button>
               </div>
               <div class="forecastDay1">
-              	<div class="forecastComingSoon">
-                  COMING SOON
-                </div>
+                  <button class="mapButton" onClick="window.location = 'maps.html'">Swell</button>
+                  <button class="mapButton" onClick="window.location = 'maps.html'">Temp</button>
+                  <button class="mapButton" onClick="window.location = 'maps.html'">Rain</button>
+                  <button class="mapButton" onClick="window.location = 'maps.html'">Other</button>
               </div>
               <div class="forecastDay0">
                 <button class="forecastUpgrade" onClick="AdBuddiz.showAd();">
@@ -173,8 +174,8 @@
     <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <script src="Sweet Alert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="Sweet Alert/dist/sweetalert.css">
-    <script src="../plugins/com.purplebrain.adbuddiz.sdk/www/adbuddiz.js"></script>
-    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <!--<script src="../plugins/com.purplebrain.adbuddiz.sdk/www/adbuddiz.js"></script>-->
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
             app.initialize();
@@ -211,6 +212,14 @@
 			  }
 			}
 			//
+			var firstTime = localStorage.getItem("firstTime");
+			if (firstTime == null) {
+				console.log("First Run");
+				localStorage.setItem("firstTime", 0);
+				localStorage.setItem("lengthMeasurement", "m");
+				localStorage.setItem("tempMeasurement", "C");
+				localStorage.setItem("speedMeasurement", "kmph");
+			}
 			console.log(localStorage.getItem("lengthMeasurement"));
 			
 			var overviewLocation = document.getElementById('overviewLocation');

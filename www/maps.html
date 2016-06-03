@@ -13,7 +13,7 @@
             	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Maps</div></div>
                 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
    				<div id="maps"></div>
-                <div id="current">Loading Location...</div>
+                <div id="currentMaps">Loading Location...</div>
 				  <script>
 					function initMap() {
 					  var map = new google.maps.Map(document.getElementById('map'), {
