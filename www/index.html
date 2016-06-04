@@ -452,6 +452,7 @@
 			// current GPS coordinates
 			//
 			var onSuccess = function(position) {
+			  console.log("Success");
 			  localStorage.key("firstLoad");
 			  
 			  localStorage.setItem("userLat", position.coords.latitude);
