@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="dist/css/swiper.min.css">
 </head>
 <body>
-            	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Search</div><button class="favourites" type="button" id="favouritesButton" onclick="favourites();"><img src="image/favourites.png" alt="favourites"/></div>
+            	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Search</div><button class="favourites" type="button" id="favouritesButton" onclick="window.location = 'favourites.html'"><img src="image/favourites.png" alt="favourites"/></div>
                 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
    				<div id="map" class="map"></div>
                 <div id="current">Loading Location...</div>
-                <button class="saveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!');">Save Location</button>
+                <button class="saveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!');">Save</button>
+                <button class="saveFavouriteLocation" type="button" id="saveFavLocation" onclick="window.location = 'saveFavourites.html'"><img src="image/addToFavourites.png" alt="addToFavourites"/></button>
 				  <script>
 					function initMap() {
 					  var map = new google.maps.Map(document.getElementById('map'), {
@@ -47,6 +48,8 @@
 					  
 					  google.maps.event.addListener(myMarker, 'dragend', function (evt) {
 						  localStorage.setItem("coordinates", evt.latLng.lat().toFixed(3) + ',' + evt.latLng.lng().toFixed(3));
+						  localStorage.setItem("lat", evt.latLng.lat().toFixed(3));
+						  localStorage.setItem("long", evt.latLng.lng().toFixed(3));
 						  
 						  //GeocodeAPI
 						  var geocode = new XMLHttpRequest();
@@ -57,6 +60,8 @@
 						  //Location
 						  xmlDocument = geocode.responseXML;
 						  var location = xmlDocument.getElementsByTagName("long_name")['2'].childNodes['0'].nodeValue + ", " + xmlDocument.getElementsByTagName("long_name")['3'].childNodes['0'].nodeValue + ", " + xmlDocument.getElementsByTagName("long_name")['5'].childNodes['0'].nodeValue;
+						  console.log("New Location (Drag End): " + location);
+						  localStorage.setItem("userLocation", location);
 						  
 						  document.getElementById('current').innerHTML = location;
 					  });
@@ -114,6 +119,8 @@
 						  }));
 						  
 						  localStorage.setItem("coordinates", place.geometry.location.lat() + "," + place.geometry.location.lng());
+						  localStorage.setItem("lat", place.geometry.location.lat());
+						  localStorage.setItem("long", place.geometry.location.lng());
 						  
 						  //GeocodeAPI
 						  var geocode = new XMLHttpRequest();
@@ -124,6 +131,8 @@
 						  //Location
 						  xmlDocument = geocode.responseXML;
 						  var location = xmlDocument.getElementsByTagName("long_name")['2'].childNodes['0'].nodeValue + ", " + xmlDocument.getElementsByTagName("long_name")['3'].childNodes['0'].nodeValue + ", " + xmlDocument.getElementsByTagName("long_name")['5'].childNodes['0'].nodeValue;
+						  console.log("New Location (Search): " + location);
+						  localStorage.setItem("userLocation", location);
 						  
 						  document.getElementById('current').innerHTML = location;
 						  
@@ -169,12 +178,18 @@
 			  var favourite2 = localStorage.getItem("favourite2");
 			  var favourite3 = localStorage.getItem("favourite3");
 			  var favourite4 = localStorage.getItem("favourite4");
+			  var favourite0COORDS = localStorage.getItem("favourite0COORDS");
+			  var favourite1COORDS = localStorage.getItem("favourite1COORDS");
+			  var favourite2COORDS = localStorage.getItem("favourite2COORDS");
+			  var favourite3COORDS = localStorage.getItem("favourite3COORDS");
+			  var favourite4COORDS = localStorage.getItem("favourite4COORDS");
 				  swal({
 					  title: "<small>Favourites</small>",
-					  text: '<button class="favourite0" type="button" id="favourite0" onclick=console.log("test"); location.reload();>' + coordinates + '</button>',
+					  text: '<button class="favourite0" type="button" id="favourite0" onclick=console.log("test"); location.reload(); localStorage.setItem("coordinates", favourite0COORDS);>' + coordinates + '</button>',
 					  showCancelButton: false,
 					  showConfirmButton: false,
 					  html: true
+					  
 				  });
 			  };
     </script>

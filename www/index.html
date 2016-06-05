@@ -136,10 +136,10 @@
                 <button class="arrow" onClick="window.location = 'day3.html'"><img src="image/navArrow.png" alt="navArrow"/></button>
               </div>
               <div class="forecastDay1">
-                  <button class="mapButton" onClick="window.location = 'maps.html'">Swell</button>
-                  <button class="mapButton" onClick="window.location = 'maps.html'">Temp</button>
                   <button class="mapButton" onClick="window.location = 'maps.html'">Rain</button>
-                  <button class="mapButton" onClick="window.location = 'maps.html'">Other</button>
+                  <button class="mapButton" onClick="window.location = 'maps.html'">Wind</button>
+                  <button class="mapButton" onClick="window.location = 'maps.html'">Temp</button>
+                  <button class="mapButton" onClick="window.location = 'maps.html'">Swell</button>
               </div>
               <div class="forecastDay0">
                 <button class="forecastUpgrade" onClick="AdBuddiz.showAd();">
@@ -452,7 +452,7 @@
 			// current GPS coordinates
 			//
 			var onSuccess = function(position) {
-			  console.log("Success");
+			  console.log("Success!");
 			  localStorage.key("firstLoad");
 			  
 			  localStorage.setItem("userLat", position.coords.latitude);
@@ -2378,6 +2378,7 @@
 			  }
 			
 			  function onError(error) {
+				console.log("ERROR!");
 				if (error.code == 3){
 				  var errorMsg = "Loading of location timed out. Please check that you have GPS/ Location services enabled and try again.";  
 				}

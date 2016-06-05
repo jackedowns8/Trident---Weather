@@ -9,21 +9,11 @@
     <link rel="stylesheet" href="dist/css/swiper.min.css">
 </head>
 <body>
-    <div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Maps</div><button class="favourites" type="button" id="favouritesButton" onclick="favourites();"><img src="image/favourites.png" alt="favourites"/></div>
-    <span id="tSelect"></span>
-    <span id="wxSelect"><label for="wx_vSelect">View:</label></span>
+    <div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Maps</div><!--<button class="favourites" type="button" id="favouritesButton" onclick="window.location = 'favourites.html'"><img src="image/favourites.png" alt="favourites"/>--></div>
+    <div class="mapSelection" id="tSelect"><label for="wx_tSelect">Time:</label></div>
+    <div class="mapSelection" id="wxSelect"><label for="wx_vSelect">View:</label></div>
     <div id="map" class="maps"></div>
     <div id="currentMaps">Loading Location...</div>
-    <!-- Swiper JS -->
-    <script src="dist/js/swiper.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-	  var swiper = new Swiper('.swiper-container', {
-		  pagination: '.swiper-pagination',
-		  paginationClickable: true
-	  });
-    </script>
     
     <!-- Weather + Tides Etc. -->
     <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
@@ -37,20 +27,22 @@
     <script type="text/javascript" src="toastPlugin.js"></script>
     <script type="text/java" src="ToastPlugin.java"></script>
     <script>
-	  var userLat = localStorage.getItem("userLat");
-	  var userLong = localStorage.getItem("userLong");
-	  console.log(userLat + ", " + userLong);
+	  var lat = localStorage.getItem("lat");
+	  var long = localStorage.getItem("long");
+	  console.log(lat + ", " + long);
 	  
-      var Options = {
-          zoom: 10,
-          center: new google.maps.LatLng(userLat, userLong),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-      var map = new google.maps.Map(document.getElementById("map"),Options);
+	  var Options = {
+		  zoom: 5,
+		  center: new google.maps.LatLng(lat, long),
+		  mapTypeId: google.maps.MapTypeId.ROADMAP,
+		  streetViewControl: false,
+		  mapTypeControl: false
+		};
+	  var map = new google.maps.Map(document.getElementById("map"),Options);
 
-      var wxoverlay=new WXTiles();
-      wxoverlay.addToMap(map);
-      wxoverlay.addColorBar('big','horiz');
+	  var wxoverlay = new WXTiles();
+	  wxoverlay.addToMap(map);
+	  wxoverlay.addColorBar('small','horiz', 'BottomLeft');
 	  
 	  document.getElementById('tSelect').appendChild(wxoverlay.getTSelect());
       document.getElementById('wxSelect').appendChild(wxoverlay.getVSelect());
@@ -59,21 +51,29 @@
             app.initialize();
 			
 			var coordinates = localStorage.getItem("coordinates");
+			document.getElementById("currentMaps").innerHTML = localStorage.getItem("savedLocation");
 			
-			function favourites(){
+			/*function favourites(){
 			  var favourite0 = localStorage.getItem("favourite0");
 			  var favourite1 = localStorage.getItem("favourite1");
 			  var favourite2 = localStorage.getItem("favourite2");
 			  var favourite3 = localStorage.getItem("favourite3");
 			  var favourite4 = localStorage.getItem("favourite4");
+			  var favourite0COORDS = localStorage.getItem("favourite0COORDS");
+			  var favourite1COORDS = localStorage.getItem("favourite1COORDS");
+			  var favourite2COORDS = localStorage.getItem("favourite2COORDS");
+			  var favourite3COORDS = localStorage.getItem("favourite3COORDS");
+			  var favourite4COORDS = localStorage.getItem("favourite4COORDS");
 				  swal({
 					  title: "<small>Favourites</small>",
-					  text: '<button class="favourite0" type="button" id="favourite0" onclick=console.log("test"); location.reload();>' + coordinates + '</button>',
+					  text: 'Select A Favourite Location: </br><button class="favourite0" type="button" id="favourite0" onclick=console.log("test"); localStorage.setItem("coordinates", favourite0COORDS); location.reload();>' + favourite0 + '</button></br><button class="favourite1" type="button" id="favourite1" onclick=console.log("test"); localStorage.setItem("coordinates", favourite1COORDS); location.reload();>' + favourite1 + '</button></br><button class="favourite0" type="button" id="favourite2" onclick=console.log("test"); localStorage.setItem("coordinates", favourite2COORDS); location.reload();>' + favourite2 + '</button></br><button class="favourite1" type="button" id="favourite3" onclick=console.log("test"); localStorage.setItem("coordinates", favourite3COORDS); location.reload();>' + favourite3 + '</button></br><button class="favourite0" type="button" id="favourite4" onclick=console.log("test"); localStorage.setItem("coordinates", favourite4COORDS); location.reload();>' + favourite4 + '</button>',
 					  showCancelButton: false,
 					  showConfirmButton: false,
 					  html: true
+				  },
+				  
 				  });
-			  };
+			  };*/
     </script>
 </body>
 </html>
