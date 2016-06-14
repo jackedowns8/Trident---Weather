@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Trident - Weather</title>
+    <title>Trident - Weather (Free)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" href="dist/css/swiper.min.css">
@@ -173,9 +173,39 @@
     <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <script src="Sweet Alert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="Sweet Alert/dist/sweetalert.css">
-    <script src="../plugins/com.purplebrain.adbuddiz.sdk/www/adbuddiz.js"></script>
-    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <!--<script src="../plugins/com.purplebrain.adbuddiz.sdk/www/adbuddiz.js"></script>-->
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <script>
+	  console.log("AdMobStart");
+	  var admobid = {};
+	  if( /(android)/i.test(navigator.userAgent) ) { 
+		  admobid = { // for Android
+			  banner: 'ca-app-pub-1478097249841914/6476098583',
+			  interstitial: 'ca-app-pub-1478097249841914/1806089785'
+		  };
+	  } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
+		  admobid = { // for iOS
+			  banner: 'ca-app-pub-1478097249841914/7573421786',
+			  interstitial: 'ca-app-pub-1478097249841914/9050154988'
+		  };
+	  } else {
+		  admobid = { // for Windows Phone
+			  banner: 'ca-app-pub-1478097249841914/5957087780',
+			  interstitial: 'ca-app-pub-1478097249841914/7433820985'
+		  };
+	  }
+	  
+	  if (AdMob) {
+		  AdMob.createBanner({
+			  adId : admobid.banner,
+			  position : AdMob.AD_POSITION.BOTTOM_CENTER,
+			  autoShow : true
+		  });
+	  }
+	  console.log("AdMobEnd");
+	  
+	</script>
     <script type="text/javascript">
             app.initialize();
 			
@@ -211,6 +241,14 @@
 			  }
 			}
 			//
+			var firstTime = localStorage.getItem("firstTime");
+			if (firstTime == null) {
+				console.log("First Run");
+				localStorage.setItem("firstTime", 0);
+				localStorage.setItem("lengthMeasurement", "m");
+				localStorage.setItem("tempMeasurement", "C");
+				localStorage.setItem("speedMeasurement", "kmph");
+			}
 			console.log(localStorage.getItem("lengthMeasurement"));
 			
 			var overviewLocation = document.getElementById('overviewLocation');

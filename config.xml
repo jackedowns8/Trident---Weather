@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.tridentappdesign.weather" versionCode = "64" version="0.95" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Trident - Weather (Development)</name>
+    <name>Trident - Weather (Free)</name>
     <description>
         Tides and weather information for where you are, when you need it.
     </description>
@@ -21,6 +21,8 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="android-installLocation" value="auto" />
+	<preference name="android-build-tool" value="gradle" /> 
+    <gap:plugin name="cordova-plugin-admobpro" source="npm" />
     <!--<gap:plugin name="org.apache.cordova.battery-status" />-->
     <!--<gap:plugin name="org.apache.cordova.camera" />-->
     <!--<gap:plugin name="org.apache.cordova.media-capture" />-->
