@@ -137,7 +137,7 @@
               </div>
               <div class="forecastDay1">
               	<div class="forecastComingSoon">
-                  COMING SOON
+                  _BLANK
                 </div>
               </div>
               <div class="forecastDay0">
@@ -170,13 +170,13 @@
     </script>
     
     <!-- Weather + Tides Etc. -->
-    <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <!--<script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>-->
     <script src="Sweet Alert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="Sweet Alert/dist/sweetalert.css">
     <!--<script src="../plugins/com.purplebrain.adbuddiz.sdk/www/adbuddiz.js"></script>-->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="index.js"></script>
-    <script>
+    <!--<script>
 	  console.log("AdMobStart");
 	  var admobid = {};
 	  if( /(android)/i.test(navigator.userAgent) ) { 
@@ -205,7 +205,7 @@
 	  }
 	  console.log("AdMobEnd");
 	  
-	</script>
+	</script>-->
     <script type="text/javascript">
             app.initialize();
 			
@@ -720,11 +720,19 @@
 				var tideType1 = xmlDocument.getElementsByTagName("tide_type")['1'].childNodes['0'].nodeValue;
 				var tideType2 = xmlDocument.getElementsByTagName("tide_type")['2'].childNodes['0'].nodeValue;
 				var tideType3 = xmlDocument.getElementsByTagName("tide_type")['3'].childNodes['0'].nodeValue;
+				localStorage.setItem("day0TideType0", tideType0);
+				localStorage.setItem("day0TideType1", tideType1);
+				localStorage.setItem("day0TideType2", tideType2);
+				localStorage.setItem("day0TideType3", tideType3);
 	  
 				var tideTime0 = xmlDocument.getElementsByTagName("tideTime")['0'].childNodes['0'].nodeValue;
 				var tideTime1 = xmlDocument.getElementsByTagName("tideTime")['1'].childNodes['0'].nodeValue;
 				var tideTime2 = xmlDocument.getElementsByTagName("tideTime")['2'].childNodes['0'].nodeValue;
 				var tideTime3 = xmlDocument.getElementsByTagName("tideTime")['3'].childNodes['0'].nodeValue;
+				localStorage.setItem("day0TideTime0", tideTime0);
+				localStorage.setItem("day0TideTime1", tideTime1);
+				localStorage.setItem("day0TideTime2", tideTime2);
+				localStorage.setItem("day0TideTime3", tideTime3);
 				
 				if (localStorage.getItem("lengthMeasurement") == "ft") {
 				  var tideHeight0 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['0'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
@@ -738,6 +746,21 @@
 				  var tideHeight2 = xmlDocument.getElementsByTagName("tideHeight_mt")['2'].childNodes['0'].nodeValue + "m";
 				  var tideHeight3 = xmlDocument.getElementsByTagName("tideHeight_mt")['3'].childNodes['0'].nodeValue + "m";
 				}
+				
+				localStorage.setItem("day0TideType0", tideType0);
+				localStorage.setItem("day0TideType1", tideType1);
+				localStorage.setItem("day0TideType2", tideType2);
+				localStorage.setItem("day0TideType3", tideType3);
+				
+				localStorage.setItem("day0TideTime0", tideTime0);
+				localStorage.setItem("day0TideTime1", tideTime1);
+				localStorage.setItem("day0TideTime2", tideTime2);
+				localStorage.setItem("day0TideTime3", tideTime3);
+				
+				localStorage.setItem("day0TideHeight0", tideHeight0);
+				localStorage.setItem("day0TideHeight1", tideHeight1);
+				localStorage.setItem("day0TideHeight2", tideHeight2);
+				localStorage.setItem("day0TideHeight3", tideHeight3);
 				
 				var date = xmlDocument.getElementsByTagName("date")['0'].childNodes['0'].nodeValue;
 				
@@ -2431,7 +2454,6 @@
 			  }
 			 
 			 navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 10000});
-			 
     </script>
 </body>
 </html>
