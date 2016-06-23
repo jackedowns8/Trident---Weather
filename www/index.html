@@ -20,7 +20,6 @@
               <div class="overviewWind" id="overviewWindDirection"><img src="image/N.png" alt="windDirection"/></div>
               <button class="overviewButtonSearch" onClick="window.location = 'search.html'"><img src="image/search.png" alt="search"/></button>
               <div class="overviewLocation" id="overviewLocation">Loading Location...</div>
-              <!--<button class="overviewLocationFavourites" onClick="window.location = '../plugins/cordova-plugin-admobpro/test/index.html'"><img src="image/favouritesYellow.png" alt="fav"/></button>-->
               <button class="overviewButtonRefresh" onClick="location.reload()"><img src="image/refresh.png" alt="refresh"/></button>
               
               <div class="overviewSun"><div class="overviewSunrise" id="overviewSunrise">6:00am</div><div class="overviewSunImg"><img src="image/sunriseSunset.png" alt="sunrise/set img"/></div><div class="overviewSunset" id="overviewSunset">5:00pm</div></div>
@@ -114,7 +113,7 @@
                 <div class="weatherCondition" id="day1Conditions"><img src="image/rain.png" alt="sunny"/></div>
                 <div class="weatherTemp" id="day1MaxTemp">null</div>
                 <div class="weatherTides" id="day1Tides">
-                
+                  <button>Tides</button>
                 </div>
                 <button class="arrow" onClick="window.location = 'day1.html'"><img src="image/navArrow.png" alt="navArrow"/></button>
               </div>
@@ -123,7 +122,10 @@
                 <div class="weatherCondition" id="day2Conditions"><img src="image/sunny.png" alt="sunny"/></div>
                 <div class="weatherTemp" id="day2MaxTemp">null</div>
                 <div class="weatherTides" id="day2Tides">
-                
+                  H:</br>
+                  L:</br>
+                  H:</br>
+                  L:
                 </div>
                 <button class="arrow" onClick="window.location = 'day2.html'"><img src="image/navArrow.png" alt="navArrow"/></button>
               </div>
@@ -132,20 +134,18 @@
                 <div class="weatherCondition" id="day3Conditions"><img src="image/sunny.png" alt="sunny"/></div>
                 <div class="weatherTemp" id="day3MaxTemp">null</div>
                 <div class="weatherTides" id="day3Tides">
-                
+                  H:</br>
+                  L:</br>
+                  H:</br>
+                  L:
                 </div>
                 <button class="arrow" onClick="window.location = 'day3.html'"><img src="image/navArrow.png" alt="navArrow"/></button>
               </div>
               <div class="forecastDay1">
-                  <button class="mapButton" onClick="window.location = 'maps.html'">Rain</button>
-                  <button class="mapButton" onClick="window.location = 'maps.html'">Wind</button>
-                  <button class="mapButton" onClick="window.location = 'maps.html'">Temp</button>
-                  <button class="mapButton" onClick="window.location = 'maps.html'">Swell</button>
+                  <button class="buttonTemp">Upgrade to Trident - Weather (Premium) for more features and no ads!</button>
               </div>
               <div class="forecastDay0">
-                <button class="forecastUpgrade" onClick="AdBuddiz.showAd();">
-                  _BLANK
-                </button>
+                  <button class="buttonTemp">YES LOGO</button>
               </div>
             </div>
         </div>
@@ -528,6 +528,12 @@
 			  }
 			  else {
 				var currentTemp = xmlDocument.getElementsByTagName("temp_F")['0'].childNodes['0'].nodeValue;
+			  }
+			  if (localStorage.getItem("tempMeasurement") == "C") {
+				var currentFeelsTemp = xmlDocument.getElementsByTagName("FeelsLikeC")['0'].childNodes['0'].nodeValue;
+			  }
+			  else {
+				var currentFeelsTemp = xmlDocument.getElementsByTagName("FeelsLikeF")['0'].childNodes['0'].nodeValue;
 			  }
 			  var currentWindDir = xmlDocument.getElementsByTagName("winddir16Point")['0'].childNodes['0'].nodeValue;
 			  //Chance Of Rain
@@ -2075,10 +2081,10 @@
 				//Temprature
 				//
 				if (localStorage.getItem("tempMeasurement") == "C"){
-				    overviewTemp.innerHTML = "<div class='overviewFeelsLike' id='overviewFeelsLike'>Feels like: <strong>" + currentTemp + "°C</strong></div>" + currentTemp + "°C";
+				    overviewTemp.innerHTML = "<div class='overviewFeelsLike' id='overviewFeelsLike'>Feels like: <strong>" + currentFeelsTemp + "°C</strong></div>" + currentTemp + "°C";
 				}
 				else {
-					overviewTemp.innerHTML = "<div class='overviewFeelsLike' id='overviewFeelsLike'>Feels like: " + currentTemp + "°F</div>" + currentTemp + "°F";
+					overviewTemp.innerHTML = "<div class='overviewFeelsLike' id='overviewFeelsLike'>Feels like: <strong>" + currentFeelsTemp + "°F</strong></div>" + currentTemp + "°F";
 				}
 				//
 				if (localStorage.getItem("tempMeasurement") == "C"){
@@ -2424,15 +2430,6 @@
 					 }
 				 });
 				 
-			  }
-			  
-			  //display the banner
-			  function showBannerFunc(){
-				  window.plugins.AdMob.createBannerView();
-			  }
-			  //display the interstitial
-			  function showInterstitialFunc(){
-				  window.plugins.AdMob.showInterstitialAd();
 			  }
 			 
 			 navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 10000});
