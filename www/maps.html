@@ -27,6 +27,9 @@
     <script type="text/javascript" src="toastPlugin.js"></script>
     <script type="text/java" src="ToastPlugin.java"></script>
     <script>
+	  if (localStorage.getItem("lat") == null) {
+		  
+	  }
 	  var lat = localStorage.getItem("lat");
 	  var long = localStorage.getItem("long");
 	  console.log(lat + ", " + long);
@@ -52,28 +55,6 @@
 			
 			var coordinates = localStorage.getItem("coordinates");
 			document.getElementById("currentMaps").innerHTML = localStorage.getItem("savedLocation");
-			
-			/*function favourites(){
-			  var favourite0 = localStorage.getItem("favourite0");
-			  var favourite1 = localStorage.getItem("favourite1");
-			  var favourite2 = localStorage.getItem("favourite2");
-			  var favourite3 = localStorage.getItem("favourite3");
-			  var favourite4 = localStorage.getItem("favourite4");
-			  var favourite0COORDS = localStorage.getItem("favourite0COORDS");
-			  var favourite1COORDS = localStorage.getItem("favourite1COORDS");
-			  var favourite2COORDS = localStorage.getItem("favourite2COORDS");
-			  var favourite3COORDS = localStorage.getItem("favourite3COORDS");
-			  var favourite4COORDS = localStorage.getItem("favourite4COORDS");
-				  swal({
-					  title: "<small>Favourites</small>",
-					  text: 'Select A Favourite Location: </br><button class="favourite0" type="button" id="favourite0" onclick=console.log("test"); localStorage.setItem("coordinates", favourite0COORDS); location.reload();>' + favourite0 + '</button></br><button class="favourite1" type="button" id="favourite1" onclick=console.log("test"); localStorage.setItem("coordinates", favourite1COORDS); location.reload();>' + favourite1 + '</button></br><button class="favourite0" type="button" id="favourite2" onclick=console.log("test"); localStorage.setItem("coordinates", favourite2COORDS); location.reload();>' + favourite2 + '</button></br><button class="favourite1" type="button" id="favourite3" onclick=console.log("test"); localStorage.setItem("coordinates", favourite3COORDS); location.reload();>' + favourite3 + '</button></br><button class="favourite0" type="button" id="favourite4" onclick=console.log("test"); localStorage.setItem("coordinates", favourite4COORDS); location.reload();>' + favourite4 + '</button>',
-					  showCancelButton: false,
-					  showConfirmButton: false,
-					  html: true
-				  },
-				  
-				  });
-			  };*/
     </script>
 </body>
 </html>

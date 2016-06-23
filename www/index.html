@@ -13,16 +13,17 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
               <button class="overviewButtonSettings" onClick="window.location = 'settings.html'"><img src="image/settings.png" alt="settings"/></button>
-              <div class="overviewTemp" id="overviewTemp">15°C</div>
+              <div class="overviewTemp" id="overviewTemp"><div class="overviewFeelsLike" id="overviewFeelsLike">Feels like: 12°C</div>15°C</div>
               <button class="overviewButtonInfo" onClick="resetLocation(); location.reload();"><img src="image/info.png" alt="info"/></button>
               <div class="overviewWeatherWindLabel"><div class="overviewWeatherLabel">Weather Conditions</div><div class="overviewWindLabel">Wind Direction</div></div>
               <div class="overviewWeather" id="overviewWeather"><img src="image/sunny.png" alt="weatherType"/></div>
               <div class="overviewWind" id="overviewWindDirection"><img src="image/N.png" alt="windDirection"/></div>
               <button class="overviewButtonSearch" onClick="window.location = 'search.html'"><img src="image/search.png" alt="search"/></button>
               <div class="overviewLocation" id="overviewLocation">Loading Location...</div>
+              <!--<button class="overviewLocationFavourites" onClick="window.location = '../plugins/cordova-plugin-admobpro/test/index.html'"><img src="image/favouritesYellow.png" alt="fav"/></button>-->
               <button class="overviewButtonRefresh" onClick="location.reload()"><img src="image/refresh.png" alt="refresh"/></button>
               
-              <div class="overviewSun"><div class="overviewSunrise" id="overviewSunrise">12:00am</div><div class="overviewSunImg"><img src="image/sunriseSunset.png" alt="sunrise/set img"/></div><div class="overviewSunset" id="overviewSunset">12:00pm</div></div>
+              <div class="overviewSun"><div class="overviewSunrise" id="overviewSunrise">6:00am</div><div class="overviewSunImg"><img src="image/sunriseSunset.png" alt="sunrise/set img"/></div><div class="overviewSunset" id="overviewSunset">5:00pm</div></div>
               <div class="overviewTides">
                 <div class="overviewTide0">
                   <div class="overviewTideType" id="overviewTideType0"><strong>LOW</strong></div>
@@ -143,7 +144,7 @@
               </div>
               <div class="forecastDay0">
                 <button class="forecastUpgrade" onClick="AdBuddiz.showAd();">
-                  Upgrade to Trident - Weather (Premium)</br>for more features!
+                  _BLANK
                 </button>
               </div>
             </div>
@@ -173,17 +174,40 @@
     <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <script src="Sweet Alert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="Sweet Alert/dist/sweetalert.css">
-    <!--<script src="../plugins/com.purplebrain.adbuddiz.sdk/www/adbuddiz.js"></script>-->
+	<script src="../plugins/cordova-plugin-admobpro/www/AdMob.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
             app.initialize();
 			
-			//AdBuddiz.setTestModeActive();
-			//AdBuddiz.setAndroidPublisherKey("1ca0bda3-e6e0-4395-8255-333448265716");
-			//AdBuddiz.cacheAds();
-			
-			//AdBuddiz.showAd();
+			var admobid = {};
+			if( /(android)/i.test(navigator.userAgent) ) { 
+				admobid = { // for Android
+					banner: 'ca-app-pub-1478097249841914/6476098583',
+					interstitial: 'ca-app-pub-1478097249841914/1806089785'
+				};
+			} else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
+				admobid = { // for iOS
+					banner: 'ca-app-pub-1478097249841914/7573421786',
+					interstitial: 'ca-app-pub-1478097249841914/9050154988'
+				};
+			} else {
+				admobid = { // for Windows Phone
+					banner: 'ca-app-pub-1478097249841914/5957087780',
+					interstitial: 'ca-app-pub-1478097249841914/7433820985'
+				};
+			}
+			function initApp() {
+				console.log("initApp");
+				if (AdMob) {
+					console.log("ADMOB");
+					AdMob.createBanner({
+						adId : admobid.banner,
+						position : AdMob.AD_POSITION.BOTTOM_CENTER,
+						autoShow : true
+					});
+				}
+			}
 			
 			clearStorage = function(exceptions){
 			  var storage = localStorage
@@ -2051,10 +2075,10 @@
 				//Temprature
 				//
 				if (localStorage.getItem("tempMeasurement") == "C"){
-				    overviewTemp.innerHTML = currentTemp + "°C";
+				    overviewTemp.innerHTML = "<div class='overviewFeelsLike' id='overviewFeelsLike'>Feels like: <strong>" + currentTemp + "°C</strong></div>" + currentTemp + "°C";
 				}
 				else {
-					overviewTemp.innerHTML = currentTemp + "°F";
+					overviewTemp.innerHTML = "<div class='overviewFeelsLike' id='overviewFeelsLike'>Feels like: " + currentTemp + "°F</div>" + currentTemp + "°F";
 				}
 				//
 				if (localStorage.getItem("tempMeasurement") == "C"){
@@ -2401,9 +2425,17 @@
 				 });
 				 
 			  }
+			  
+			  //display the banner
+			  function showBannerFunc(){
+				  window.plugins.AdMob.createBannerView();
+			  }
+			  //display the interstitial
+			  function showInterstitialFunc(){
+				  window.plugins.AdMob.showInterstitialAd();
+			  }
 			 
 			 navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 10000});
-			 
     </script>
 </body>
 </html>

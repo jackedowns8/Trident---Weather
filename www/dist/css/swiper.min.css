@@ -602,12 +602,30 @@ transform:rotate(360deg)
 	position: fixed;
 	top: 44.2%;
 	width: 60%;
-	height: 20%;
+	height: 5%;
 	color: #969696;
 	text-align: center;
 	font-size: 4vw;
 	line-height: 2vh;
 	left: 20%;
+}
+.overviewLocationFavourites {
+	position: fixed;
+	top: 44.2%;
+	width: 5%;
+	height: 5%;
+	color: #969696;
+	text-align: center;
+	font-size: 4vw;
+	font-family: 'Josefin Sans', sans-serif;
+	left: 75%;
+	vertical-align: middle;
+	border: none;
+	background-color: transparent;
+}
+.overviewLocationFavourites img {
+	max-height: 98%;
+	max-width: 98%;
 }
 .overviewTemp {
 	postition: fixed;
@@ -615,7 +633,7 @@ transform:rotate(360deg)
 	width: 60%;
 	height: 25%;
 	font-family: 'Josefin Sans', sans-serif;
-	line-height: 8.5vh;
+	line-height: 6.5vh;
 	font-size: 7vh;
 	text-align: center;
 	margin: auto;
@@ -623,6 +641,11 @@ transform:rotate(360deg)
 	background-size: 35vh;
 	background-repeat: no-repeat;
 	background-position: top center;
+}
+.overviewFeelsLike {
+	line-height: 3vh;
+	font-size: 2vh;
+	text-align: center;
 }
 .overviewTemp img {
 	max-height: 100%;

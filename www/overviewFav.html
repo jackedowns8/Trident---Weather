@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Trident</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="dist/css/swiper.min.css">
+</head>
+<body>
+    <div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Favourites</div></div>
+    <div class="favourites0">
+      <button class="favouriteLocation" type="button" id="Location0" onclick="favouriteLoc0();">1</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite0();">Edit</button>
+    </div>
+    <div class="favourites1">
+      <button class="favouriteLocation" type="button" id="Location1" onclick="favouriteLoc1();">2</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite1();">Edit</button>
+    </div>
+    <div class="favourites0">
+      <button class="favouriteLocation" type="button" id="Location2" onclick="favouriteLoc2();">3</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite2();">Edit</button>
+    </div>
+    <div class="favourites1">
+      <button class="favouriteLocation" type="button" id="Location3" onclick="favouriteLoc3();">4</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite3();">Edit</button>
+    </div>
+    <div class="favourites0">
+      <button class="favouriteLocation" type="button" id="Location4" onclick="favouriteLoc4();">5</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite4();">Edit</button>
+    </div>
+    <button class="favouriteSaveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!'); localStorage.setItem('refresh', '1');">Save Location</button>
+    
+    <!-- Weather + Tides Etc. -->
+    <script language="XML" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script src="Sweet Alert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Sweet Alert/dist/sweetalert.css">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="toastPlugin.js"></script>
+    <script type="text/java" src="ToastPlugin.java"></script>
+    <script type="text/javascript">
+            app.initialize();
+			
+			var coordinates = localStorage.getItem("coordinates");
+			var favourite0 = localStorage.getItem("favourite0");
+			var favourite1 = localStorage.getItem("favourite1");
+			var favourite2 = localStorage.getItem("favourite2");
+			var favourite3 = localStorage.getItem("favourite3");
+			var favourite4 = localStorage.getItem("favourite4");
+			var favourite0COORDS = localStorage.getItem("favourite0COORDS");
+			var favourite1COORDS = localStorage.getItem("favourite1COORDS");
+			var favourite2COORDS = localStorage.getItem("favourite2COORDS");
+			var favourite3COORDS = localStorage.getItem("favourite3COORDS");
+			var favourite4COORDS = localStorage.getItem("favourite4COORDS");
+			var favourite0Name = localStorage.getItem("favourite0Name");
+			var favourite1Name = localStorage.getItem("favourite1Name");
+			var favourite2Name = localStorage.getItem("favourite2Name");
+			var favourite3Name = localStorage.getItem("favourite3Name");
+			var favourite4Name = localStorage.getItem("favourite4Name");
+			
+			//Names
+			if (favourite0Name == null || favourite0Name == "null") {
+				favourite0Name = "Empty";
+			}
+			if (favourite1Name == null || favourite1Name == "null") {
+				favourite1Name = "Empty";
+			}
+			if (favourite2Name == null || favourite2Name == "null") {
+				favourite2Name = "Empty";
+			}
+			if (favourite3Name == null || favourite3Name == "null") {
+				favourite3Name = "Empty";
+			}
+			if (favourite4Name == null || favourite4Name == "null") {
+				favourite4Name = "Empty";
+			}
+			
+			//Location
+			if (favourite0 == null || favourite0 == "null") {
+				favourite0 = "";
+			}
+			if (favourite1 == null || favourite1 == "null") {
+				favourite1 = "";
+			}
+			if (favourite2 == null || favourite2 == "null") {
+				favourite2 = "";
+			}
+			if (favourite3 == null || favourite3 == "null") {
+				favourite3 = "";
+			}
+			if (favourite4 == null || favourite4 == "null") {
+				favourite4 = "";
+			}
+			
+			document.getElementById("Location0").innerHTML = favourite0Name + "<div class='favouriteLocationDetail'>(" + favourite0 + ")</div>";
+			document.getElementById("Location1").innerHTML = favourite1Name + "<div class='favouriteLocationDetail'>(" + favourite1 + ")</div>";
+			document.getElementById("Location2").innerHTML = favourite2Name + "<div class='favouriteLocationDetail'>(" + favourite2 + ")</div>";
+			document.getElementById("Location3").innerHTML = favourite3Name + "<div class='favouriteLocationDetail'>(" + favourite3 + ")</div>";
+			document.getElementById("Location4").innerHTML = favourite4Name + "<div class='favouriteLocationDetail'>(" + favourite4 + ")</div>";
+			
+			function favouriteLoc0(){
+				localStorage.setItem("coordinates", favourite0COORDS);
+				console.log("New Location Set: " + favourite0COORDS);
+			}
+			function favouriteLoc1(){
+				localStorage.setItem("coordinates", favourite1COORDS);
+				console.log("New Location Set: " + favourite1COORDS);
+			}
+			function favouriteLoc2(){
+				localStorage.setItem("coordinates", favourite2COORDS);
+				console.log("New Location Set: " + favourite2COORDS);
+			}
+			function favouriteLoc3(){
+				localStorage.setItem("coordinates", favourite3COORDS);
+				console.log("New Location Set: " + favourite3COORDS);
+			}
+			function favouriteLoc4(){
+				localStorage.setItem("coordinates", favourite4COORDS);
+				console.log("New Location Set: " + favourite4COORDS);
+			}
+			
+			function editFavourite0(){
+				swal({
+					title: "Edit Name",
+					text: "Rename your favourite location: ",
+					type: "input",
+					showCancelButton: true,
+					closeOnConfirm: false,
+					animation: "slide-from-top",
+					inputPlaceholder: "e.g. Home" 
+				},
+				function(inputValue){
+					if (inputValue === false) return false;
+					if (inputValue === "") {
+						swal.showInputError("Give your favourite location a new name!");
+						return false
+					}
+					localStorage.setItem("favourite0Name", inputValue);
+					swal({   
+				  		title: "Saved!",
+				  		text: inputValue + ' (' + favourite0 + ') saved to favourites!',
+				  		type: "success",
+				  		showCancelButton: false,
+				  		confirmButtonText: "Done" 
+					},
+				 	function(isConfirm){
+					 	if (isConfirm) {
+						 location.reload();
+					 	}
+				 	});
+				});
+			}
+			function editFavourite1(){
+				swal({
+					title: "Edit Name",
+					text: "Rename your favourite location: ",
+					type: "input",
+					showCancelButton: true,
+					closeOnConfirm: false,
+					animation: "slide-from-top",
+					inputPlaceholder: "e.g. Home" 
+				},
+				function(inputValue){
+					if (inputValue === false) return false;
+					if (inputValue === "") {
+						swal.showInputError("Give your favourite location a new name!");
+						return false
+					}
+					localStorage.setItem("favourite1Name", inputValue);
+					swal({   
+				  		title: "Saved!",
+				  		text: inputValue + ' (' + favourite1 + ') saved to favourites!',
+				  		type: "success",
+				  		showCancelButton: false,
+				  		confirmButtonText: "Done"
+					},
+				 	function(isConfirm){
+					 	if (isConfirm) {
+						 location.reload();
+					 	}
+				 	});
+				});
+			}
+			function editFavourite2(){
+				swal({
+					title: "Edit Name",
+					text: "Rename your favourite location: ",
+					type: "input",
+					showCancelButton: true,
+					closeOnConfirm: false,
+					animation: "slide-from-top",
+					inputPlaceholder: "e.g. Home" 
+				},
+				function(inputValue){
+					if (inputValue === false) return false;
+					if (inputValue === "") {
+						swal.showInputError("Give your favourite location a new name!");
+						return false
+					}
+					localStorage.setItem("favourite2Name", inputValue);
+					swal({   
+				  		title: "Saved!",
+				  		text: inputValue + ' (' + favourite2 + ') saved to favourites!',
+				  		type: "success",
+				  		showCancelButton: false,
+				  		confirmButtonText: "Done" 
+					},
+				 	function(isConfirm){
+					 	if (isConfirm) {
+						 location.reload();
+					 	}
+				 	});
+				});
+			}
+			function editFavourite3(){
+				swal({
+					title: "Edit Name",
+					text: "Rename your favourite location: ",
+					type: "input",
+					showCancelButton: true,
+					closeOnConfirm: false,
+					animation: "slide-from-top",
+					inputPlaceholder: "e.g. Home" 
+				},
+				function(inputValue){
+					if (inputValue === false) return false;
+					if (inputValue === "") {
+						swal.showInputError("Give your favourite location a new name!");
+						return false
+					}
+					localStorage.setItem("favourite3Name", inputValue);
+					swal({   
+				  		title: "Saved!",
+				  		text: inputValue + ' (' + favourite3 + ') saved to favourites!',
+				  		type: "success",
+				  		showCancelButton: false,
+				  		confirmButtonText: "Done" 
+					},
+				 	function(isConfirm){
+					 	if (isConfirm) {
+						 location.reload();
+					 	}
+				 	});
+				});
+			}
+			function editFavourite4(){
+				swal({
+					title: "Edit Name",
+					text: "Rename your favourite location: ",
+					type: "input",
+					showCancelButton: true,
+					closeOnConfirm: false,
+					animation: "slide-from-top",
+					inputPlaceholder: "e.g. Home" 
+				},
+				function(inputValue){
+					if (inputValue === false) return false;
+					if (inputValue === "") {
+						swal.showInputError("Give your favourite location a new name!");
+						return false
+					}
+					localStorage.setItem("favourite4Name", inputValue);
+					swal({   
+				  		title: "Saved!",
+				  		text: inputValue + ' (' + favourite4 + ') saved to favourites!',
+				  		type: "success",
+				  		showCancelButton: false,
+				  		confirmButtonText: "Done" 
+					},
+				 	function(isConfirm){
+					 	if (isConfirm) {
+						 location.reload();
+					 	}
+				 	});
+				});
+			}
+    </script>
+</body>
+</html>
