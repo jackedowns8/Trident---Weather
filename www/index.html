@@ -136,10 +136,10 @@
                 <button class="arrow" onClick="window.location = 'day3.html'"><img src="image/navArrow.png" alt="navArrow"/></button>
               </div>
               <div class="forecastDay1">
-                  <button class="buttonTemp">Upgrade to Trident - Weather (Premium) for more features and no ads!</button>
+                  <button class="buttonTemp">Upgrade to <strong>Trident - Weather (Premium)</strong> for more features and no ads!</button>
               </div>
               <div class="forecastDay0">
-                  <button class="buttonTemp">YES LOGO</button>
+                  <button class="buttonTemp"><img src="image/yesLogo.png" alt=""/></button>
               </div>
             </div>
         </div>
@@ -786,10 +786,10 @@
 				var day1TideTime3 = xmlDocument.getElementsByTagName("tideTime")['7'].childNodes['0'].nodeValue;
 				
 				if (localStorage.getItem("lengthMeasurement") == "ft") {
-				  var day1TideHeight0 = xmlDocument.getElementsByTagName("tideHeight_mt")['4'].childNodes['0'].nodeValue*3.28084+"ft";
-				  var day1TideHeight1 = xmlDocument.getElementsByTagName("tideHeight_mt")['5'].childNodes['0'].nodeValue*3.28084+"ft";
-				  var day1TideHeight2 = xmlDocument.getElementsByTagName("tideHeight_mt")['6'].childNodes['0'].nodeValue*3.28084+"ft";
-				  var day1TideHeight3 = xmlDocument.getElementsByTagName("tideHeight_mt")['7'].childNodes['0'].nodeValue*3.28084+"ft";
+				  var day1TideHeight0 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['4'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
+				  var day1TideHeight1 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['5'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
+				  var day1TideHeight2 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['6'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
+				  var day1TideHeight3 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['7'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
 				}
 				else {
 				  var day1TideHeight0 = xmlDocument.getElementsByTagName("tideHeight_mt")['4'].childNodes['0'].nodeValue+"m";
@@ -862,10 +862,10 @@
 				var day2TideTime3 = xmlDocument.getElementsByTagName("tideTime")['11'].childNodes['0'].nodeValue;
 				
 				if (localStorage.getItem("lengthMeasurement") == "ft") {
-				  var day1TideHeight0 = xmlDocument.getElementsByTagName("tideHeight_mt")['8'].childNodes['0'].nodeValue*3.28084+"ft";
-				  var day1TideHeight1 = xmlDocument.getElementsByTagName("tideHeight_mt")['9'].childNodes['0'].nodeValue*3.28084+"ft";
-				  var day1TideHeight2 = xmlDocument.getElementsByTagName("tideHeight_mt")['10'].childNodes['0'].nodeValue*3.28084+"ft";
-				  var day1TideHeight3 = xmlDocument.getElementsByTagName("tideHeight_mt")['11'].childNodes['0'].nodeValue*3.28084+"ft";
+				  var day2TideHeight0 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['8'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
+				  var day2TideHeight1 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['9'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
+				  var day2TideHeight2 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['10'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
+				  var day2TideHeight3 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['11'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
 				}
 				else {
 				  var day2TideHeight0 = xmlDocument.getElementsByTagName("tideHeight_mt")['8'].childNodes['0'].nodeValue+"m";
@@ -938,10 +938,10 @@
 				var day3TideTime3 = xmlDocument.getElementsByTagName("tideTime")['15'].childNodes['0'].nodeValue;
 				
 				if (localStorage.getItem("lengthMeasurement") == "ft") {
-				  var day1TideHeight0 = xmlDocument.getElementsByTagName("tideHeight_mt")['12'].childNodes['0'].nodeValue*3.28084+"ft";
-				  var day1TideHeight1 = xmlDocument.getElementsByTagName("tideHeight_mt")['13'].childNodes['0'].nodeValue*3.28084+"ft";
-				  var day1TideHeight2 = xmlDocument.getElementsByTagName("tideHeight_mt")['14'].childNodes['0'].nodeValue*3.28084+"ft";
-				  var day1TideHeight3 = xmlDocument.getElementsByTagName("tideHeight_mt")['15'].childNodes['0'].nodeValue*3.28084+"ft";
+				  var day3TideHeight0 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['12'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
+				  var day3TideHeight1 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['13'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
+				  var day3TideHeight2 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['14'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
+				  var day3TideHeight3 = Math.round(xmlDocument.getElementsByTagName("tideHeight_mt")['15'].childNodes['0'].nodeValue*3.28084 * 100) / 100 + "ft";
 				}
 				else {
 				  var day3TideHeight0 = xmlDocument.getElementsByTagName("tideHeight_mt")['12'].childNodes['0'].nodeValue+"m";
@@ -2466,7 +2466,7 @@
 				var day1Day = localStorage.getItem("day1Day");
 				swal({
 					title: "<small>" + day1Day + "'s Tides</small>",
-					text: "<strong>" + day1TideType0 + ":</strong> " + day1TideTime0 + "<strong>/</strong>" + day1TideHeight0 + "</br>" + "<strong>" + day1TideType1 + ":</strong> " + day1TideTime1 + "<strong>/</strong>" + day1TideHeight1 + "</br>" + "<strong>" + day1TideType2 + ":</strong> " + day1TideTime2 + "<strong>/</strong>" + day1TideHeight2 + "</br>" + "<strong>" + day1TideType3 + ":</strong> " + day1TideTime3 + "<strong>/</strong>" + day1TideHeight3,
+					text: "<strong>" + day1TideType0 + ":</strong> " + day1TideTime0 + "<strong> / </strong>" + day1TideHeight0 + "</br>" + "<strong>" + day1TideType1 + ":</strong> " + day1TideTime1 + "<strong> / </strong>" + day1TideHeight1 + "</br>" + "<strong>" + day1TideType2 + ":</strong> " + day1TideTime2 + "<strong> / </strong>" + day1TideHeight2 + "</br>" + "<strong>" + day1TideType3 + ":</strong> " + day1TideTime3 + "<strong> / </strong>" + day1TideHeight3,
 					html: true
 				});
 			};
@@ -2489,7 +2489,7 @@
 				var day2Day = localStorage.getItem("day2Day");
 				swal({
 					title: "<small>" + day2Day + "'s Tides</small>",
-					text: "<strong>" + day2TideType0 + ":</strong> " + day2TideTime0 + "<strong>/</strong>" + day2TideHeight0 + "</br>" + "<strong>" + day2TideType1 + ":</strong> " + day2TideTime1 + "<strong>/</strong>" + day2TideHeight1 + "</br>" + "<strong>" + day2TideType2 + ":</strong> " + day2TideTime2 + "<strong>/</strong>" + day2TideHeight2 + "</br>" + "<strong>" + day2TideType3 + ":</strong> " + day2TideTime3 + "<strong>/</strong>" + day2TideHeight3,
+					text: "<strong>" + day2TideType0 + ":</strong> " + day2TideTime0 + "<strong> / </strong>" + day2TideHeight0 + "</br>" + "<strong>" + day2TideType1 + ":</strong> " + day2TideTime1 + "<strong> / </strong>" + day2TideHeight1 + "</br>" + "<strong>" + day2TideType2 + ":</strong> " + day2TideTime2 + "<strong> / </strong>" + day2TideHeight2 + "</br>" + "<strong>" + day2TideType3 + ":</strong> " + day2TideTime3 + "<strong> / </strong>" + day2TideHeight3,
 					html: true
 				});
 			};
@@ -2512,7 +2512,7 @@
 				var day3Day = localStorage.getItem("day3Day");
 				swal({
 					title: "<small>" + day3Day + "'s Tides</small>",
-					text: "<strong>" + day3TideType0 + ":</strong> " + day3TideTime0 + "<strong>/</strong>" + day3TideHeight0 + "</br>" + "<strong>" + day3TideType1 + ":</strong> " + day3TideTime1 + "<strong>/</strong>" + day3TideHeight1 + "</br>" + "<strong>" + day3TideType2 + ":</strong> " + day3TideTime2 + "<strong>/</strong>" + day3TideHeight2 + "</br>" + "<strong>" + day3TideType3 + ":</strong> " + day3TideTime3 + "<strong>/</strong>" + day3TideHeight3,
+					text: "<strong>" + day3TideType0 + ":</strong> " + day3TideTime0 + "<strong> / </strong>" + day3TideHeight0 + "</br>" + "<strong>" + day3TideType1 + ":</strong> " + day3TideTime1 + "<strong> / </strong>" + day3TideHeight1 + "</br>" + "<strong>" + day3TideType2 + ":</strong> " + day3TideTime2 + "<strong> / </strong>" + day3TideHeight2 + "</br>" + "<strong>" + day3TideType3 + ":</strong> " + day3TideTime3 + "<strong> / </strong>" + day3TideHeight3,
 					html: true
 				});
 			};

@@ -1039,7 +1039,7 @@ forecastSubHeader {
 .arrow {
     float: left;
 	width: 8%;
-	margin-top: 5vh;
+	height: 100%;
 	border: none;
 	background-color: transparent;
 }
@@ -1368,6 +1368,10 @@ forecastSubHeader {
 	font-size: 3vh;
 	font-family: 'Josefin Sans', sans-serif;
 	color: rgba(145,145,145,1.00);
+}
+.buttonTemp img {
+	max-width: 95%;
+	max-height: 95%;
 }
 .tideButton {
 	width: 100%;
