@@ -1013,18 +1013,24 @@ forecastSubHeader {
 .weatherCondition {
 	float: left;
 	width: 25%;
-	padding-top: 1.5vh;
+	height: 100%;
+	font-family: 'Josefin Sans', sans-serif;
+	border: none;
+	background-color: transparent;
 }
 .weatherTemp {
 	float: left;
-	width: 25%;
+	width: 30%;
+	height: 100%;
 	font-size: 7vw;
-	line-height: 17vh;
+	font-family: 'Josefin Sans', sans-serif;
+	border: none;
+	background-color: transparent;
 }
 .weatherTides {
 	float: left;
-	width: 28%;
-	margin-top: 6%;
+	width: 23%;
+	height: 100%;
 	font-size: 2vh;
 	align-content: center;
 	text-align: left;
@@ -1362,4 +1368,17 @@ forecastSubHeader {
 	font-size: 3vh;
 	font-family: 'Josefin Sans', sans-serif;
 	color: rgba(145,145,145,1.00);
+}
+.tideButton {
+	width: 100%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	font-size: 3vh;
+	font-family: 'Josefin Sans', sans-serif;
+	color: rgba(145,145,145,1.00);
+}
+.tideButton img {
+	max-height: 50%;
+	max-width: 50%;
 }

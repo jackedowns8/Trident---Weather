@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Trident - Weather (Premium)</title>
+    <title>Trident - Weather (Free)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" href="dist/css/swiper.min.css">
@@ -110,34 +110,28 @@
               <div class="forecastHeader">Forecast</div>
               <div class="forecastDay0">
               	<div class="dayOfWeek" id="day1">Day1</div>
-                <div class="weatherCondition" id="day1Conditions"><img src="image/rain.png" alt="sunny"/></div>
-                <div class="weatherTemp" id="day1MaxTemp">null</div>
+                <button class="weatherCondition" id="day1Conditions"><img src="image/rain.png" alt="sunny"/></button>
+                <button class="weatherTemp" id="day1MaxTemp">null</button>
                 <div class="weatherTides" id="day1Tides">
-                  <button>Tides</button>
+                  <button class="tideButton" onClick="day1TidePopup()"><img src="image/tide.png" alt=""/></button>
                 </div>
                 <button class="arrow" onClick="window.location = 'day1.html'"><img src="image/navArrow.png" alt="navArrow"/></button>
               </div>
               <div class="forecastDay1">
               	<div class="dayOfWeek" id="day2">Day2</div>
-                <div class="weatherCondition" id="day2Conditions"><img src="image/sunny.png" alt="sunny"/></div>
-                <div class="weatherTemp" id="day2MaxTemp">null</div>
+                <button class="weatherCondition" id="day2Conditions"><img src="image/sunny.png" alt="sunny"/></button>
+                <button class="weatherTemp" id="day2MaxTemp">null</button>
                 <div class="weatherTides" id="day2Tides">
-                  H:</br>
-                  L:</br>
-                  H:</br>
-                  L:
+                  <button class="tideButton" onClick="day2TidePopup()"><img src="image/tide.png" alt=""/></button>
                 </div>
                 <button class="arrow" onClick="window.location = 'day2.html'"><img src="image/navArrow.png" alt="navArrow"/></button>
               </div>
               <div class="forecastDay0">
               	<div class="dayOfWeek" id="day3">Day3</div>
-                <div class="weatherCondition" id="day3Conditions"><img src="image/sunny.png" alt="sunny"/></div>
-                <div class="weatherTemp" id="day3MaxTemp">null</div>
+                <button class="weatherCondition" id="day3Conditions"><img src="image/sunny.png" alt="sunny"/></button>
+                <button class="weatherTemp" id="day3MaxTemp">null</button>
                 <div class="weatherTides" id="day3Tides">
-                  H:</br>
-                  L:</br>
-                  H:</br>
-                  L:
+                  <button class="tideButton" onClick="day3TidePopup()"><img src="image/tide.png" alt=""/></button>
                 </div>
                 <button class="arrow" onClick="window.location = 'day3.html'"><img src="image/navArrow.png" alt="navArrow"/></button>
               </div>
@@ -186,12 +180,14 @@
 					banner: 'ca-app-pub-1478097249841914/6476098583',
 					interstitial: 'ca-app-pub-1478097249841914/1806089785'
 				};
-			} else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
+			}
+			else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
 				admobid = { // for iOS
 					banner: 'ca-app-pub-1478097249841914/7573421786',
 					interstitial: 'ca-app-pub-1478097249841914/9050154988'
 				};
-			} else {
+			}
+			else {
 				admobid = { // for Windows Phone
 					banner: 'ca-app-pub-1478097249841914/5957087780',
 					interstitial: 'ca-app-pub-1478097249841914/7433820985'
@@ -839,6 +835,20 @@
 				  var day1TideHour3 = day1TideTime3.charAt(0 + 1).toString();
 				  var day1TideMin3 = day1TideTime3.charAt(3 + 4).toString();
 				}
+				localStorage.setItem("day1TideType0", day1TideType0);
+				localStorage.setItem("day1TideType1", day1TideType1);
+				localStorage.setItem("day1TideType2", day1TideType2);
+				localStorage.setItem("day1TideType3", day1TideType3);
+				
+				localStorage.setItem("day1TideTime0", day1TideTime0);
+				localStorage.setItem("day1TideTime1", day1TideTime1);
+				localStorage.setItem("day1TideTime2", day1TideTime2);
+				localStorage.setItem("day1TideTime3", day1TideTime3);
+				
+				localStorage.setItem("day1TideHeight0", day1TideHeight0);
+				localStorage.setItem("day1TideHeight1", day1TideHeight1);
+				localStorage.setItem("day1TideHeight2", day1TideHeight2);
+				localStorage.setItem("day1TideHeight3", day1TideHeight3);
 				
 				//DAY2 (Forecast)
 				var day2TideType0 = xmlDocument.getElementsByTagName("tide_type")['8'].childNodes['0'].nodeValue;
@@ -901,6 +911,20 @@
 				  var day2TideHour3 = day2TideTime3.charAt(0 + 1).toString();
 				  var day2TideMin3 = day2TideTime3.charAt(3 + 4).toString();
 				}
+				localStorage.setItem("day2TideType0", day2TideType0);
+				localStorage.setItem("day2TideType1", day2TideType1);
+				localStorage.setItem("day2TideType2", day2TideType2);
+				localStorage.setItem("day2TideType3", day2TideType3);
+				
+				localStorage.setItem("day2TideTime0", day2TideTime0);
+				localStorage.setItem("day2TideTime1", day2TideTime1);
+				localStorage.setItem("day2TideTime2", day2TideTime2);
+				localStorage.setItem("day2TideTime3", day2TideTime3);
+				
+				localStorage.setItem("day2TideHeight0", day2TideHeight0);
+				localStorage.setItem("day2TideHeight1", day2TideHeight1);
+				localStorage.setItem("day2TideHeight2", day2TideHeight2);
+				localStorage.setItem("day2TideHeight3", day2TideHeight3);
 				
 				//day3 (Forecast)
 				var day3TideType0 = xmlDocument.getElementsByTagName("tide_type")['12'].childNodes['0'].nodeValue;
@@ -963,6 +987,20 @@
 				  var day3TideHour3 = day3TideTime3.charAt(0 + 1).toString();
 				  var day3TideMin3 = day3TideTime3.charAt(3 + 4).toString();
 				}
+				localStorage.setItem("day3TideType0", day3TideType0);
+				localStorage.setItem("day3TideType1", day3TideType1);
+				localStorage.setItem("day3TideType2", day3TideType2);
+				localStorage.setItem("day3TideType3", day3TideType3);
+				
+				localStorage.setItem("day3TideTime0", day3TideTime0);
+				localStorage.setItem("day3TideTime1", day3TideTime1);
+				localStorage.setItem("day3TideTime2", day3TideTime2);
+				localStorage.setItem("day3TideTime3", day3TideTime3);
+				
+				localStorage.setItem("day3TideHeight0", day3TideHeight0);
+				localStorage.setItem("day3TideHeight1", day3TideHeight1);
+				localStorage.setItem("day3TideHeight2", day3TideHeight2);
+				localStorage.setItem("day3TideHeight3", day3TideHeight3);
 				
 				//DAY0
 				//SWELL
@@ -2011,6 +2049,9 @@
 				else {
 					var day3Day = weekday[day3Num];
 				}
+				localStorage.setItem("day1Day", day1Day);
+				localStorage.setItem("day2Day", day2Day);
+				localStorage.setItem("day3Day", day3Day);
 				
 				//
 				
@@ -2326,113 +2367,183 @@
 			  }
 			  
 			 }; 
-			  function day0MoreInfoPopup0(){
-			  var day0WaterTemp0Val = localStorage.getItem("day0WaterTemp0Val");
-			  var day0WindDir0Val = localStorage.getItem("day0WindDir0Val");
-			  var day0WindSpeed0Val = localStorage.getItem("day0WindSpeed6");
-			  var day0SwellHeight0Val = localStorage.getItem("day0SwellHeight0Val");
-			  var day0SwellDir0Val = localStorage.getItem("day0SwellDir0Val");
-			  var day0SwellPer0Val = localStorage.getItem("day0SwellPer0Val");
-				  swal({
-					  title: "<small>Weather Today at 12:00am</small>",
-					  text: 'Water Temp:<strong> ' + day0WaterTemp0Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir0Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed0Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight0Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir0Val + '</strong></br>Swell Per: <strong>' + day0SwellPer0Val +'sec</strong>',
-					  html: true
-				  });
-			  };
-			  function day0MoreInfoPopup6(){
-			  var day0WaterTemp6Val = localStorage.getItem("day0WaterTemp6Val");
-			  var day0WindDir6Val = localStorage.getItem("day0WindDir6Val");
-			  var day0WindSpeed6Val = localStorage.getItem("day0WindSpeed6");
-			  var day0SwellHeight6Val = localStorage.getItem("day0SwellHeight6Val");
-			  var day0SwellDir6Val = localStorage.getItem("day0SwellDir6Val");
-			  var day0SwellPer6Val = localStorage.getItem("day0SwellPer6Val");
-				  swal({
-					  title: "<small>Weather Today at 6:00am</small>",
-					  text: 'Water Temp:<strong> ' + day0WaterTemp6Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir6Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed6Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight6Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir6Val + '</strong></br>Swell Per: <strong>' + day0SwellPer6Val +'sec</strong>',
-					  html: true
-				  });
-			  };
-			  function day0MoreInfoPopup9(){
-			  var day0WaterTemp9Val = localStorage.getItem("day0WaterTemp9Val");
-			  var day0WindDir9Val = localStorage.getItem("day0WindDir9Val");
-			  var day0WindSpeed9Val = localStorage.getItem("day0WindSpeed9");
-			  var day0SwellHeight9Val = localStorage.getItem("day0SwellHeight9Val");
-			  var day0SwellDir9Val = localStorage.getItem("day0SwellDir9Val");
-			  var day0SwellPer9Val = localStorage.getItem("day0SwellPer9Val");
-				  swal({
-					  title: "<small>Weather Today at 9:00am</small>",
-					  text: 'Water Temp:<strong> ' + day0WaterTemp9Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir9Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed9Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight9Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir9Val + '</strong></br>Swell Per: <strong>' + day0SwellPer9Val +'sec</strong>',
-					  html: true
-				  });
-			  };
-			  function day0MoreInfoPopup12(){
-			  var day0WaterTemp12Val = localStorage.getItem("day0WaterTemp12Val");
-			  var day0WindDir12Val = localStorage.getItem("day0WindDir12Val");
-			  var day0WindSpeed12Val = localStorage.getItem("day0WindSpeed12");
-			  var day0SwellHeight12Val = localStorage.getItem("day0SwellHeight12Val");
-			  var day0SwellDir12Val = localStorage.getItem("day0SwellDir12Val");
-			  var day0SwellPer12Val = localStorage.getItem("day0SwellPer12Val");
-				  swal({
-					  title: "<small>Weather Today at 12:00pm</small>",
-					  text: 'Water Temp:<strong> ' + day0WaterTemp12Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir12Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed12Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight12Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir12Val + '</strong></br>Swell Per: <strong>' + day0SwellPer12Val +'sec</strong>',
-					  html: true
-				  });
-			  };
-			  function day0MoreInfoPopup15(){
-			  var day0WaterTemp15Val = localStorage.getItem("day0WaterTemp15Val");
-			  var day0WindDir15Val = localStorage.getItem("day0WindDir15Val");
-			  var day0WindSpeed15Val = localStorage.getItem("day0WindSpeed15");
-			  var day0SwellHeight15Val = localStorage.getItem("day0SwellHeight15Val");
-			  var day0SwellDir15Val = localStorage.getItem("day0SwellDir15Val");
-			  var day0SwellPer15Val = localStorage.getItem("day0SwellPer15Val");
-				  swal({
-					  title: "<small>Weather Today at 3:00pm</small>",
-					  text: 'Water Temp:<strong> ' + day0WaterTemp15Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir15Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed15Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight15Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir15Val + '</strong></br>Swell Per: <strong>' + day0SwellPer15Val +'sec</strong>',
-					  html: true
-				  });
-			  };
-			  function day0MoreInfoPopup21(){
-			  var day0WaterTemp21Val = localStorage.getItem("day0WaterTemp21Val");
-			  var day0WindDir21Val = localStorage.getItem("day0WindDir21Val");
-			  var day0WindSpeed21Val = localStorage.getItem("day0WindSpeed21");
-			  var day0SwellHeight21Val = localStorage.getItem("day0SwellHeight21Val");
-			  var day0SwellDir21Val = localStorage.getItem("day0SwellDir21Val");
-			  var day0SwellPer21Val = localStorage.getItem("day0SwellPer21Val");
-				  swal({
-					  title: "<small>Weather Today at 9:00pm</small>",
-					  text: 'Water Temp:<strong> ' + day0WaterTemp21Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir21Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed21Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight21Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir21Val + '</strong></br>Swell Per: <strong>' + day0SwellPer21Val +'sec</strong>',
-					  html: true
-				  });
-			  	
-			  }
+			function day0MoreInfoPopup0(){
+			var day0WaterTemp0Val = localStorage.getItem("day0WaterTemp0Val");
+			var day0WindDir0Val = localStorage.getItem("day0WindDir0Val");
+			var day0WindSpeed0Val = localStorage.getItem("day0WindSpeed6");
+			var day0SwellHeight0Val = localStorage.getItem("day0SwellHeight0Val");
+			var day0SwellDir0Val = localStorage.getItem("day0SwellDir0Val");
+			var day0SwellPer0Val = localStorage.getItem("day0SwellPer0Val");
+				swal({
+					title: "<small>Weather Today at 12:00am</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp0Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir0Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed0Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight0Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir0Val + '</strong></br>Swell Per: <strong>' + day0SwellPer0Val +'sec</strong>',
+					html: true
+				});
+			};
+			function day0MoreInfoPopup6(){
+			var day0WaterTemp6Val = localStorage.getItem("day0WaterTemp6Val");
+			var day0WindDir6Val = localStorage.getItem("day0WindDir6Val");
+			var day0WindSpeed6Val = localStorage.getItem("day0WindSpeed6");
+			var day0SwellHeight6Val = localStorage.getItem("day0SwellHeight6Val");
+			var day0SwellDir6Val = localStorage.getItem("day0SwellDir6Val");
+			var day0SwellPer6Val = localStorage.getItem("day0SwellPer6Val");
+				swal({
+					title: "<small>Weather Today at 6:00am</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp6Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir6Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed6Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight6Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir6Val + '</strong></br>Swell Per: <strong>' + day0SwellPer6Val +'sec</strong>',
+					html: true
+				});
+			};
+			function day0MoreInfoPopup9(){
+			var day0WaterTemp9Val = localStorage.getItem("day0WaterTemp9Val");
+			var day0WindDir9Val = localStorage.getItem("day0WindDir9Val");
+			var day0WindSpeed9Val = localStorage.getItem("day0WindSpeed9");
+			var day0SwellHeight9Val = localStorage.getItem("day0SwellHeight9Val");
+			var day0SwellDir9Val = localStorage.getItem("day0SwellDir9Val");
+			var day0SwellPer9Val = localStorage.getItem("day0SwellPer9Val");
+				swal({
+					title: "<small>Weather Today at 9:00am</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp9Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir9Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed9Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight9Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir9Val + '</strong></br>Swell Per: <strong>' + day0SwellPer9Val +'sec</strong>',
+					html: true
+				});
+			};
+			function day0MoreInfoPopup12(){
+			var day0WaterTemp12Val = localStorage.getItem("day0WaterTemp12Val");
+			var day0WindDir12Val = localStorage.getItem("day0WindDir12Val");
+			var day0WindSpeed12Val = localStorage.getItem("day0WindSpeed12");
+			var day0SwellHeight12Val = localStorage.getItem("day0SwellHeight12Val");
+			var day0SwellDir12Val = localStorage.getItem("day0SwellDir12Val");
+			var day0SwellPer12Val = localStorage.getItem("day0SwellPer12Val");
+				swal({
+					title: "<small>Weather Today at 12:00pm</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp12Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir12Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed12Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight12Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir12Val + '</strong></br>Swell Per: <strong>' + day0SwellPer12Val +'sec</strong>',
+					html: true
+				});
+			};
+			function day0MoreInfoPopup15(){
+			var day0WaterTemp15Val = localStorage.getItem("day0WaterTemp15Val");
+			var day0WindDir15Val = localStorage.getItem("day0WindDir15Val");
+			var day0WindSpeed15Val = localStorage.getItem("day0WindSpeed15");
+			var day0SwellHeight15Val = localStorage.getItem("day0SwellHeight15Val");
+			var day0SwellDir15Val = localStorage.getItem("day0SwellDir15Val");
+			var day0SwellPer15Val = localStorage.getItem("day0SwellPer15Val");
+				swal({
+					title: "<small>Weather Today at 3:00pm</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp15Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir15Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed15Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight15Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir15Val + '</strong></br>Swell Per: <strong>' + day0SwellPer15Val +'sec</strong>',
+					html: true
+				});
+			};
+			function day0MoreInfoPopup21(){
+			var day0WaterTemp21Val = localStorage.getItem("day0WaterTemp21Val");
+			var day0WindDir21Val = localStorage.getItem("day0WindDir21Val");
+			var day0WindSpeed21Val = localStorage.getItem("day0WindSpeed21");
+			var day0SwellHeight21Val = localStorage.getItem("day0SwellHeight21Val");
+			var day0SwellDir21Val = localStorage.getItem("day0SwellDir21Val");
+			var day0SwellPer21Val = localStorage.getItem("day0SwellPer21Val");
+				swal({
+					title: "<small>Weather Today at 9:00pm</small>",
+					text: 'Water Temp:<strong> ' + day0WaterTemp21Val + '</strong></br>Wind Dir:<strong> ' + day0WindDir21Val + '</strong></br>Wind Speed: <strong>' + day0WindSpeed21Val + '</strong></br>Swell Height:<strong> ' + day0SwellHeight21Val + '</strong></br>Swell Dir: <strong>' + day0SwellDir21Val + '</strong></br>Swell Per: <strong>' + day0SwellPer21Val +'sec</strong>',
+					html: true
+				});
+			  
+			};
 			
-			  function onError(error) {
-				console.log("ERROR!");
-				if (error.code == 3){
-				  var errorMsg = "Loading of location timed out. Please check that you have GPS/ Location services enabled and try again.";  
-				}
-				else if (error.code == 1){
-				  var errorMsg = "Please enable or allow Trident - Weather to use your device's location services.";  
-				}
-				else if (error.code == 2){
-				  var errorMsg = error.message;  
-				}
-				swal({   
-				  title: "Something Happened!",
-				  text: errorMsg,
-				  type: "error",
-				  showCancelButton: false,
-				  confirmButtonText: "Retry" 
-				},
-				 function(isConfirm){
-					 if (isConfirm) {
-						 location.reload();
-					 }
-				 });
-				 
+			function day1TidePopup() {
+				var day1TideType0 = localStorage.getItem("day1TideType0");
+				var day1TideType1 = localStorage.getItem("day1TideType1");
+				var day1TideType2 = localStorage.getItem("day1TideType2");
+				var day1TideType3 = localStorage.getItem("day1TideType3");
+				
+				var day1TideTime0 = localStorage.getItem("day1TideTime0");
+				var day1TideTime1 = localStorage.getItem("day1TideTime1");
+				var day1TideTime2 = localStorage.getItem("day1TideTime2");
+				var day1TideTime3 = localStorage.getItem("day1TideTime3");
+				
+				var day1TideHeight0 = localStorage.getItem("day1TideHeight0");
+				var day1TideHeight1 = localStorage.getItem("day1TideHeight1");
+				var day1TideHeight2 = localStorage.getItem("day1TideHeight2");
+				var day1TideHeight3 = localStorage.getItem("day1TideHeight3");
+				
+				var day1Day = localStorage.getItem("day1Day");
+				swal({
+					title: "<small>" + day1Day + "'s Tides</small>",
+					text: "<strong>" + day1TideType0 + ":</strong> " + day1TideTime0 + "<strong>/</strong>" + day1TideHeight0 + "</br>" + "<strong>" + day1TideType1 + ":</strong> " + day1TideTime1 + "<strong>/</strong>" + day1TideHeight1 + "</br>" + "<strong>" + day1TideType2 + ":</strong> " + day1TideTime2 + "<strong>/</strong>" + day1TideHeight2 + "</br>" + "<strong>" + day1TideType3 + ":</strong> " + day1TideTime3 + "<strong>/</strong>" + day1TideHeight3,
+					html: true
+				});
+			};
+			function day2TidePopup() {
+				var day2TideType0 = localStorage.getItem("day2TideType0");
+				var day2TideType1 = localStorage.getItem("day2TideType1");
+				var day2TideType2 = localStorage.getItem("day2TideType2");
+				var day2TideType3 = localStorage.getItem("day2TideType3");
+				
+				var day2TideTime0 = localStorage.getItem("day2TideTime0");
+				var day2TideTime1 = localStorage.getItem("day2TideTime1");
+				var day2TideTime2 = localStorage.getItem("day2TideTime2");
+				var day2TideTime3 = localStorage.getItem("day2TideTime3");
+				
+				var day2TideHeight0 = localStorage.getItem("day2TideHeight0");
+				var day2TideHeight1 = localStorage.getItem("day2TideHeight1");
+				var day2TideHeight2 = localStorage.getItem("day2TideHeight2");
+				var day2TideHeight3 = localStorage.getItem("day2TideHeight3");
+				
+				var day2Day = localStorage.getItem("day2Day");
+				swal({
+					title: "<small>" + day2Day + "'s Tides</small>",
+					text: "<strong>" + day2TideType0 + ":</strong> " + day2TideTime0 + "<strong>/</strong>" + day2TideHeight0 + "</br>" + "<strong>" + day2TideType1 + ":</strong> " + day2TideTime1 + "<strong>/</strong>" + day2TideHeight1 + "</br>" + "<strong>" + day2TideType2 + ":</strong> " + day2TideTime2 + "<strong>/</strong>" + day2TideHeight2 + "</br>" + "<strong>" + day2TideType3 + ":</strong> " + day2TideTime3 + "<strong>/</strong>" + day2TideHeight3,
+					html: true
+				});
+			};
+			function day3TidePopup() {
+				var day3TideType0 = localStorage.getItem("day3TideType0");
+				var day3TideType1 = localStorage.getItem("day3TideType1");
+				var day3TideType2 = localStorage.getItem("day3TideType2");
+				var day3TideType3 = localStorage.getItem("day3TideType3");
+				
+				var day3TideTime0 = localStorage.getItem("day3TideTime0");
+				var day3TideTime1 = localStorage.getItem("day3TideTime1");
+				var day3TideTime2 = localStorage.getItem("day3TideTime2");
+				var day3TideTime3 = localStorage.getItem("day3TideTime3");
+				
+				var day3TideHeight0 = localStorage.getItem("day3TideHeight0");
+				var day3TideHeight1 = localStorage.getItem("day3TideHeight1");
+				var day3TideHeight2 = localStorage.getItem("day3TideHeight2");
+				var day3TideHeight3 = localStorage.getItem("day3TideHeight3");
+				
+				var day3Day = localStorage.getItem("day3Day");
+				swal({
+					title: "<small>" + day3Day + "'s Tides</small>",
+					text: "<strong>" + day3TideType0 + ":</strong> " + day3TideTime0 + "<strong>/</strong>" + day3TideHeight0 + "</br>" + "<strong>" + day3TideType1 + ":</strong> " + day3TideTime1 + "<strong>/</strong>" + day3TideHeight1 + "</br>" + "<strong>" + day3TideType2 + ":</strong> " + day3TideTime2 + "<strong>/</strong>" + day3TideHeight2 + "</br>" + "<strong>" + day3TideType3 + ":</strong> " + day3TideTime3 + "<strong>/</strong>" + day3TideHeight3,
+					html: true
+				});
+			};
+		  
+			function onError(error) {
+			  console.log("ERROR!");
+			  if (error.code == 3){
+				var errorMsg = "Loading of location timed out. Please check that you have GPS/ Location services enabled and try again.";  
 			  }
+			  else if (error.code == 1){
+				var errorMsg = "Please enable or allow Trident - Weather to use your device's location services.";  
+			  }
+			  else if (error.code == 2){
+				var errorMsg = error.message;  
+			  }
+			  swal({   
+				title: "Something Happened!",
+				text: errorMsg,
+				type: "error",
+				showCancelButton: false,
+				confirmButtonText: "Retry" 
+			  },
+			   function(isConfirm){
+				   if (isConfirm) {
+					   location.reload();
+				   }
+			   });
+			   
+			}
 			 
-			 navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 10000});
+		    navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 10000});
     </script>
 </body>
 </html>
