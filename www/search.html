@@ -13,8 +13,8 @@
                 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
    				<div id="map" class="map"></div>
                 <div id="current">Loading Location...</div>
-                <button class="saveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!');">Save</button>
-                <button class="saveFavouriteLocation" type="button" id="saveFavLocation" onclick="window.location = 'saveFavourites.html'"><img src="image/addToFavourites.png" alt="addToFavourites"/></button>
+                <button class="saveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!');">Set New Location</button>
+                <button class="saveFavouriteLocation" type="button" id="saveFavLocation" onclick="window.location = 'saveFavourites.html'">Add To Favourites</button>
 				  <script>
 					function initMap() {
 					  var map = new google.maps.Map(document.getElementById('map'), {
@@ -32,6 +32,8 @@
 					  
 					  //SET LOCATION USER
 					  localStorage.setItem("coordinates", localStorage.getItem("userLat")+","+localStorage.getItem("userLong"));
+					  localStorage.setItem("lat", localStorage.getItem("userLat"));
+					  localStorage.setItem("long", localStorage.getItem("userLong"));
 						  
 					  //GeocodeAPI
 					  var geocode = new XMLHttpRequest();
