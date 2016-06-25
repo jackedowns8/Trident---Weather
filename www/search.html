@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="dist/css/swiper.min.css">
 </head>
 <body>
-            	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Search</div></div>
+            	<div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Search</div><button class="favourites" type="button" id="favouritesButton" onclick="window.location = 'favourites.html'"><img src="image/favourites.png" alt="favourites"/></div>
                 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
    				<div id="map" class="map"></div>
                 <div id="current">Loading Location...</div>
-                <button class="saveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!');">Save New Location</button>
+                <button class="saveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!');">Set New Location</button>
+                <button class="saveFavouriteLocation" type="button" id="saveFavLocation" onclick="window.location = 'saveFavourites.html'">Add To Favourites</button>
 				  <script>
 					function initMap() {
 					  var map = new google.maps.Map(document.getElementById('map'), {
@@ -31,6 +32,8 @@
 					  
 					  //SET LOCATION USER
 					  localStorage.setItem("coordinates", localStorage.getItem("userLat")+","+localStorage.getItem("userLong"));
+					  localStorage.setItem("lat", localStorage.getItem("userLat"));
+					  localStorage.setItem("long", localStorage.getItem("userLong"));
 						  
 					  //GeocodeAPI
 					  var geocode = new XMLHttpRequest();
@@ -171,6 +174,26 @@
 			
 			var coordinates = localStorage.getItem("coordinates");
 			
+			function favourites(){
+			  var favourite0 = localStorage.getItem("favourite0");
+			  var favourite1 = localStorage.getItem("favourite1");
+			  var favourite2 = localStorage.getItem("favourite2");
+			  var favourite3 = localStorage.getItem("favourite3");
+			  var favourite4 = localStorage.getItem("favourite4");
+			  var favourite0COORDS = localStorage.getItem("favourite0COORDS");
+			  var favourite1COORDS = localStorage.getItem("favourite1COORDS");
+			  var favourite2COORDS = localStorage.getItem("favourite2COORDS");
+			  var favourite3COORDS = localStorage.getItem("favourite3COORDS");
+			  var favourite4COORDS = localStorage.getItem("favourite4COORDS");
+				  swal({
+					  title: "<small>Favourites</small>",
+					  text: '<button class="favourite0" type="button" id="favourite0" onclick=console.log("test"); location.reload(); localStorage.setItem("coordinates", favourite0COORDS);>' + coordinates + '</button>',
+					  showCancelButton: false,
+					  showConfirmButton: false,
+					  html: true
+					  
+				  });
+			  };
     </script>
 </body>
 </html>
