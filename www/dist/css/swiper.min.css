@@ -1093,7 +1093,7 @@ forecastSubHeader {
 }
 .sponsorSpot {
 	height: 50%;
-	width: 50%;
+	width: 100%;
 	background-color: #d7d7d7;
 	border: none;
 }
