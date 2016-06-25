@@ -178,35 +178,6 @@
     <script type="text/javascript">
             app.initialize();
 			
-			var admobid = {};
-			if( /(android)/i.test(navigator.userAgent) ) { 
-				admobid = { // for Android
-					banner: 'ca-app-pub-1478097249841914/6476098583',
-					interstitial: 'ca-app-pub-1478097249841914/1806089785'
-				};
-			} else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
-				admobid = { // for iOS
-					banner: 'ca-app-pub-1478097249841914/7573421786',
-					interstitial: 'ca-app-pub-1478097249841914/9050154988'
-				};
-			} else {
-				admobid = { // for Windows Phone
-					banner: 'ca-app-pub-1478097249841914/5957087780',
-					interstitial: 'ca-app-pub-1478097249841914/7433820985'
-				};
-			}
-			function initApp() {
-				console.log("initApp");
-				if (AdMob) {
-					console.log("ADMOB");
-					AdMob.createBanner({
-						adId : admobid.banner,
-						position : AdMob.AD_POSITION.BOTTOM_CENTER,
-						autoShow : true
-					});
-				}
-			}
-			
 			clearStorage = function(exceptions){
 			  var storage = localStorage
 			  var keys = [];
