@@ -2029,6 +2029,9 @@
 				day1.innerHTML = day1Day;
 				day2.innerHTML = day2Day;
 				day3.innerHTML = day3Day;
+				localStorage.setItem("day1Day", day1Day);
+				localStorage.setItem("day2Day", day2Day);
+				localStorage.setItem("day3Day", day3Day);
 				
 				var currentdate = new Date();
 				var currentTime;
@@ -2523,7 +2526,7 @@
 				  window.plugins.AdMob.showInterstitialAd();
 			  }
 			 
-			 navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 10000});
+			 navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 6500});
     </script>
 </body>
 </html>

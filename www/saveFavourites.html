@@ -41,16 +41,34 @@
 			
 			var coordinates = localStorage.getItem("coordinates");
 			var userLocation = localStorage.getItem("userLocation");
+			var userLat = localStorage.getItem("userLat");
+			var userLong = localStorage.getItem("userLong");
 			var location0 = localStorage.getItem("favourite0");
 			var location1 = localStorage.getItem("favourite1");
 			var location2 = localStorage.getItem("favourite2");
 			var location3 = localStorage.getItem("favourite3");
 			var location4 = localStorage.getItem("favourite4");
+			
 			var favourite0COORDS = localStorage.getItem("favourite0COORDS");
+			var favourite0Lat = localStorage.getItem("favourite0Lat");
+			var favourite0Long = localStorage.getItem("favourite0Long");
+			
 			var favourite1COORDS = localStorage.getItem("favourite1COORDS");
+			var favourite1Lat = localStorage.getItem("favourite0Lat");
+			var favourite1Long = localStorage.getItem("favourite0Long");
+			
 			var favourite2COORDS = localStorage.getItem("favourite2COORDS");
+			var favourite2Lat = localStorage.getItem("favourite2Lat");
+			var favourite2Long = localStorage.getItem("favourite2Long");
+			
 			var favourite3COORDS = localStorage.getItem("favourite3COORDS");
+			var favourite3Lat = localStorage.getItem("favourite3Lat");
+			var favourite3Long = localStorage.getItem("favourite3Long");
+			
 			var favourite4COORDS = localStorage.getItem("favourite4COORDS");
+			var favourite4Lat = localStorage.getItem("favourite4Lat");
+			var favourite4Long = localStorage.getItem("favourite4Long");
+			
 			var favourite0Name = localStorage.getItem("favourite0Name");
 			var favourite1Name = localStorage.getItem("favourite1Name");
 			var favourite2Name = localStorage.getItem("favourite2Name");
@@ -100,6 +118,9 @@
 			function saveFavourite0(){
 				localStorage.setItem("favourite0COORDS", coordinates);
 				localStorage.setItem("favourite0", userLocation);
+				localStorage.setItem("favourite0Lat", userLat);
+				localStorage.setItem("favourite0Long", userLong);
+				
 				swal({
 					title: "Name",
 					text: "Give your favourite location a name: ",
@@ -133,6 +154,9 @@
 			function saveFavourite1(){
 				localStorage.setItem("favourite1COORDS", coordinates);
 				localStorage.setItem("favourite1", userLocation);
+				localStorage.setItem("favourite1Lat", userLat);
+				localStorage.setItem("favourite1Long", userLong);
+				
 				swal({
 					title: "Name",
 					text: "Give your favourite location a name: ",
@@ -166,6 +190,9 @@
 			function saveFavourite2(){
 				localStorage.setItem("favourite2COORDS", coordinates);
 				localStorage.setItem("favourite2", userLocation);
+				localStorage.setItem("favourite2Lat", userLat);
+				localStorage.setItem("favourite2Long", userLong);
+				
 				swal({
 					title: "Name",
 					text: "Give your favourite location a name: ",
@@ -199,6 +226,9 @@
 			function saveFavourite3(){
 				localStorage.setItem("favourite3COORDS", coordinates);
 				localStorage.setItem("favourite3", userLocation);
+				localStorage.setItem("favourite3Lat", userLat);
+				localStorage.setItem("favourite3Long", userLong);
+				
 				swal({
 					title: "Name",
 					text: "Give your favourite location a name: ",
@@ -232,6 +262,9 @@
 			function saveFavourite4(){
 				localStorage.setItem("favourite4COORDS", coordinates);
 				localStorage.setItem("favourite4", userLocation);
+				localStorage.setItem("favourite4Lat", userLat);
+				localStorage.setItem("favourite4Long", userLong);
+				
 				swal({
 					title: "Name",
 					text: "Give your favourite location a name: ",

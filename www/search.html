@@ -44,6 +44,7 @@
 					  //Location
 					  xmlDocument = geocode.responseXML;
 					  var location = xmlDocument.getElementsByTagName("long_name")['2'].childNodes['0'].nodeValue + ", " + xmlDocument.getElementsByTagName("long_name")['3'].childNodes['0'].nodeValue + ", " + xmlDocument.getElementsByTagName("long_name")['5'].childNodes['0'].nodeValue;
+					  localStorage.setItem("userLocation", location);
 					  
 					  document.getElementById('current').innerHTML = location;
 					  //
