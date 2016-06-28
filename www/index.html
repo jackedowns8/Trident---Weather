@@ -54,8 +54,8 @@
                 <div class="today0">
                 	<div class="todayTime">12:00am</div>
                     <button class="todayWeather" id="day0Weather0"><img src="image/sunny.png" alt="weatherType"/></button>
-                    <button class="todayTemp" id="day0Temp0">null</button>
-                    <button class="todayRain" id="day0Rain0">null</button>
+                    <button class="todayTemp" id="day0Temp0">0</button>
+                    <button class="todayRain" id="day0Rain0">0</button>
                     <div class="todayDetails">
                     	<button class="moreInfo" onClick="day0MoreInfoPopup0()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
@@ -63,17 +63,17 @@
                 <div class="today1">
                 	<div class="todayTime">6:00am</div>
                     <button class="todayWeather" id="day0Weather6"><img src="image/sunny.png" alt="weatherType"/></button>
-                    <button class="todayTemp" id="day0Temp6">null</button>
-                    <button class="todayRain" id="day0Rain6">null</button>
+                    <button class="todayTemp" id="day0Temp6">0</button>
+                    <button class="todayRain" id="day0Rain6">0</button>
                     <div class="todayDetails">
                     	<button class="moreInfo" onClick="day0MoreInfoPopup6()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
                 </div>
                 <div class="today0">
                 	<div class="todayTime">9:00am</div>
-                    <button class="todayWeather" id="day0Weather9">null</button>
-                    <button class="todayTemp" id="day0Temp9">null</button>
-                    <button class="todayRain" id="day0Rain9">null</button>
+                    <button class="todayWeather" id="day0Weather9"><img src="image/sunny.png" alt="weatherType"/></button>
+                    <button class="todayTemp" id="day0Temp9">0</button>
+                    <button class="todayRain" id="day0Rain9">0</button>
                     <div class="todayDetails">
                     	<button class="moreInfo" onClick="day0MoreInfoPopup9()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
@@ -81,8 +81,8 @@
                 <div class="today1">
                 	<div class="todayTime">12:00pm</div>
                     <button class="todayWeather" id="day0Weather12"><img src="image/sunny.png" alt="weatherType"/></button>
-                    <button class="todayTemp" id="day0Temp12">null</button>
-                    <button class="todayRain" id="day0Rain12">null</button>
+                    <button class="todayTemp" id="day0Temp12">0</button>
+                    <button class="todayRain" id="day0Rain12">0</button>
                     <div class="todayDetails">
                     	<button class="moreInfo" onClick="day0MoreInfoPopup12()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
@@ -90,8 +90,8 @@
                 <div class="today0">
                 	<div class="todayTime">3:00pm</div>
                     <button class="todayWeather" id="day0Weather15"><img src="image/sunny.png" alt="weatherType"/></button>
-                    <button class="todayTemp" id="day0Temp15">null</button>
-                    <button class="todayRain" id="day0Rain15">null</button>
+                    <button class="todayTemp" id="day0Temp15">0</button>
+                    <button class="todayRain" id="day0Rain15">0</button>
                     <div class="todayDetails">
                     	<button class="moreInfo" onClick="day0MoreInfoPopup15()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
@@ -99,8 +99,8 @@
                 <div class="today1">
                 	<div class="todayTime">9:00pm</div>
                     <button class="todayWeather" id="day0Weather21"><img src="image/sunny.png" alt="weatherType"/></button>
-                    <button class="todayTemp" id="day0Temp21">null</button>
-                    <button class="todayRain" id="day0Rain21">null</button>
+                    <button class="todayTemp" id="day0Temp21">0</button>
+                    <button class="todayRain" id="day0Rain21">0</button>
                     <div class="todayDetails">
                     	<button class="moreInfo" onClick="day0MoreInfoPopup21()"><img src="image/moreInfoButton.png" alt="moreInfo"/></button>
                     </div>
@@ -2522,7 +2522,7 @@
 				  var errorMsg = "Loading of location timed out. Please check that you have GPS/ Location services enabled and try again.";  
 				}
 				else if (error.code == 1){
-				  var errorMsg = "Please enable or allow Trident - Weather to use your device's location services.";  
+				  var errorMsg = "Please enable or allow Trident - Weather to use your device's location services. If you select cancel you may continue using the app but there will be no weather data displayed. We recommend enabling/ allowing Trident - Weather to use your location services.";  
 				}
 				else if (error.code == 2){
 				  var errorMsg = error.message;  
@@ -2531,15 +2531,17 @@
 				  title: "Something Happened!",
 				  text: errorMsg,
 				  type: "error",
-				  showCancelButton: false,
+				  showCancelButton: true,
 				  confirmButtonText: "Retry" 
-				},
-				 function(isConfirm){
-					 if (isConfirm) {
-						 location.reload();
-					 }
-				 });
-				 
+				  },
+				  function(isConfirm){
+				  	if (isConfirm) {
+				  		location.reload();
+					}
+					else {
+						document.getElementById("loading").innerHTML = "";
+					}
+				  }); 
 			  }
 			  
 			  //display the banner
