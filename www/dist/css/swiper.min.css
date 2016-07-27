@@ -950,7 +950,7 @@ transform:rotate(360deg)
 	height: 100%;
 	line-height: 200%;
 	background-image: url(../../image/rainPer.png);
-	background-size: 80%;
+	background-size: 80% 90%;
 	background-repeat: no-repeat;
 	background-position: center;
 	border: none;

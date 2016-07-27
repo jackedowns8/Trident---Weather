@@ -11,19 +11,19 @@
 <body>
     <div class="forecastHeader"><button class="back" type="button" id="backButton" onclick="history.go(-1); localStorage.setItem('refresh', '1');"><img src="image/backArrow.png" alt="backArrow"/></button><div class="title">Favourites</div></div>
     <div class="favourites0">
-      <button class="favouriteLocation" type="button" id="Location0" onclick="favouriteLoc0();">1</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite0();">Edit</button>
+      <button class="favouriteLocation" type="button" id="Location0" onclick="favouriteLoc0(); history.go(-1); shortToast('New Location Saved!'); localStorage.setItem('refresh', '1');">1</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite0();">Edit</button>
     </div>
     <div class="favourites1">
-      <button class="favouriteLocation" type="button" id="Location1" onclick="favouriteLoc1();">2</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite1();">Edit</button>
+      <button class="favouriteLocation" type="button" id="Location1" onclick="favouriteLoc1(); history.go(-1); shortToast('New Location Saved!'); localStorage.setItem('refresh', '1');">2</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite1();">Edit</button>
     </div>
     <div class="favourites0">
-      <button class="favouriteLocation" type="button" id="Location2" onclick="favouriteLoc2();">3</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite2();">Edit</button>
+      <button class="favouriteLocation" type="button" id="Location2" onclick="favouriteLoc2(); history.go(-1); shortToast('New Location Saved!'); localStorage.setItem('refresh', '1');">3</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite2();">Edit</button>
     </div>
     <div class="favourites1">
-      <button class="favouriteLocation" type="button" id="Location3" onclick="favouriteLoc3();">4</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite3();">Edit</button>
+      <button class="favouriteLocation" type="button" id="Location3" onclick="favouriteLoc3(); history.go(-1); shortToast('New Location Saved!'); localStorage.setItem('refresh', '1');">4</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite3();">Edit</button>
     </div>
     <div class="favourites0">
-      <button class="favouriteLocation" type="button" id="Location4" onclick="favouriteLoc4();">5</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite4();">Edit</button>
+      <button class="favouriteLocation" type="button" id="Location4" onclick="favouriteLoc4(); history.go(-1); shortToast('New Location Saved!'); localStorage.setItem('refresh', '1');">5</button><button class="editFavourite" type="button" id="editLocation0" onclick="editFavourite4();">Edit</button>
     </div>
     <button class="favouriteSaveLocation" type="button" id="submitLocation" onclick="history.go(-1); shortToast('New Location Saved!'); localStorage.setItem('refresh', '1');">Save Location</button>
     
@@ -96,22 +96,37 @@
 			document.getElementById("Location4").innerHTML = favourite4Name + "<div class='favouriteLocationDetail'>(" + favourite4 + ")</div>";
 			
 			function favouriteLoc0(){
+				if (favourite0COORDS == null) {
+					favourite0COORDS = coordinates;	
+				}
 				localStorage.setItem("coordinates", favourite0COORDS);
 				console.log("New Location Set: " + favourite0COORDS);
 			}
 			function favouriteLoc1(){
+				if (favourite1COORDS == null) {
+					favourite1COORDS = coordinates;	
+				}
 				localStorage.setItem("coordinates", favourite1COORDS);
 				console.log("New Location Set: " + favourite1COORDS);
 			}
 			function favouriteLoc2(){
+				if (favourite2COORDS == null) {
+					favourite2COORDS = coordinates;	
+				}
 				localStorage.setItem("coordinates", favourite2COORDS);
 				console.log("New Location Set: " + favourite2COORDS);
 			}
 			function favouriteLoc3(){
+				if (favourite3COORDS == null) {
+					favourite3COORDS = coordinates;	
+				}
 				localStorage.setItem("coordinates", favourite3COORDS);
 				console.log("New Location Set: " + favourite3COORDS);
 			}
 			function favouriteLoc4(){
+				if (favourite4COORDS == null) {
+					favourite4COORDS = coordinates;	
+				}
 				localStorage.setItem("coordinates", favourite4COORDS);
 				console.log("New Location Set: " + favourite4COORDS);
 			}
