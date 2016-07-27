@@ -929,7 +929,7 @@ transform:rotate(360deg)
 	width: 25%;
 	font-size: 7vh;
 	height: 100%;
-	line-height: 200%;
+	line-height: 15vh;
 	border: none;
 	background-color: transparent;
 	font-family: 'Josefin Sans', sans-serif;
@@ -940,9 +940,9 @@ transform:rotate(360deg)
 	width: 25%;
 	font-size: 7vh;
 	height: 100%;
-	line-height: 200%;
+	line-height: 15vh;
 	background-image: url(../../image/rainPer.png);
-	background-size: 80%;
+	background-size: 80% 90%;
 	background-repeat: no-repeat;
 	background-position: center;
 	border: none;
@@ -1035,14 +1035,23 @@ forecastSubHeader {
 	float: left;
 	width: 25%;
 	height: 100%;
+	line-height: 17vh;
 	font-family: 'Josefin Sans', sans-serif;
 	border: none;
 	background-color: transparent;
+}
+.weatherCondition img {
+	max-height: 90%;
+	max-width: 90%;
+	position: relative;
+	top: 10%;
+	right: 10%;
 }
 .weatherTemp {
 	float: left;
 	width: 30%;
 	height: 100%;
+	line-height: 17vh;
 	font-size: 7vw;
 	font-family: 'Josefin Sans', sans-serif;
 	border: none;
@@ -1086,10 +1095,6 @@ forecastSubHeader {
 .mapButton img{
 	max-height: 95%;
 	max-width: 95%;	
-}
-.weatherCondition img {
-	max-width: 80%;
-	max-height: 80%;
 }
 .sponsorSpot {
 	height: 50%;
