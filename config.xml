@@ -9,6 +9,7 @@
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
+	<preference name="splashscreen" value="false" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
@@ -37,7 +38,7 @@
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <!--<gap:plugin name="org.apache.cordova.media" />-->
     <gap:plugin name="org.apache.cordova.network-information" />
-    <!--<gap:plugin name="org.apache.cordova.splashscreen" />-->
+    <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
 	<preference name="android-build-tool" value="gradle" /> 
 	<!--<gap:plugin name="cordova-plugin-admobpro" source="npm" />-->
@@ -84,8 +85,10 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-		<preference name="fullscreen" value="true" />
     </platform>
+	<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance" overwrite="true">
+    	<false/>
+	</gap:config-file>
 	<platform name="winphone" />
 	<feature name="UniversalAnalytics">
   		<param name="ios-package" value="UniversalAnalyticsPlugin" />

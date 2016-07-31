@@ -966,6 +966,10 @@ transform:rotate(360deg)
 	font-size: 2vh;
 	line-height: 2.8vh;
 }
+.todayDetails img {
+	max-width: 95%;
+	max-height: 95%;
+}
 .todayWeather {
 	float: left;
 	width: 20%;
