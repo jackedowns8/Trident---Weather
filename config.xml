@@ -81,7 +81,7 @@
     <platform name="android">
         <allow-intent href="market:*" />
 		<preference name="orientation" value="portrait" />
-		<preference name="fullscreen" value="true" />
+		<preference name="fullscreen" value="false" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
