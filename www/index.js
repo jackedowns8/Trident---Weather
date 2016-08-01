@@ -12,7 +12,6 @@ var app = {
 
     onDeviceReady: function() {
 		console.log("deviceReady");
-		navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 6500});
-        initApp();
+		navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 7500});
     },
 };

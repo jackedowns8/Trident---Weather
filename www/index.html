@@ -437,6 +437,8 @@
 			  
 			  localStorage.setItem("userLat", position.coords.latitude);
 			  localStorage.setItem("userLong", position.coords.longitude);
+			  localStorage.setItem("lat", position.coords.latitude);
+			  localStorage.setItem("long", position.coords.longitude);
 			  
 			  if (localStorage.getItem("firstLoad") == "0") {
 			  	coordinates = localStorage.getItem("coordinates");
