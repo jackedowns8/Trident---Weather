@@ -53,6 +53,7 @@
 						  localStorage.setItem("coordinates", evt.latLng.lat().toFixed(3) + ',' + evt.latLng.lng().toFixed(3));
 						  localStorage.setItem("lat", evt.latLng.lat().toFixed(3));
 						  localStorage.setItem("long", evt.latLng.lng().toFixed(3));
+						  //console.log("New Location Set!" + localStorage.getItem("lat") + ", " + localStorage.getItem("long");
 						  
 						  //GeocodeAPI
 						  var geocode = new XMLHttpRequest();
@@ -124,6 +125,7 @@
 						  localStorage.setItem("coordinates", place.geometry.location.lat() + "," + place.geometry.location.lng());
 						  localStorage.setItem("lat", place.geometry.location.lat());
 						  localStorage.setItem("long", place.geometry.location.lng());
+						  //console.log("New Location Set!" + localStorage.getItem("lat") + ", " + localStorage.getItem("long");
 						  
 						  //GeocodeAPI
 						  var geocode = new XMLHttpRequest();

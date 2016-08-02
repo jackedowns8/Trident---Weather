@@ -2,13 +2,16 @@ var satoverlay=null;
 var wxoverlay=null;
 var active=null;
 
+var lat = localStorage.getItem("lat");
+var long = localStorage.getItem("long");
+	
 function add_wm_wxtiles(dt){
     var centerpos=null;
     var zoom=null;
     var latlng=null;
     
-	var lat = localStorage.getItem("lat");
-	var long = localStorage.getItem("long");
+	//var lat = localStorage.getItem("lat");
+	//var long = localStorage.getItem("long");
 	console.log(lat + ", " + long);
 	
     //map options
