@@ -7,19 +7,16 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.tridentappdesign.weather"
+        },
         "com.danielcwilson.plugins.googleanalytics": {
             "PACKAGE_NAME": "com.tridentappdesign.weather"
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.tridentappdesign.weather"
         },
-        "cordova-plugin-admobpro": {
-            "PACKAGE_NAME": "com.tridentappdesign.weather"
-        },
         "cordova-plugin-fastrde-checkgps": {
-            "PACKAGE_NAME": "com.tridentappdesign.weather"
-        },
-        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.tridentappdesign.weather"
         }
     },

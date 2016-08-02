@@ -187,6 +187,10 @@
 						position : AdMob.AD_POSITION.BOTTOM_CENTER,
 						autoShow : true
 					});
+					navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 7500});
+				}
+				else {
+					console.log("admob fail");
 				}
 			}
 			

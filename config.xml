@@ -41,7 +41,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />-->
 	<preference name="android-build-tool" value="gradle" /> 
-	<!--<gap:plugin name="cordova-plugin-admobpro" source="npm" />-->
+	<gap:plugin name="cordova-plugin-admobpro" source="npm" />
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
     <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
