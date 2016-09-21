@@ -7,6 +7,9 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.tridentappdesign.weatherPremium"
+        },
         "com.danielcwilson.plugins.googleanalytics": {
             "PACKAGE_NAME": "com.tridentappdesign.weatherPremium"
         },
@@ -14,9 +17,6 @@
             "PACKAGE_NAME": "com.tridentappdesign.weatherPremium"
         },
         "cordova-plugin-fastrde-checkgps": {
-            "PACKAGE_NAME": "com.tridentappdesign.weatherPremium"
-        },
-        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.tridentappdesign.weatherPremium"
         }
     },
