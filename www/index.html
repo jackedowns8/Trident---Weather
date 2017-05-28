@@ -443,7 +443,7 @@
 
 			  if (localStorage.getItem("firstLoad") == "0") {
 			  	coordinates = localStorage.getItem("coordinates");
-				console.log("old/ set coords");
+				  console.log("old/ set coords");
 			  }
 			  else {
 				coordinates = position.coords.latitude+','+position.coords.longitude;
@@ -555,7 +555,8 @@
 			  localStorage.setItem("day3ChanceOfRain12",day3ChanceOfRain12);
 			  localStorage.setItem("day3ChanceOfRain15",day3ChanceOfRain15);
 			  localStorage.setItem("day3ChanceOfRain21",day3ChanceOfRain21);*/
-			  console.log("2");
+
+        console.log("2");
 			  xmlDocument = xhr.responseXML;
 			  if( xmlDocument.getElementsByTagName("tide_type").length == 0 ){
 			   swal({
