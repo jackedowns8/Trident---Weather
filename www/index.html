@@ -1,34 +1,11 @@
-<!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
     * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
@@ -36,25 +13,292 @@
         * Enable eval(): add 'unsafe-eval' to default-src
     * Create your own at http://cspisawesome.com
     -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+  <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- chartist CSS -->
+  <link href="../assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
+  <link href="../assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
+  <link href="../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+  <!--This page css - Morris CSS -->
+  <link href="../assets/plugins/morrisjs/morris.css" rel="stylesheet">
+  <link href="../assets/plugins/c3-master/c3.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- You can change the theme colors from here -->
+  <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <link rel="stylesheet" href="dist/css/swiper.css">
+  <title>Trident - Weather 2.0</title>
+  <style>
+    body {
+      background: #eee;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+    }
+
+    .row {
+      margin: 0 !important;
+      padding: 5px;
+    }
+
+    .b-l {
+      border-left: 1px solid rgba(255, 255, 255, 0.25) !important;
+    }
+
+    .b-r {
+      border-right: 1px solid rgba(255, 255, 255, 0.25) !important;
+    }
+
+    .col,
+    .col-1,
+    .col-10,
+    .col-11,
+    .col-12,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-auto,
+    .col-lg,
+    .col-lg-1,
+    .col-lg-10,
+    .col-lg-11,
+    .col-lg-12,
+    .col-lg-2,
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-5,
+    .col-lg-6,
+    .col-lg-7,
+    .col-lg-8,
+    .col-lg-9,
+    .col-lg-auto,
+    .col-md,
+    .col-md-1,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-auto,
+    .col-sm,
+    .col-sm-1,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-sm-auto,
+    .col-xl,
+    .col-xl-1,
+    .col-xl-10,
+    .col-xl-11,
+    .col-xl-12,
+    .col-xl-2,
+    .col-xl-3,
+    .col-xl-4,
+    .col-xl-5,
+    .col-xl-6,
+    .col-xl-7,
+    .col-xl-8,
+    .col-xl-9,
+    .col-xl-auto {
+      position: relative;
+      width: 100%;
+      min-height: 1px;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="app">
-        <h1>PhoneGap</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
+  <!-- ============================================================== -->
+  <!-- Preloader - style you can find in spinners.css -->
+  <!-- ============================================================== -->
+  <div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10" />
+    </svg>
+  </div>
+
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <!-- Slide Header -->
+        <div class="row" style="z-index: 999; height: 5%; background-color: #008cff; color: white; box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);">
+          <div class="col-2"><button><i class="mdi mdi-menu" style="color: white; font-size: 1.5rem;"></i></button></div>
+          <div class="col-8 truncate" id="location" style="font-size: 1rem;">Devonport, Auckland, New Zealand</div>
+          <div class="col-2"><i class="mdi mdi-map-marker" style="color: white; font-size: 1.5rem;"></i></div>
         </div>
+        <!-- Slide Body -->
+        <div style="position: absolute; bottom: 0; left: 0; right: 0;">
+          <!-- Current Sunrise/ Sunset -->
+          <div class="row" style="">
+            <div class="col-6"><i class="wi wi-sunrise" style="font-size: 1.5rem;"></i> <span id="sunriseCurrent">6:30am</span></div>
+            <div class="col-6"><i class="wi wi-sunset" style="font-size: 1.5rem;"></i> <span id="sunsetCurrent">7:30pm</span></div>
+          </div>
+
+          <!-- Current Weather Conditions-->
+          <div class="row" style="background-color: #008cff; color: white;">
+            <div class="col-2 b-l b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent6">0%</span></span>
+              </br>
+            </br><span id="tempCurrent" style="font-size: 1rem">0</span>
+              </br><span id="conditionsCurrent6"><i class="wi wi-day-sunny"></i></span></br>
+              </br><span style="font-size: 0.75rem">6 AM</span>
+            </div>
+            <div class="col-2 b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent9">0%</span></span>
+              </br>
+              </br><span id="conditionsCurrent9"><i class="wi wi-day-sunny"></i></span></br>
+              </br><span style="font-size: 0.75rem">9 AM</span></div>
+            <div class="col-2 b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent12">0%</span></span>
+              </br>
+              </br><span id="conditionsCurrent12"><i class="wi wi-day-sunny"></i></span></br>
+              </br><span style="font-size: 0.75rem">12 PM</span></div>
+            <div class="col-2 b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent15">0%</span></span>
+              </br>
+              </br><span id="conditionsCurrent15"><i class="wi wi-day-sunny"></i></span></br>
+              </br><span style="font-size: 0.75rem">3 PM</span></div>
+            <div class="col-2 b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent18">0%</span></span>
+              </br>
+              </br><span id="conditionsCurrent18"><i class="wi wi-day-sunny"></i></span></br>
+              </br><span style="font-size: 0.75rem">6 PM</span></div>
+            <div class="col-2 b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent21">0%</span></span>
+              </br>
+              </br><span id="conditionsCurrent21"><i class="wi wi-day-sunny"></i></span></br>
+              </br><span style="font-size: 0.75rem">9 PM</span></div>
+          </div>
+
+          <!-- Current Tides-->
+          <div class="row b-t" style="background-color: #008cff; color: white;">
+            <div class="col-s12">
+              <canvas id="tidesChart" style="width: 100% !important;"></canvas>
+            </div>
+          </div>
+
+          <!-- Footer Spacer -->
+          <div class="row" style="background-color: #008cff; color: white; height: 5%;">
+            <div class="col-12">&nbsp</div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <div class="row">
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+        </div>
+      </div>
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="dist/js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+    });
+  </script>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/localNotification.js"></script>
+  <!-- ============================================================== -->
+  <!-- All Jquery -->
+  <!-- ============================================================== -->
+  <script src="../assets/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap tether Core JavaScript -->
+  <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+  <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <!-- slimscrollbar scrollbar JavaScript -->
+  <script src="js/jquery.slimscroll.js"></script>
+  <!--Wave Effects -->
+  <script src="js/waves.js"></script>
+  <!--Menu sidebar -->
+  <script src="js/sidebarmenu.js"></script>
+  <!--stickey kit -->
+  <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+  <script src="../assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+  <script src="../assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+  <!--Custom JavaScript -->
+  <script src="js/custom.min.js"></script>
+  <!-- ============================================================== -->
+  <!-- This page plugins -->
+  <!-- ============================================================== -->
+  <!-- chartist chart -->
+  <script src="../assets/plugins/chartist-js/dist/chartist.min.js"></script>
+  <script src="../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+  <!--c3 JavaScript -->
+  <script src="../assets/plugins/d3/d3.min.js"></script>
+  <script src="../assets/plugins/c3-master/c3.min.js"></script>
+  <!-- Chart JS -->
+  <script src="../assets/plugins/Chart.js/chartjs.init.js"></script>
+  <script src="../assets/plugins/Chart.js/Chart.min.js"></script>
+  <!--Morris JavaScript -->
+  <script src="../assets/plugins/raphael/raphael-min.js"></script>
+  <script src="../assets/plugins/morrisjs/morris.js"></script>
+  <script src="js/morris-data.js"></script>
+  <!-- ============================================================== -->
+  <!-- Style switcher -->
+  <!-- ============================================================== -->
+  <script src="../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+  <script type="text/javascript">
+  function loadXMLDoc() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=7256225c1f04fee7a0721a16f9a36&q=-36.8238694,174.80665669999996&num_of_days=4&tp=3&format=xml", true);
+    xmlhttp.responseXML;
+    console.log(xmlhttp.responseXML);
+  }
+
+  loadXMLDoc();
+    app.initialize();
+  </script>
 </body>
 
 </html>

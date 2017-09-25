@@ -34,6 +34,25 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        function loadXMLDoc() {
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              myFunction(this);
+            }
+          };
+          xmlhttp.open("GET", "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=7256225c1f04fee7a0721a16f9a36&q=-36.8238694,174.80665669999996&num_of_days=4&tp=3&format=xml", true);
+          xmlhttp.send();
+        }
+
+        function myFunction(xml) {
+          var x, i, xmlDoc;
+          xmlDoc = xml.responseXML;
+          x = xmlDoc.getElementsByTagName("temp_C").childNodes[0];
+          document.getElementById("demo").innerHTML = x;
+        }
+        loadEMLDoc();
+        myFunction(xml);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
