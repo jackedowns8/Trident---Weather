@@ -289,15 +289,24 @@
   <!-- ============================================================== -->
   <script src="../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
   <script type="text/javascript">
-  function loadXMLDoc() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=7256225c1f04fee7a0721a16f9a36&q=-36.8238694,174.80665669999996&num_of_days=4&tp=3&format=xml", true);
-    xmlhttp.responseXML;
-    console.log(xmlhttp.responseXML);
-  }
-
-  loadXMLDoc();
     app.initialize();
+    //Marine Weather
+    var marineWeatherXML = new XMLHttpRequest();
+    marineWeatherXML.open("GET", "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=7256225c1f04fee7a0721a16f9a36&format=xml&q=-36.8238694,174.80665669999996&tide=yes&fx=yes", false);
+    marineWeatherXML.setRequestHeader('Content-Type', 'text/xml');
+    marineWeatherXML.send();
+    marineWeather = marineWeatherXML.responseXML;
+
+    //General Weather
+    var generalWeatherXML = new XMLHttpRequest();
+    generalWeatherXML.open("GET", "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=7256225c1f04fee7a0721a16f9a36&q=-36.8238694,174.80665669999996&num_of_days=4&tp=3&format=xml",false);
+    generalWeatherXML.setRequestHeader('Content-Type', 'text/xml');
+    generalWeatherXML.send();
+    generalWeather = generalWeatherXML.responseXML;
+
+    //Home Page
+    var currentTemp = generalWeatherXML.getElementsByTagName("temp_C").childNodes[0];
+    document.getElementById("tempCurrent").innerHTML = currentTemp;
   </script>
 </body>
 
