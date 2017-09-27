@@ -138,6 +138,10 @@
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
+
+    .weatherIcon {
+      max-width: 100%;
+    }
   </style>
 </head>
 
@@ -152,57 +156,69 @@
   </div>
 
   <!-- Swiper -->
-  <div class="swiper-container">
+  <div class="swiper-container" style="z-index: 0; height: 95%; position: absolute; bottom: 0;">
     <div class="swiper-wrapper">
       <!-- Slide 1 -->
       <div class="swiper-slide">
-        <!-- Slide Header -->
-        <div class="row" style="z-index: 999; height: 5%; background-color: #008cff; color: white; box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);">
-          <div class="col-2"><button><i class="mdi mdi-menu" style="color: white; font-size: 1.5rem;"></i></button></div>
-          <div class="col-8 truncate" id="location" style="font-size: 1rem;">Devonport, Auckland, New Zealand</div>
-          <div class="col-2"><i class="mdi mdi-map-marker" style="color: white; font-size: 1.5rem;"></i></div>
-        </div>
         <!-- Slide Body -->
-        <div style="position: absolute; bottom: 0; left: 0; right: 0;">
-          <!-- Current Sunrise/ Sunset -->
-          <div class="row" style="">
-            <div class="col-6"><i class="wi wi-sunrise" style="font-size: 1.5rem;"></i> <span id="sunriseCurrent">6:30am</span></div>
-            <div class="col-6"><i class="wi wi-sunset" style="font-size: 1.5rem;"></i> <span id="sunsetCurrent">7:30pm</span></div>
+        <div style="z-index: -1;">
+          <!-- Today Current Weather-->
+          <div class="row" style="z-index: 0; background-image:url('../assets/images/giphy.gif'); height: 30%;">
+            <div class="col-12" id="currentTemp" style="font-size: 4rem; color: white; text-shadow: 5px 0px 10px rgba(0, 0, 0, 0.75);"></div>
           </div>
 
-          <!-- Current Weather Conditions-->
-          <div class="row" style="background-color: #008cff; color: white;">
-            <div class="col-2 b-l b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent6">0%</span></span>
-              </br>
-            </br><span id="tempCurrent" style="font-size: 1rem">0</span>
-              </br><span id="conditionsCurrent6"><i class="wi wi-day-sunny"></i></span></br>
-              </br><span style="font-size: 0.75rem">6 AM</span>
+          <!-- Today Sunrise/ Sunset -->
+          <div class="row" style="z-index: 999; background-color: #008cff; color: white; box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5); height: 5%;">
+            <div class="col-6"><i class="wi wi-sunrise" style="font-size: 1.5rem;"></i> <span id="sunriseToday">6:30am</span></div>
+            <div class="col-6"><i class="wi wi-sunset" style="font-size: 1.5rem;"></i> <span id="sunsetToday">7:30pm</span></div>
+          </div>
+
+          <!-- Today Weather Conditions-->
+          <div class="row" style="background-color: #008cff; color: white; height: 25%;">
+            <div class="col-2 b-l b-r">
+              <span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="chanceOfRainToday6">0%</span></span>
+              <span id="tempToday6" style="font-size: 1rem">0</span>
+              <span id="conditionsToday6"><i class="wi wi-day-sunny"></i></span>
+              <span style="font-size: 0.75rem">6 AM</span>
             </div>
-            <div class="col-2 b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent9">0%</span></span>
-              </br>
-              </br><span id="conditionsCurrent9"><i class="wi wi-day-sunny"></i></span></br>
-              </br><span style="font-size: 0.75rem">9 AM</span></div>
-            <div class="col-2 b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent12">0%</span></span>
-              </br>
-              </br><span id="conditionsCurrent12"><i class="wi wi-day-sunny"></i></span></br>
-              </br><span style="font-size: 0.75rem">12 PM</span></div>
-            <div class="col-2 b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent15">0%</span></span>
-              </br>
-              </br><span id="conditionsCurrent15"><i class="wi wi-day-sunny"></i></span></br>
-              </br><span style="font-size: 0.75rem">3 PM</span></div>
-            <div class="col-2 b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent18">0%</span></span>
-              </br>
-              </br><span id="conditionsCurrent18"><i class="wi wi-day-sunny"></i></span></br>
-              </br><span style="font-size: 0.75rem">6 PM</span></div>
-            <div class="col-2 b-r"><span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="humidityCurrent21">0%</span></span>
-              </br>
-              </br><span id="conditionsCurrent21"><i class="wi wi-day-sunny"></i></span></br>
-              </br><span style="font-size: 0.75rem">9 PM</span></div>
+            <div class="col-2 b-r">
+              <span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="chanceOfRainToday9">0%</span></span>
+              <span id="tempToday9" style="font-size: 1rem">0</span>
+              <span id="conditionsToday9"><i class="wi wi-day-sunny"></i></span>
+              <span style="font-size: 0.75rem">9 AM</span>
+            </div>
+            <div class="col-2 b-r">
+              <span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="chanceOfRainToday12">0%</span></span>
+              <span id="tempToday12" style="font-size: 1rem">0</span>
+              <span id="conditionsToday12"><i class="wi wi-day-sunny"></i></span>
+              <span style="font-size: 0.75rem">12 PM</span>
+            </div>
+            <div class="col-2 b-r">
+              <span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="chanceOfRainToday15">0%</span></span>
+              <span id="tempToday15" style="font-size: 1rem">0</span>
+              <span id="conditionsToday15"><i class="wi wi-day-sunny"></i></span>
+              <span style="font-size: 0.75rem">3 PM</span>
+            </div>
+            <div class="col-2 b-r">
+              <span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="chanceOfRainToday18">0%</span></span>
+              <span id="tempToday18" style="font-size: 1rem">0</span>
+              <span id="conditionsToday18"><i class="wi wi-day-sunny"></i></span>
+              <span style="font-size: 0.75rem">6 PM</span>
+            </div>
+            <div class="col-2 b-r">
+              <span style="color: rgba(255,255,255,0.75); font-size: 0.80rem"><i class="wi wi-humidity"></i> <span id="chanceOfRainToday21">0%</span></span>
+              <span id="tempToday21" style="font-size: 1rem">0</span>
+              <span id="conditionsToday21"><i class="wi wi-day-sunny"></i></span>
+              <span style="font-size: 0.75rem">9 PM</span>
+            </div>
           </div>
 
-          <!-- Current Tides-->
+          <!-- Today Tides-->
           <div class="row b-t" style="background-color: #008cff; color: white;">
-            <div class="col-s12">
+            <div class="col-12" style=" padding: 2.5px;">
+              Tides
+            </div>
+            <div class="col-12">
               <canvas id="tidesChart" style="width: 100% !important;"></canvas>
             </div>
           </div>
@@ -216,23 +232,19 @@
       <!-- Slide 2 -->
       <div class="swiper-slide">
         <div class="row">
-          <div class="col-md-1">.col-md-1</div>
-          <div class="col-md-1">.col-md-1</div>
-          <div class="col-md-1">.col-md-1</div>
-          <div class="col-md-1">.col-md-1</div>
-          <div class="col-md-1">.col-md-1</div>
-          <div class="col-md-1">.col-md-1</div>
-          <div class="col-md-1">.col-md-1</div>
-          <div class="col-md-1">.col-md-1</div>
-          <div class="col-md-1">.col-md-1</div>
-          <div class="col-md-1">.col-md-1</div>
-          <div class="col-md-1">.col-md-1</div>
-          <div class="col-md-1">.col-md-1</div>
+          <div class="col-12">.col-12</div>
         </div>
       </div>
     </div>
     <!-- Pagination -->
     <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Slide Header -->
+  <div class="row" style="z-index: 1 !important; height: 5%; background-color: #008cff; color: white; box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.75);">
+    <div class="col-2"><button><i class="mdi mdi-menu" style="color: white; font-size: 1.5rem;"></i></button></div>
+    <div class="col-8 truncate" id="location" style="font-size: 1rem;">Devonport, Auckland, New Zealand</div>
+    <div class="col-2"><i class="mdi mdi-map-marker" style="color: white; font-size: 1.5rem;"></i></div>
   </div>
 
   <!-- Swiper JS -->
@@ -305,8 +317,33 @@
     generalWeather = generalWeatherXML.responseXML;
 
     //Home Page
-    var currentTemp = generalWeatherXML.getElementsByTagName("temp_C").childNodes[0];
-    document.getElementById("tempCurrent").innerHTML = currentTemp;
+    //Current
+    document.getElementById("currentTemp").innerHTML = generalWeather.getElementsByTagName("temp_C")['0'].childNodes['0'].nodeValue + "°C";
+    document.getElementById("sunriseToday").innerHTML = generalWeather.getElementsByTagName("sunrise")['0'].childNodes['0'].nodeValue;
+    document.getElementById("sunsetToday").innerHTML = generalWeather.getElementsByTagName("sunset")['0'].childNodes['0'].nodeValue;
+
+    //Today's Forecast
+    //TEMP
+    document.getElementById("tempToday6").innerHTML = generalWeather.getElementsByTagName("tempC")['2'].childNodes['0'].nodeValue + "°C";
+    document.getElementById("tempToday9").innerHTML = generalWeather.getElementsByTagName("tempC")['3'].childNodes['0'].nodeValue + "°C";
+    document.getElementById("tempToday12").innerHTML = generalWeather.getElementsByTagName("tempC")['4'].childNodes['0'].nodeValue + "°C";
+    document.getElementById("tempToday15").innerHTML = generalWeather.getElementsByTagName("tempC")['5'].childNodes['0'].nodeValue + "°C";
+    document.getElementById("tempToday18").innerHTML = generalWeather.getElementsByTagName("tempC")['6'].childNodes['0'].nodeValue + "°C";
+    document.getElementById("tempToday21").innerHTML = generalWeather.getElementsByTagName("tempC")['7'].childNodes['0'].nodeValue + "°C";
+    //Chance Of Rain
+    document.getElementById("chanceOfRainToday6").innerHTML = generalWeather.getElementsByTagName("chanceofrain")['2'].childNodes['0'].nodeValue + "%";
+    document.getElementById("chanceOfRainToday9").innerHTML = generalWeather.getElementsByTagName("chanceofrain")['3'].childNodes['0'].nodeValue + "%";
+    document.getElementById("chanceOfRainToday12").innerHTML = generalWeather.getElementsByTagName("chanceofrain")['4'].childNodes['0'].nodeValue + "%";
+    document.getElementById("chanceOfRainToday15").innerHTML = generalWeather.getElementsByTagName("chanceofrain")['5'].childNodes['0'].nodeValue + "%";
+    document.getElementById("chanceOfRainToday18").innerHTML = generalWeather.getElementsByTagName("chanceofrain")['6'].childNodes['0'].nodeValue + "%";
+    document.getElementById("chanceOfRainToday21").innerHTML = generalWeather.getElementsByTagName("chanceofrain")['7'].childNodes['0'].nodeValue + "%";
+    //Condition
+    document.getElementById("conditionsToday6").innerHTML = "<img class='weatherIcon' src='../assets/images/weatherIcons/day/" + generalWeather.getElementsByTagName("weatherCode")['2'].childNodes['0'].nodeValue + ".png'>";
+    document.getElementById("conditionsToday9").innerHTML = "<img class='weatherIcon' src='../assets/images/weatherIcons/day/" + generalWeather.getElementsByTagName("weatherCode")['3'].childNodes['0'].nodeValue + ".png'>";
+    document.getElementById("conditionsToday12").innerHTML = "<img class='weatherIcon' src='../assets/images/weatherIcons/day/" + generalWeather.getElementsByTagName("weatherCode")['4'].childNodes['0'].nodeValue + ".png'>";
+    document.getElementById("conditionsToday15").innerHTML = "<img class='weatherIcon' src='../assets/images/weatherIcons/day/" + generalWeather.getElementsByTagName("weatherCode")['5'].childNodes['0'].nodeValue + ".png'>";
+    document.getElementById("conditionsToday18").innerHTML = "<img class='weatherIcon' src='../assets/images/weatherIcons/day/" + generalWeather.getElementsByTagName("weatherCode")['6'].childNodes['0'].nodeValue + ".png'>";
+    document.getElementById("conditionsToday21").innerHTML = "<img class='weatherIcon' src='../assets/images/weatherIcons/day/" + generalWeather.getElementsByTagName("weatherCode")['7'].childNodes['0'].nodeValue + ".png'>";
   </script>
 </body>
 
